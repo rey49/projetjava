@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import java.sql.Connection;
 import modele.Personne;
 
 /**
@@ -13,8 +14,12 @@ import modele.Personne;
  */
 public class PersonneDAO extends DAO<Personne>{
 
+    public PersonneDAO(Connection conn) {
+        super(conn);
+    }
+
     @Override
-    public Personne find(long id) {
+    public Personne find() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

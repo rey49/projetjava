@@ -16,6 +16,9 @@ public class Service
     private int batiment;
     private int directeur;
     
+    
+    public Service() {}
+    
     public Service(int code, String nom, int batiment, int directeur)
     {
         this.code = code;
@@ -23,6 +26,8 @@ public class Service
         this.batiment = batiment;
         this.directeur = directeur;
     }
+
+    
     
     //Getter
     public int getCode() {

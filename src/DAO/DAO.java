@@ -14,7 +14,12 @@ import java.sql.Connection;
  */
 public abstract class DAO<T> {
 
-    public Connection connect = Connexion.getInstance();
+    protected Connection connect = null;
+    
+    public DAO(Connection conn)
+    {
+        this.connect = conn;
+    }
 
     /**
      * Permet de récupérer un objet via son ID
@@ -22,7 +27,7 @@ public abstract class DAO<T> {
      * @param id
      * @return
      */
-    public abstract T find(long id);
+    public abstract T find();
 
     /**
      * Permet de créer une entrée dans la base de données par rapport à un objet

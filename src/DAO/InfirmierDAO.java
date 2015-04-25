@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import java.sql.Connection;
 import modele.Infirmier;
 
 /**
@@ -13,8 +14,12 @@ import modele.Infirmier;
  */
 public class InfirmierDAO extends DAO<Infirmier>{
 
+    public InfirmierDAO(Connection conn) {
+        super(conn);
+    }
+
     @Override
-    public Infirmier find(long id) {
+    public Infirmier find() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

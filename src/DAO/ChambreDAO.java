@@ -5,6 +5,11 @@
  */
 package DAO;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import modele.Chambre;
 
 /**
@@ -13,25 +18,66 @@ import modele.Chambre;
  */
 public class ChambreDAO extends DAO<Chambre>{
 
-    @Override
-    public Chambre find(long id) {
+    public ChambreDAO(Connection conn)
+    {
+        super(conn);
+    }
+    
+    public Chambre find() 
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Chambre create(Chambre obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Chambre create(Chambre obj) 
+    {
+         try{
+            this.connect.createStatement(
+                	ResultSet.TYPE_SCROLL_INSENSITIVE, 
+                	ResultSet.CONCUR_UPDATABLE
+                 ).executeUpdate(
+                	"INSERT into chambre values('"+ obj.getCode_service() + "'," + obj.getNo_chambre() + "," + obj.getSurveillant() + "," + obj.getNb_lits() + ")"
+                         );
+	    } catch (SQLException e) {
+	            e.printStackTrace();
+	    }
+	    return obj;
     }
 
     @Override
-    public Chambre update(Chambre obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Chambre update(Chambre obj) 
+    {
+        try{
+            this.connect.createStatement(
+                	ResultSet.TYPE_SCROLL_INSENSITIVE, 
+                	ResultSet.CONCUR_UPDATABLE
+                 ).executeUpdate(
+                	"UPDATE chambre SET surveillant = '" + obj.getSurveillant() + "', " +
+                        "nb_lits = " + obj.getNb_lits() +
+                        " WHERE code_service = '" + obj.getCode_service() + "'" +
+                        " AND no_chambre = " + obj.getNo_chambre()
+                         
+                        );
+	    } catch (SQLException e) {
+	            e.printStackTrace();
+	    }
+        return obj;
     }
 
     @Override
     public void delete(Chambre obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try{
+            this.connect.createStatement(
+                	ResultSet.TYPE_SCROLL_INSENSITIVE, 
+                	ResultSet.CONCUR_UPDATABLE
+                 ).executeUpdate(
+                	"DELETE FROM chambre WHERE code_service = '" + obj.getCode_service() + "' " +
+                        "AND no_chambre = " + obj.getNo_chambre() +
+                        " AND surveillant = " + obj.getSurveillant() +
+                        " AND nb_lits = " + obj.getNb_lits());
+	    } catch (SQLException e) {
+	            e.printStackTrace();
+	    }
+    }    
 
-    
 }

@@ -11,11 +11,15 @@ package modele;
  */
 public class Chambre {
 
+    private String code_service;
     private int no_chambre;
     private int surveillant;
     private int nb_lits;
 
-    public Chambre(int no_chambre, int surveillant, int nb_lits) {
+    public Chambre(){}
+    
+    public Chambre(String code_service, int no_chambre, int surveillant, int nb_lits) {
+        this.code_service = code_service;
         this.no_chambre = no_chambre;
         this.surveillant = surveillant;
         this.nb_lits = nb_lits;
@@ -23,6 +27,10 @@ public class Chambre {
     
     
     //getter
+    public String getCode_service() {
+        return code_service;
+    }
+    
     public int getNo_chambre() {
         return no_chambre;
     }
@@ -36,6 +44,10 @@ public class Chambre {
     }
 
     //Setter
+    public void setCode_service(String code_service) {
+        this.code_service = code_service;
+    }
+    
     public void setNo_chambre(int no_chambre) {
         this.no_chambre = no_chambre;
     }
