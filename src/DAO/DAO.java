@@ -27,7 +27,7 @@ public abstract class DAO<T> {
      * @param id
      * @return
      */
-    public abstract T find();
+    public abstract T find(long id);
 
     /**
      * Permet de créer une entrée dans la base de données par rapport à un objet

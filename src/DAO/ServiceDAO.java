@@ -6,9 +6,6 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import modele.Chambre;
 import modele.Service;
 
 /**
@@ -22,7 +19,7 @@ public class ServiceDAO extends DAO<Service>{
     }
 
     @Override
-    public Service find() {
+    public Service find(long id) {
   	   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -6,10 +6,8 @@
 package DAO;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import modele.Chambre;
 
 /**
@@ -23,7 +21,13 @@ public class ChambreDAO extends DAO<Chambre>{
         super(conn);
     }
     
-    public Chambre find() 
+    @Override
+    public Chambre find(long id)
+    {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public Chambre find(String text) 
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

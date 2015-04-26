@@ -19,7 +19,7 @@ public class EmployeDAO extends DAO<Employe> {
     }
 
     @Override
-    public Employe find() {
+    public Employe find(long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

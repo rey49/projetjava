@@ -19,7 +19,7 @@ public class MaladeDAO extends DAO<Malade>{
     }
 
     @Override
-    public Malade find() {
+    public Malade find(long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
