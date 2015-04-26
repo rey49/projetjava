@@ -6,6 +6,8 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import modele.Malade;
 
 /**
@@ -25,17 +27,56 @@ public class MaladeDAO extends DAO<Malade>{
 
     @Override
     public Malade create(Malade obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            this.connect.createStatement(
+                	ResultSet.TYPE_SCROLL_INSENSITIVE, 
+                	ResultSet.CONCUR_UPDATABLE
+                 ).executeUpdate(
+                	"INSERT into malade values('"+ obj.getNumero() + "',"
+                                + "'" + obj.getNom() + "',"
+                                + "'" + obj.getPrenom() + "',"
+                                + "'" + obj.getAdresse() + "',"
+                                + "'" + obj.getTel() + "',"
+                                + "'" + obj.getMutuelle() + "')"
+                         );
+	    } catch (SQLException e) {
+	            e.printStackTrace();
+	    }
+	return obj;
     }
 
     @Override
     public Malade update(Malade obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            this.connect.createStatement(
+                	ResultSet.TYPE_SCROLL_INSENSITIVE, 
+                	ResultSet.CONCUR_UPDATABLE
+                 ).executeUpdate(
+                	"UPDATE malade SET nom = '" + obj.getNom() + "'," +
+                        "prenom = '" + obj.getPrenom() + "'," +
+                        "adresse = '" + obj.getAdresse() + "'," +
+                        "tel = '" + obj.getTel() + "'," +
+                        "mutuelle = '" + obj.getMutuelle() + "'" +
+                        " WHERE numero = '" + obj.getNumero()
+                         
+                        );
+	    } catch (SQLException e) {
+	            e.printStackTrace();
+	    }
+        return obj;
     }
 
     @Override
     public void delete(Malade obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            this.connect.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE
+            ).executeUpdate("DELETE FROM malade WHERE numero = '" + obj.getNumero() + "';"
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     
 }

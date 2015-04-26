@@ -13,9 +13,9 @@ public class Malade extends Personne
 {
     private int numero;
     private String adresse;
-    private int mutuelle;
+    private String mutuelle;
     
-    public Malade(int numero, String nom, String prenom, String tel, String adresse, int mutuelle)
+    public Malade(int numero, String nom, String prenom, String tel, String adresse, String mutuelle)
     {
         super(nom,prenom,tel);
         this.numero = numero;
@@ -33,7 +33,7 @@ public class Malade extends Personne
         return adresse;
     }
 
-    public int getMutuelle() {
+    public String getMutuelle() {
         return mutuelle;
     }
     
@@ -46,7 +46,7 @@ public class Malade extends Personne
         this.adresse = adresse;
     }
 
-    public void setMutuelle(int mutuelle) {
+    public void setMutuelle(String mutuelle) {
         this.mutuelle = mutuelle;
     }
     

@@ -11,15 +11,15 @@ package modele;
  */
 public class Service
 {
-    private int code;
+    private String code;
     private String nom;
-    private int batiment;
+    private String batiment;
     private int directeur;
     
     
     public Service() {}
     
-    public Service(int code, String nom, int batiment, int directeur)
+    public Service(String code, String nom, String batiment, int directeur)
     {
         this.code = code;
         this.nom = nom;
@@ -30,7 +30,7 @@ public class Service
     
     
     //Getter
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -38,7 +38,7 @@ public class Service
         return nom;
     }
 
-    public int getBatiment() {
+    public String getBatiment() {
         return batiment;
     }
 
@@ -47,7 +47,7 @@ public class Service
     }
     
     //Setter
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -55,7 +55,7 @@ public class Service
         this.nom = nom;
     }
 
-    public void setBatiment(int batiment) {
+    public void setBatiment(String batiment) {
         this.batiment = batiment;
     }
 

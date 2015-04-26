@@ -13,11 +13,15 @@ public class Docteur extends Employe
 {
     private String specialite;
     
+    public Docteur() {
+    }
+    
     public Docteur(int numero, String nom, String prenom, String tel, String adresse, String specialite)
     {
         super(numero, nom, prenom, tel, adresse);
         this.specialite = specialite;
     }
+
     
     //Getter
     public String getSpecialite() {
