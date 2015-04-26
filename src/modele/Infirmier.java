@@ -13,12 +13,17 @@ public class Infirmier extends Employe
 {
     private String rotation;
     private int salaire;
+    private String code_service;
+
+    public Infirmier() {
+    }
     
-    public Infirmier(int numero, String nom, String prenom, String tel, String adresse, String rotation, int salaire)
+    public Infirmier(int numero, String nom, String prenom, String tel, String adresse, String code_service,String rotation, int salaire)
     {
         super(numero, nom, prenom, tel, adresse);
         this.rotation = rotation;
         this.salaire = salaire;
+        this.code_service = code_service;
     }
     
     //Getter
@@ -29,6 +34,10 @@ public class Infirmier extends Employe
     public int getSalaire() {
         return salaire;
     }
+
+    public String getCode_service() {
+        return code_service;
+    }
     
     //Setter
     public void setRotation(String rotation) {
@@ -37,5 +46,9 @@ public class Infirmier extends Employe
 
     public void setSalaire(int salaire) {
         this.salaire = salaire;
+    }
+
+    public void setCode_service(String code_service) {
+        this.code_service = code_service;
     }
 }

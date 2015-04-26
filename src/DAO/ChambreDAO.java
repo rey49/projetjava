@@ -22,7 +22,7 @@ public class ChambreDAO extends DAO<Chambre>{
     }
     
     @Override
-    public Chambre find(long id)
+    public Chambre find(int id)
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }

@@ -14,6 +14,9 @@ public class Personne
     private String nom;
     private String prenom;
     private String tel;
+
+    public Personne() {
+    }
     
     public Personne(String nom, String prenom, String tel)
     {

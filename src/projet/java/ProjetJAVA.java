@@ -10,7 +10,6 @@ import DAO.DAO;
 import controleur.Connexion;
 import java.sql.SQLException;
 import modele.Chambre;
-import com.jcraft.jsch.*;
 
 
 /**

@@ -6,6 +6,8 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import modele.Employe;
 
 /**
@@ -19,23 +21,70 @@ public class EmployeDAO extends DAO<Employe> {
     }
 
     @Override
-    public Employe find(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Employe find(int id) {
+        Employe emp = new Employe();
+
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            "SELECT * FROM employe WHERE numero = " + id
+                    );
+
+            if (result.first()) {
+                emp = new Employe(id, result.getString("nom"), result.getString("prenom"), result.getString("tel"), result.getString("adresse"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return emp;
     }
 
     @Override
     public Employe create(Employe obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            this.connect.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE
+            ).executeUpdate(
+                    "INSERT into employe values('" + obj.getNumero() + "'," + obj.getNom() + "," + obj.getPrenom() + "," + obj.getAdresse() + "," + obj.getTel() + ")"
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return obj;
     }
 
     @Override
     public Employe update(Employe obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            this.connect.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE
+            ).executeUpdate(
+                    "UPDATE employe SET nom = '" + obj.getNom() + "', "
+                    + "Prenom = '" + obj.getPrenom() + "', " + "adresse =  '" + obj.getAdresse() + "', "
+                    + "tel =  '" + obj.getTel()
+                    + " WHERE numero = '" + obj.getNumero() + "';"
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return obj;
     }
 
     @Override
     public void delete(Employe obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            this.connect.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE
+            ).executeUpdate("DELETE FROM employe WHERE numero = '" + obj.getNumero() + "' ");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-    
 }
