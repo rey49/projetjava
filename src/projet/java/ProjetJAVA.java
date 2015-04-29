@@ -5,11 +5,10 @@
  */
 package projet.java;
 
-import DAO.ChambreDAO;
-import DAO.DAO;
+import DAO.*;
 import controleur.Connexion;
 import java.sql.SQLException;
-import modele.Chambre;
+import modele.*;
 
 
 /**
@@ -31,11 +30,10 @@ public class ProjetJAVA {
         {
             e.printStackTrace();
 	}
-    DAO<Chambre> chambredao = new ChambreDAO(Connexion.getInstance());
+    DAO<Employe> employedao = new EmployeDAO();
+    DAO<Chambre> chambredao = new ChambreDAO();
+    DAO<Service> servicedao = new ServiceDAO();
     
-    Chambre t = new Chambre("REA", 106, 12, 1);
-    Chambre t2 = new Chambre("REA", 105, 320, 50);
-    chambredao.update(t2);
     }
     
 }

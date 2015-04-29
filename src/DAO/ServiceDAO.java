@@ -5,7 +5,6 @@
  */
 package DAO;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Service;
@@ -16,13 +15,27 @@ import modele.Service;
  */
 public class ServiceDAO extends DAO<Service>{
 
-    public ServiceDAO(Connection conn) {
-        super(conn);
-    }
+    public Service find(String id) {
+        
+        Service serv = new Service();
 
-    @Override
-    public Service find(int code) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            "SELECT * FROM service WHERE code = " + id
+                    );
+
+            if (result.first()) {
+                serv = new Service(id, result.getString("nom"), result.getString("batiment"), result.getInt("directeur"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return serv;
     }
 
     @Override
@@ -70,6 +83,11 @@ public class ServiceDAO extends DAO<Service>{
 	    } catch (SQLException e) {
 	            e.printStackTrace();
 	    }
+    }
+
+    @Override
+    public Service find(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -16,10 +16,10 @@ import java.sql.SQLException;
 public class Connexion {
 
     private static Connection conn;
-    private static String usernameECE = "mle";
-    private static String passwordECE = "12bc15ED.";
-    private static String loginBDD = "mle-rw";
-    private static String passBDD = "5hEFqEPE";
+    private static String usernameECE = "";
+    private static String passwordECE = "";
+    private static String loginBDD = "";
+    private static String passBDD = "";
 
     public static Connection getInstance(){
         if (conn == null) {

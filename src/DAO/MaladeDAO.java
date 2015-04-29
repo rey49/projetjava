@@ -5,7 +5,6 @@
  */
 package DAO;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Malade;
@@ -16,13 +15,28 @@ import modele.Malade;
  */
 public class MaladeDAO extends DAO<Malade>{
 
-    public MaladeDAO(Connection conn) {
-        super(conn);
-    }
-
     @Override
     public Malade find(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        Malade mal = new Malade();
+
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            "SELECT * FROM malade WHERE numero = " + id
+                    );
+
+            if (result.first()) {
+                mal = new Malade(id, result.getString("nom"), result.getString("prenom"), result.getString("adresse"), result.getString("tel"), result.getString("mutuelle"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return mal;
     }
 
     @Override

@@ -5,7 +5,6 @@
  */
 package DAO;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Docteur;
@@ -15,11 +14,7 @@ import modele.Docteur;
  * @author thomas
  */
 public class DocteurDAO extends DAO<Docteur> {
-
-    public DocteurDAO(Connection conn) {
-        super(conn);
-    }
-
+    
     @Override
     public Docteur find(int id) {
         Docteur doct = new Docteur();

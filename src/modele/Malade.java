@@ -15,6 +15,10 @@ public class Malade extends Personne
     private String adresse;
     private String mutuelle;
     
+    public Malade(){
+        
+    }
+    
     public Malade(int numero, String nom, String prenom, String tel, String adresse, String mutuelle)
     {
         super(nom,prenom,tel);

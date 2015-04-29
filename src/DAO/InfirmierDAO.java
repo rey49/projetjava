@@ -5,7 +5,6 @@
  */
 package DAO;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import modele.Infirmier;
@@ -15,10 +14,6 @@ import modele.Infirmier;
  * @author thomas
  */
 public class InfirmierDAO extends DAO<Infirmier> {
-
-    public InfirmierDAO(Connection conn) {
-        super(conn);
-    }
 
     @Override
     public Infirmier find(int id) {

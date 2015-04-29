@@ -14,12 +14,8 @@ import java.sql.Connection;
  */
 public abstract class DAO<T> {
 
-    protected Connection connect = null;
+    public Connection connect = Connexion.getInstance();
     
-    public DAO(Connection conn)
-    {
-        this.connect = conn;
-    }
 
     /**
      * Permet de récupérer un objet via son ID
