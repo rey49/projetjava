@@ -76,22 +76,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Connexion"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonCoActionPerformed"/>
-      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="BoutonAnn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Annuler"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonAnnActionPerformed"/>
-      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="TextUserEce">
       <Properties>
         <Property name="name" type="java.lang.String" value="TextBoxUserECE" noResource="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="LabelUserEce">
       <Properties>
@@ -114,10 +117,19 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TextUserSQL">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JPasswordField" name="TextPassSQL">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JPasswordField" name="TextPassEce">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

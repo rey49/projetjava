@@ -1,8 +1,5 @@
 package Vue;
 
-import controleur.Connexion;
-import java.sql.SQLException;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -43,18 +40,8 @@ public class Fconnexion extends javax.swing.JPanel {
         TextPassEce = new javax.swing.JPasswordField();
 
         BoutonCo.setText("Connexion");
-        BoutonCo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoutonCoActionPerformed(evt);
-            }
-        });
 
         BoutonAnn.setText("Annuler");
-        BoutonAnn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoutonAnnActionPerformed(evt);
-            }
-        });
 
         TextUserEce.setName("TextBoxUserECE"); // NOI18N
 
@@ -117,36 +104,17 @@ public class Fconnexion extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BoutonCoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonCoActionPerformed
-        // TODO add your handling code here:
-        Connexion.setPasswordECE(TextPassEce.getText());
-        Connexion.setUsernameECE(TextUserEce.getText());
-        Connexion.setPassBDD(TextPassSQL.getText());
-        Connexion.setLoginBDD(TextUserSQL.getText());
-
-        try {
-            Connexion.getInstance().setAutoCommit(false);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }//GEN-LAST:event_BoutonCoActionPerformed
-
-    private void BoutonAnnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAnnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BoutonAnnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BoutonAnn;
-    private javax.swing.JButton BoutonCo;
+    public javax.swing.JButton BoutonAnn;
+    public javax.swing.JButton BoutonCo;
     private javax.swing.JLabel LabelPassEce;
     private javax.swing.JLabel LabelPassSQL;
     private javax.swing.JLabel LabelUserEce;
     private javax.swing.JLabel LabelUserSQL;
-    private javax.swing.JPasswordField TextPassEce;
-    private javax.swing.JPasswordField TextPassSQL;
-    private javax.swing.JTextField TextUserEce;
-    private javax.swing.JTextField TextUserSQL;
+    public javax.swing.JPasswordField TextPassEce;
+    public javax.swing.JPasswordField TextPassSQL;
+    public javax.swing.JTextField TextUserEce;
+    public javax.swing.JTextField TextUserSQL;
     // End of variables declaration//GEN-END:variables
 }

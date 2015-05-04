@@ -20,9 +20,6 @@ public class ProjetJAVA {
     public static void main(String[] args) {
         MainFen fenetre = new MainFen();
         
-
-        
-
 //        try {
 //            Connexion.getInstance().setAutoCommit(false);
 //        } catch (SQLException e) {
