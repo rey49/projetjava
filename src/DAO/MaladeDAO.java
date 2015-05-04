@@ -7,6 +7,7 @@ package DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modele.Malade;
 
 /**
@@ -15,6 +16,34 @@ import modele.Malade;
  */
 public class MaladeDAO extends DAO<Malade>{
 
+    @Override
+    public ArrayList<Malade> all(){
+        ArrayList tab_mal = new ArrayList();
+        
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            "SELECT * FROM malade"
+                    );
+
+            if (result.first()) {
+                while(result.next())
+                {
+                    Malade mal = new Malade(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("adresse"), result.getString("tel"), result.getString("mutuelle"));
+                    tab_mal.add(mal);
+                }
+                
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return tab_mal;
+    }
+    
     @Override
     public Malade find(int id) {
         

@@ -7,6 +7,7 @@ package DAO;
 
 import controleur.Connexion;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +17,12 @@ public abstract class DAO<T> {
 
     public Connection connect = Connexion.getInstance();
     
+    /**
+     * Permet de récupérer tous les objets d'une table
+     *
+     * @return
+     */
+    public abstract ArrayList<T> all();
 
     /**
      * Permet de récupérer un objet via son ID

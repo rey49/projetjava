@@ -7,6 +7,7 @@ package DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modele.Employe;
 
 /**
@@ -14,7 +15,35 @@ import modele.Employe;
  * @author thomas
  */
 public class EmployeDAO extends DAO<Employe> {
+    
+    @Override
+    public ArrayList<Employe> all(){
+        ArrayList tab_emp = new ArrayList();
+        
+         try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            "SELECT * FROM employe"
+                    );
 
+            if (result.first()) {
+                while(result.next())
+                {
+                    Employe emp = new Employe(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("tel"), result.getString("adresse"));
+                    tab_emp.add(emp);
+                }
+                
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return tab_emp;
+    }
+    
     @Override
     public Employe find(int id) {
         Employe emp = new Employe();

@@ -7,6 +7,7 @@ package DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modele.Docteur;
 
 /**
@@ -14,6 +15,34 @@ import modele.Docteur;
  * @author thomas
  */
 public class DocteurDAO extends DAO<Docteur> {
+    
+    
+    @Override
+    public ArrayList<Docteur> all(){
+        ArrayList tab_docteur = new ArrayList();
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            "SELECT * FROM employe e,docteur d WHERE e.numero = d.numero"
+                    );
+
+            if (result.first()) {
+                while(result.next())
+                {
+                    Docteur doct = new Docteur(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("tel"), result.getString("adresse"),result.getString("specialite"));
+                    tab_docteur.add(doct);
+                }
+                
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return tab_docteur;
+    }
     
     @Override
     public Docteur find(int id) {

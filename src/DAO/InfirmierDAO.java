@@ -7,6 +7,7 @@ package DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modele.Infirmier;
 
 /**
@@ -15,6 +16,34 @@ import modele.Infirmier;
  */
 public class InfirmierDAO extends DAO<Infirmier> {
 
+    @Override
+    public ArrayList<Infirmier> all(){
+        ArrayList tab_inf = new ArrayList();
+        
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            "SELECT * FROM employe e,infirmier i WHERE e.numero = i.numero"
+                    );
+
+            if (result.first()) {
+                while(result.next())
+                {
+                    Infirmier inf = new Infirmier(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("tel"), result.getString("adresse"),result.getString("code_service"),result.getString("rotation"),result.getInt("salaire"));
+                    tab_inf.add(inf);
+                }
+                
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return tab_inf;
+    }
+    
     @Override
     public Infirmier find(int id) {
         Infirmier inf = new Infirmier();

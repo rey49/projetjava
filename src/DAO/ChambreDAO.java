@@ -7,6 +7,7 @@ package DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modele.Chambre;
 
 /**
@@ -15,6 +16,35 @@ import modele.Chambre;
  */
 public class ChambreDAO extends DAO<Chambre>{ 
    
+    @Override
+    public ArrayList<Chambre> all() {
+        ArrayList tab_chambre = new ArrayList();
+        
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            "SELECT * FROM chambre"
+                    );
+            
+            
+            if (result.first()) {
+                while(result.next())
+                {
+                    Chambre cham = new Chambre(result.getString("code_service"), result.getInt("no_chambre"), result.getInt(3), result.getInt(4));
+                    tab_chambre.add(cham);
+                }
+                
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return tab_chambre;
+    }
+    
     public Chambre find(int id) 
     {
         Chambre cham = new Chambre();
