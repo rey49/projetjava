@@ -1,13 +1,13 @@
 package Vue;
 
 import controleur.Connexion;
+import java.sql.SQLException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Panda
@@ -19,7 +19,6 @@ public class Fconnexion extends javax.swing.JPanel {
      */
     public Fconnexion() {
         initComponents();
-        
 
     }
 
@@ -39,9 +38,9 @@ public class Fconnexion extends javax.swing.JPanel {
         LabelPassEce = new javax.swing.JLabel();
         LabelUserSQL = new javax.swing.JLabel();
         LabelPassSQL = new javax.swing.JLabel();
-        TextPassEce = new javax.swing.JTextField();
         TextUserSQL = new javax.swing.JTextField();
-        TextPassSQL = new javax.swing.JTextField();
+        TextPassSQL = new javax.swing.JPasswordField();
+        TextPassEce = new javax.swing.JPasswordField();
 
         BoutonCo.setText("Connexion");
         BoutonCo.addActionListener(new java.awt.event.ActionListener() {
@@ -80,16 +79,16 @@ public class Fconnexion extends javax.swing.JPanel {
                         .addComponent(BoutonCo)
                         .addGap(53, 53, 53))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextPassSQL, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextUserSQL, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TextPassEce, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextUserSQL, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                             .addComponent(LabelPassSQL)
                             .addComponent(LabelUserSQL)
                             .addComponent(LabelPassEce)
                             .addComponent(LabelUserEce)
-                            .addComponent(TextUserEce, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 234, Short.MAX_VALUE))))
+                            .addComponent(TextUserEce, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                            .addComponent(TextPassSQL)
+                            .addComponent(TextPassEce))
+                        .addGap(0, 117, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +109,7 @@ public class Fconnexion extends javax.swing.JPanel {
                 .addComponent(LabelPassSQL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TextPassSQL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BoutonCo)
                     .addComponent(BoutonAnn))
@@ -124,6 +123,12 @@ public class Fconnexion extends javax.swing.JPanel {
         Connexion.setUsernameECE(TextUserEce.getText());
         Connexion.setPassBDD(TextPassSQL.getText());
         Connexion.setLoginBDD(TextUserSQL.getText());
+
+        try {
+            Connexion.getInstance().setAutoCommit(false);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }//GEN-LAST:event_BoutonCoActionPerformed
 
@@ -139,8 +144,8 @@ public class Fconnexion extends javax.swing.JPanel {
     private javax.swing.JLabel LabelPassSQL;
     private javax.swing.JLabel LabelUserEce;
     private javax.swing.JLabel LabelUserSQL;
-    private javax.swing.JTextField TextPassEce;
-    private javax.swing.JTextField TextPassSQL;
+    private javax.swing.JPasswordField TextPassEce;
+    private javax.swing.JPasswordField TextPassSQL;
     private javax.swing.JTextField TextUserEce;
     private javax.swing.JTextField TextUserSQL;
     // End of variables declaration//GEN-END:variables

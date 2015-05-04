@@ -20,7 +20,7 @@ public class MainFen extends JFrame{
         super("Projet d'utilisation de JDBC dans MySQL");
         
         setLayout(new BorderLayout());
-        setBounds(0, 0, 400, 400);
+        setBounds(0, 0, 800, 700);
         setResizable(true);
         setVisible(true);
         
@@ -35,5 +35,7 @@ public class MainFen extends JFrame{
             }
         });
     }
+    
+    
     
 }

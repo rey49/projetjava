@@ -26,17 +26,17 @@
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TextPassSQL" min="-2" pref="300" max="-2" attributes="0"/>
-                          <Component id="TextUserSQL" min="-2" pref="300" max="-2" attributes="0"/>
-                          <Component id="TextPassEce" min="-2" pref="300" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="TextUserSQL" pref="417" max="32767" attributes="0"/>
                           <Component id="LabelPassSQL" min="-2" max="-2" attributes="0"/>
                           <Component id="LabelUserSQL" min="-2" max="-2" attributes="0"/>
                           <Component id="LabelPassEce" min="-2" max="-2" attributes="0"/>
                           <Component id="LabelUserEce" min="-2" max="-2" attributes="0"/>
-                          <Component id="TextUserEce" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                          <Component id="TextUserEce" alignment="0" pref="417" max="32767" attributes="0"/>
+                          <Component id="TextPassSQL" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TextPassEce" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="234" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="117" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -61,7 +61,7 @@
               <Component id="LabelPassSQL" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="TextPassSQL" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="126" max="32767" attributes="0"/>
+              <EmptySpace pref="57" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BoutonCo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BoutonAnn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -113,11 +113,11 @@
         <Property name="text" type="java.lang.String" value="Password MYSQL :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TextPassEce">
-    </Component>
     <Component class="javax.swing.JTextField" name="TextUserSQL">
     </Component>
-    <Component class="javax.swing.JTextField" name="TextPassSQL">
+    <Component class="javax.swing.JPasswordField" name="TextPassSQL">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="TextPassEce">
     </Component>
   </SubComponents>
 </Form>
