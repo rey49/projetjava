@@ -38,6 +38,7 @@ public class Fconnexion extends javax.swing.JPanel {
         TextUserSQL = new javax.swing.JTextField();
         TextPassSQL = new javax.swing.JPasswordField();
         TextPassEce = new javax.swing.JPasswordField();
+        afResult = new javax.swing.JLabel();
 
         BoutonCo.setText("Connexion");
 
@@ -52,6 +53,9 @@ public class Fconnexion extends javax.swing.JPanel {
         LabelUserSQL.setText("Username MYSQL :");
 
         LabelPassSQL.setText("Password MYSQL :");
+
+        afResult.setForeground(new java.awt.Color(255, 0, 0));
+        afResult.setText("coucou");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,6 +80,10 @@ public class Fconnexion extends javax.swing.JPanel {
                             .addComponent(TextPassSQL)
                             .addComponent(TextPassEce))
                         .addGap(0, 117, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(251, 251, 251)
+                .addComponent(afResult)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +104,9 @@ public class Fconnexion extends javax.swing.JPanel {
                 .addComponent(LabelPassSQL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TextPassSQL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(afResult)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BoutonCo)
                     .addComponent(BoutonAnn))
@@ -116,5 +126,6 @@ public class Fconnexion extends javax.swing.JPanel {
     public javax.swing.JPasswordField TextPassSQL;
     public javax.swing.JTextField TextUserEce;
     public javax.swing.JTextField TextUserSQL;
+    public javax.swing.JLabel afResult;
     // End of variables declaration//GEN-END:variables
 }

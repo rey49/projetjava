@@ -21,7 +21,7 @@ public class Connexion {
     private static String loginBDD = "";
     private static String passBDD = "";
 
-    public static Connection getInstance(){
+    public static Connection getInstance() {
         if (conn == null) {
             try {
                 // chargement driver "com.mysql.jdbc.Driver"
@@ -39,6 +39,28 @@ public class Connexion {
                     //création d'une connexion JDBC à la base
                     conn = DriverManager.getConnection(urlDatabase, loginBDD, passBDD);
                 }
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return conn;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public static Connection getLocalInstance() {
+        if (conn == null) {
+            try {
+                // chargement driver "com.mysql.jdbc.Driver"
+                Class.forName("com.mysql.jdbc.Driver");
+
+                // url de connexion a la bdd locale
+                String urlDatabase = "jdbc:mysql://localhost/phpmyadmin/";
+
+                //création d'une connexion JDBC à la base
+                conn = DriverManager.getConnection(urlDatabase, loginBDD, passBDD);
             } catch (ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }

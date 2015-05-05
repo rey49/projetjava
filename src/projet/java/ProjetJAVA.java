@@ -6,7 +6,6 @@
 package projet.java;
 
 import Vue.*;
-import javax.swing.JFrame;
 
 /**
  *
