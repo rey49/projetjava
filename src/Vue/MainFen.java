@@ -37,7 +37,6 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
         setLayout(new BorderLayout());
         setBounds(0, 0, 800, 700);
         setResizable(true);
-        setVisible(true);
 
         //panel principal pour stocker les 2 autres panels
         p0 = new JPanel();
@@ -45,7 +44,7 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
 
         connexionPanel = new Fconnexion();
         form = new MainForm();
-        
+
         //p0.add(form); //ligne de test
         p0.add(connexionPanel);
         add("Center", p0);
@@ -54,7 +53,7 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
         //listeners
         connexionPanel.BoutonCo.addActionListener(this);
         form.BoutonAff.addActionListener(this);
-        
+
         // pour fermer la fenetre
         addWindowListener(new WindowAdapter() {
             @Override
@@ -62,6 +61,8 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
                 System.exit(0); // tout fermer												System.exit(0); // tout fermer
             }
         });
+
+        setVisible(true);
     }
 
     public void changer(JPanel panel) {

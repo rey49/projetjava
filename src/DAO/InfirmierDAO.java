@@ -26,15 +26,15 @@ public class InfirmierDAO extends DAO<Infirmier> {
                             ResultSet.TYPE_SCROLL_INSENSITIVE,
                             ResultSet.CONCUR_UPDATABLE
                     ).executeQuery(
-                            "SELECT * FROM employe e,infirmier i WHERE e.numero = i.numero"
+                            "SELECT * FROM employe e,infirmier i WHERE e.numero = i.numero ORDER BY i.numero"
                     );
 
             if (result.first()) {
-                while(result.next())
+                do
                 {
                     Infirmier inf = new Infirmier(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("tel"), result.getString("adresse"),result.getString("code_service"),result.getString("rotation"),result.getInt("salaire"));
                     tab_inf.add(inf);
-                }
+                }while(result.next());
                 
             }
         }catch(SQLException e){

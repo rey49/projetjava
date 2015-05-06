@@ -26,15 +26,15 @@ public class DocteurDAO extends DAO<Docteur> {
                             ResultSet.TYPE_SCROLL_INSENSITIVE,
                             ResultSet.CONCUR_UPDATABLE
                     ).executeQuery(
-                            "SELECT * FROM employe e,docteur d WHERE e.numero = d.numero"
+                            "SELECT * FROM employe e,docteur d WHERE e.numero = d.numero ORDER BY d.numero"
                     );
 
             if (result.first()) {
-                while(result.next())
+                do 
                 {
                     Docteur doct = new Docteur(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("tel"), result.getString("adresse"),result.getString("specialite"));
                     tab_docteur.add(doct);
-                }
+                }while(result.next());
                 
             }
         }catch(SQLException e){

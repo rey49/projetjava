@@ -26,16 +26,16 @@ public class ChambreDAO extends DAO<Chambre>{
                             ResultSet.TYPE_SCROLL_INSENSITIVE,
                             ResultSet.CONCUR_UPDATABLE
                     ).executeQuery(
-                            "SELECT * FROM chambre"
+                            "SELECT * FROM chambre ORDER BY 'code_service'"
                     );
             
             
             if (result.first()) {
-                while(result.next())
+                do
                 {
                     Chambre cham = new Chambre(result.getString("code_service"), result.getInt("no_chambre"), result.getInt(3), result.getInt(4));
                     tab_chambre.add(cham);
-                }
+                } while(result.next());
                 
             }
         }catch(SQLException e){

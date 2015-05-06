@@ -57,7 +57,7 @@ public class Connexion {
                 Class.forName("com.mysql.jdbc.Driver");
 
                 // url de connexion a la bdd locale
-                String urlDatabase = "jdbc:mysql://localhost/phpmyadmin/";
+                String urlDatabase = "jdbc:mysql://localhost/hopital";
 
                 //création d'une connexion JDBC à la base
                 conn = DriverManager.getConnection(urlDatabase, loginBDD, passBDD);

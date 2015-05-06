@@ -26,15 +26,15 @@ public class MaladeDAO extends DAO<Malade>{
                             ResultSet.TYPE_SCROLL_INSENSITIVE,
                             ResultSet.CONCUR_UPDATABLE
                     ).executeQuery(
-                            "SELECT * FROM malade"
+                            "SELECT * FROM malade ORDER BY numero"
                     );
 
             if (result.first()) {
-                while(result.next())
+                do 
                 {
                     Malade mal = new Malade(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("adresse"), result.getString("tel"), result.getString("mutuelle"));
                     tab_mal.add(mal);
-                }
+                }while(result.next());
                 
             }
         }catch(SQLException e){

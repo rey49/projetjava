@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public abstract class DAO<T> {
 
     public Connection connect = Connexion.getInstance();
-    
+
     /**
      * Permet de récupérer tous les objets d'une table
      *

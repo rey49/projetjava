@@ -1,10 +1,10 @@
 package Vue;
 
 import DAO.ChambreDAO;
+import DAO.*;
 import java.util.ArrayList;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import modele.Chambre;
+import modele.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -57,6 +57,7 @@ public class MainForm extends javax.swing.JPanel {
         LabelChoix = new javax.swing.JLabel();
         choix_table = new javax.swing.JComboBox();
         BoutonAff = new javax.swing.JButton();
+        saveBouton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         ComboTable1 = new javax.swing.JComboBox();
@@ -187,9 +188,9 @@ public class MainForm extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1773, Short.MAX_VALUE)
+            .addGap(0, 1774, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(PanelLecture, javax.swing.GroupLayout.DEFAULT_SIZE, 1773, Short.MAX_VALUE))
+                .addComponent(PanelLecture, javax.swing.GroupLayout.DEFAULT_SIZE, 1774, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +210,7 @@ public class MainForm extends javax.swing.JPanel {
 
         LabelChoix.setText("Table à afficher :");
 
-        choix_table.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "malade ", "chambre", "infirmier ", "service ", "docteur ", "employe", "soigne ", "hospitalisation" }));
+        choix_table.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "malade ", "chambre", "infirmier ", "service ", "docteur ", "employe" }));
         choix_table.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 choix_tableActionPerformed(evt);
@@ -218,6 +219,8 @@ public class MainForm extends javax.swing.JPanel {
 
         BoutonAff.setText("Afficher");
 
+        saveBouton.setText("<html>\n<p>Enregistrer</p> \n<p>modifications</p>");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -225,10 +228,11 @@ public class MainForm extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BoutonCopier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BoutonCopier, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                     .addComponent(LabelChoix, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(choix_table, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BoutonAff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BoutonAff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(saveBouton))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -240,7 +244,9 @@ public class MainForm extends javax.swing.JPanel {
                 .addComponent(LabelChoix)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(choix_table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 383, Short.MAX_VALUE)
+                .addComponent(saveBouton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(BoutonAff)
                 .addContainerGap())
         );
@@ -412,25 +418,162 @@ public class MainForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void afficher_table() {
-        ChambreDAO chDAO = new ChambreDAO();
-
-        ArrayList tab = chDAO.all();
+        //declaration des variables communes aux cases
+        DefaultTableModel tableModel = new DefaultTableModel(0, 0);
+        ArrayList tab;
+        String[] title;
         
-        String title[] = {"Code service", "No Chambre", "Surveillant","Nb de lits"};
-
-        DefaultTableModel tableModel = new DefaultTableModel(title, 0);
-
-        for (int i = 0; i < tab.size(); i++) {
-            Chambre ch = (Chambre) tab.get(i);
-            Object obj[] = {
-                ch.getCode_service(),
-                ch.getNo_chambre(),
-                ch.getSurveillant(),
-                ch.getNb_lits()
-            };
-            tableModel.addRow(obj);
+        switch (choix_table.getSelectedIndex()) {
+            case 0 : //malade
+                //declaration d'une nouvelle classe DAO
+                MaladeDAO maDAO = new MaladeDAO();
+                
+                //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+                tab = maDAO.all();
+                
+                //création des titres des colonnes
+                title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Mutuelle"};
+                tableModel = new DefaultTableModel(title, 0);
+                
+                //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+                for (int i = 0; i < tab.size(); i++) {
+                    Malade elem = (Malade) tab.get(i);
+                    Object obj[] = {
+                        elem.getNumero(),
+                        elem.getNom(),
+                        elem.getPrenom(),
+                        elem.getTel(),
+                        elem.getAdresse(),
+                        elem.getMutuelle()
+                    };
+                    tableModel.addRow(obj);
+                }
+                break;
+            case 1: //chambre
+                //declaration d'une nouvelle classe DAO
+                ChambreDAO chDAO = new ChambreDAO();
+                
+                //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+                tab = chDAO.all();
+                
+                //création des titres des colonnes
+                title = new String[]{"Code service", "No Chambre", "Surveillant", "Nb de lits"};
+                tableModel = new DefaultTableModel(title, 0);
+                
+                //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+                for (int i = 0; i < tab.size(); i++) {
+                    Chambre elem = (Chambre) tab.get(i);
+                    Object obj[] = {
+                        elem.getCode_service(),
+                        elem.getNo_chambre(),
+                        elem.getSurveillant(),
+                        elem.getNb_lits()
+                    };
+                    tableModel.addRow(obj);
+                }
+                break;
+            case 2 : //infirmier
+                //declaration d'une nouvelle classe DAO
+                InfirmierDAO infDAO = new InfirmierDAO();
+                
+                //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+                tab = infDAO.all();
+                
+                //création des titres des colonnes
+                title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Code Service", "Rotation", "Salaire"};
+                tableModel = new DefaultTableModel(title, 0);
+                
+                //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+                for (int i = 0; i < tab.size(); i++) {
+                    Infirmier elem = (Infirmier) tab.get(i);
+                    Object obj[] = {
+                        elem.getNumero(),
+                        elem.getNom(),
+                        elem.getPrenom(),
+                        elem.getTel(),
+                        elem.getAdresse(),
+                        elem.getCode_service(),
+                        elem.getRotation(),
+                        elem.getSalaire()
+                    };
+                    tableModel.addRow(obj);
+                }
+                break;
+            case 3 : //Service
+                //declaration d'une nouvelle classe DAO
+                ServiceDAO servDAO = new ServiceDAO();
+                
+                //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+                tab = servDAO.all();
+                
+                //création des titres des colonnes
+                title = new String[]{"Code", "Nom", "Batiment", "Directeur"};
+                tableModel = new DefaultTableModel(title, 0);
+                
+                //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+                for (int i = 0; i < tab.size(); i++) {
+                    Service elem = (Service) tab.get(i);
+                    Object obj[] = {
+                        elem.getCode(),
+                        elem.getNom(),
+                        elem.getBatiment(),
+                        elem.getDirecteur()
+                    };
+                    tableModel.addRow(obj);
+                }
+                break;
+            case 4 : //Docteur
+                //declaration d'une nouvelle classe DAO
+                DocteurDAO docDAO = new DocteurDAO();
+                
+                //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+                tab = docDAO.all();
+                
+                //création des titres des colonnes
+                title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Specialite"};
+                tableModel = new DefaultTableModel(title, 0);
+                
+                //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+                for (int i = 0; i < tab.size(); i++) {
+                    Docteur elem = (Docteur) tab.get(i);
+                    Object obj[] = {
+                        elem.getNumero(),
+                        elem.getNom(),
+                        elem.getPrenom(),
+                        elem.getTel(),
+                        elem.getAdresse(),
+                        elem.getSpecialite()
+                    };
+                    tableModel.addRow(obj);
+                }
+                break;
+            case 5 : //employe
+                //declaration d'une nouvelle classe DAO
+                EmployeDAO empDAO = new EmployeDAO();
+                
+                //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+                tab = empDAO.all();
+                
+                //création des titres des colonnes
+                title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse"};
+                tableModel = new DefaultTableModel(title, 0);
+                
+                //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+                for (int i = 0; i < tab.size(); i++) {
+                    Employe elem = (Employe) tab.get(i);
+                    Object obj[] = {
+                        elem.getNumero(),
+                        elem.getNom(),
+                        elem.getPrenom(),
+                        elem.getTel(),
+                        elem.getAdresse()
+                    };
+                    tableModel.addRow(obj);
+                }
+                break;
         }
-
+        
+        //affichage du JTable remplis avec les informations demandées par l'utilisateur
         table_aff.setModel(tableModel);
         PanelLecture.setViewportView(table_aff);
 
@@ -505,6 +648,7 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton saveBouton;
     public javax.swing.JTable table_aff;
     // End of variables declaration//GEN-END:variables
 }

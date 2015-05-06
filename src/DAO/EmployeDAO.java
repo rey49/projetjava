@@ -26,15 +26,15 @@ public class EmployeDAO extends DAO<Employe> {
                             ResultSet.TYPE_SCROLL_INSENSITIVE,
                             ResultSet.CONCUR_UPDATABLE
                     ).executeQuery(
-                            "SELECT * FROM employe"
+                            "SELECT * FROM employe ORDER BY numero"
                     );
 
             if (result.first()) {
-                while(result.next())
+                do
                 {
                     Employe emp = new Employe(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("tel"), result.getString("adresse"));
                     tab_emp.add(emp);
-                }
+                }while(result.next());
                 
             }
         }catch(SQLException e){
