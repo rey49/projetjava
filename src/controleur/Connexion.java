@@ -21,6 +21,10 @@ public class Connexion {
     private static String loginBDD = "";
     private static String passBDD = "";
 
+    /**
+     * Permet de créer un objet de connexion à la base de données
+     * @return toutes les informations de connexion à la base de données
+     */
     public static Connection getInstance(){
         if (conn == null) {
             try {

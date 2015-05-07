@@ -16,6 +16,10 @@ import modele.Chambre;
  */
 public class ChambreDAO extends DAO<Chambre>{ 
    
+    /**
+     * Permet de retourner la liste de toutes les chambres
+     * @return 
+     */
     @Override
     public ArrayList<Chambre> all() {
         ArrayList tab_chambre = new ArrayList();
@@ -45,6 +49,10 @@ public class ChambreDAO extends DAO<Chambre>{
         return tab_chambre;
     }
     
+    /**
+     * Permet de récupérer une chambre via son numéro
+     * @return 
+     */
     public Chambre find(int id) 
     {
         Chambre cham = new Chambre();
@@ -67,7 +75,11 @@ public class ChambreDAO extends DAO<Chambre>{
         
         return cham;
     }
-
+    
+    /**
+     * Permet de créer une chambre dans la base de données
+     * @return 
+     */
     @Override
     public Chambre create(Chambre cham) 
     {
@@ -83,7 +95,11 @@ public class ChambreDAO extends DAO<Chambre>{
 	    }
 	return cham;
     }
-
+    
+    /**
+     * Permet de mettre à jour les données d'une chambre dans la base de données
+     * @return 
+     */
     @Override
     public Chambre update(Chambre cham) 
     {
@@ -104,6 +120,10 @@ public class ChambreDAO extends DAO<Chambre>{
         return cham;
     }
 
+    /**
+     * Permet de supprimer une chambre de la base de données
+     *
+     */
     @Override
     public void delete(Chambre cham) {
         try{
