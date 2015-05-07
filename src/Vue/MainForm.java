@@ -64,8 +64,8 @@ public class MainForm extends javax.swing.JPanel {
         LabelReq = new javax.swing.JLabel();
         ComboRequete = new javax.swing.JComboBox();
         jPanel8 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        PanelReq = new javax.swing.JScrollPane();
+        TableReq = new javax.swing.JTable();
 
         LabelTable.setText("Table :");
 
@@ -284,7 +284,7 @@ public class MainForm extends javax.swing.JPanel {
 
         jPanel3.add(jPanel7);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableReq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -295,7 +295,7 @@ public class MainForm extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        PanelReq.setViewportView(TableReq);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -303,7 +303,7 @@ public class MainForm extends javax.swing.JPanel {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1027, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1027, Short.MAX_VALUE))
+                .addComponent(PanelReq, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1027, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,7 +311,7 @@ public class MainForm extends javax.swing.JPanel {
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)))
+                    .addComponent(PanelReq, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)))
         );
 
         jPanel3.add(jPanel8);
@@ -523,6 +523,8 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JLabel LabelTable;
     private javax.swing.JLabel LabelTel;
     private javax.swing.JScrollPane PanelLecture;
+    private javax.swing.JScrollPane PanelReq;
+    private javax.swing.JTable TableReq;
     private javax.swing.JTextField TextAdr;
     private javax.swing.JTextField TextNom;
     private javax.swing.JTextField TextPrenom;
@@ -537,9 +539,7 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton saveBouton;
     public javax.swing.JTable table_aff;
     // End of variables declaration//GEN-END:variables
