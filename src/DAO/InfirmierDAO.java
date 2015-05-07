@@ -8,6 +8,7 @@ package DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import modele.Employe;
 import modele.Infirmier;
 
 /**
@@ -74,9 +75,12 @@ public class InfirmierDAO extends DAO<Infirmier> {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
             ).executeUpdate(
-                    "INSERT into infirmier values('" + obj.getNumero() + "'," + obj.getCode_service() + "," + obj.getRotation() + "," + obj.getSalaire() + ");"
-                    + "INSERT into employe values('" + obj.getNumero() + "'," + obj.getNom() + "'," + obj.getPrenom() + "'," + obj.getAdresse() + "'," + obj.getTel() + ");"
+                    "INSERT into infirmier values(" + obj.getNumero() + ",'" + obj.getCode_service() + "','" + obj.getRotation() + "'," + obj.getSalaire() + ");"
             );
+            DAO<Employe> employeDAO = new EmployeDAO();
+            Employe emp = new Employe(obj.getNumero(), obj.getNom(), obj.getPrenom(), obj.getTel(), obj.getAdresse());
+            employeDAO.create(emp); 
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

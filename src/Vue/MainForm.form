@@ -17,6 +17,13 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jOptionPane1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -25,6 +32,13 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTabbedPane1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jOptionPane1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,7 +77,7 @@
                               <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
+                      <EmptySpace pref="267" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -110,6 +124,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ajouter"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonAjoActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel9">
 
@@ -152,9 +169,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="L1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Component id="T1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="L2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="L7" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -258,6 +275,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="T1">
                   <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Curseur de texte"/>
                     </Property>
@@ -481,12 +499,12 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="6">
-                        <StringItem index="0" value="malade "/>
-                        <StringItem index="1" value="chambre"/>
-                        <StringItem index="2" value="infirmier "/>
-                        <StringItem index="3" value="service "/>
-                        <StringItem index="4" value="docteur "/>
-                        <StringItem index="5" value="employe"/>
+                        <StringItem index="0" value="Malade"/>
+                        <StringItem index="1" value="Chambre"/>
+                        <StringItem index="2" value="Infirmier"/>
+                        <StringItem index="3" value="Service"/>
+                        <StringItem index="4" value="Docteur"/>
+                        <StringItem index="5" value="Employe"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -668,5 +686,10 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JOptionPane" name="jOptionPane1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jOptionPane1.setVisible(false);"/>
+      </AuxValues>
+    </Component>
   </SubComponents>
 </Form>

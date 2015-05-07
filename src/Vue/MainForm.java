@@ -3,6 +3,7 @@ package Vue;
 import DAO.ChambreDAO;
 import DAO.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modele.*;
 import org.jfree.chart.ChartFactory;
@@ -79,6 +80,7 @@ public class MainForm extends javax.swing.JPanel {
         jPanel8 = new javax.swing.JPanel();
         PanelReq = new javax.swing.JScrollPane();
         TableReq = new javax.swing.JTable();
+        jOptionPane1 = new javax.swing.JOptionPane();
 
         LabelTable.setText("Table :");
 
@@ -90,6 +92,11 @@ public class MainForm extends javax.swing.JPanel {
         });
 
         BoutonAjo.setText("Ajouter");
+        BoutonAjo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoutonAjoActionPerformed(evt);
+            }
+        });
 
         L1.setVisible(false);
         L1.setText("L1");
@@ -116,6 +123,7 @@ public class MainForm extends javax.swing.JPanel {
         L8.setText("L8");
 
         T1.setVisible(false);
+        T1.setToolTipText("");
         T1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         T1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +204,7 @@ public class MainForm extends javax.swing.JPanel {
                 .addComponent(L1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(L2)
                     .addComponent(L7))
@@ -244,7 +252,7 @@ public class MainForm extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,7 +306,7 @@ public class MainForm extends javax.swing.JPanel {
 
         LabelChoix.setText("Table à afficher :");
 
-        choix_table.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "malade ", "chambre", "infirmier ", "service ", "docteur ", "employe" }));
+        choix_table.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Malade", "Chambre", "Infirmier", "Service", "Docteur", "Employe" }));
         choix_table.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 choix_tableActionPerformed(evt);
@@ -437,11 +445,18 @@ public class MainForm extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Requête", jPanel3);
 
+        jOptionPane1.setVisible(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -449,6 +464,11 @@ public class MainForm extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -613,7 +633,24 @@ public class MainForm extends javax.swing.JPanel {
         PanelLecture.setViewportView(table_aff);
 
     }
-    
+    private void setNullText()
+    {
+        T1.setText("");
+        T1.setToolTipText("");
+        T2.setText("");
+        T2.setToolTipText("");
+        T3.setText("");
+        T3.setToolTipText("");
+        T4.setText("");
+        T4.setToolTipText("");
+        T5.setText("");
+        T5.setToolTipText("");
+        T7.setText("");
+        T7.setToolTipText("");
+        T8.setText("");
+        T8.setToolTipText("");
+        
+    }
     private void setVisibleAjout(boolean a)
     {
         L1.setVisible(a);
@@ -647,12 +684,15 @@ public class MainForm extends javax.swing.JPanel {
         if(jComboBox2.getSelectedItem().toString() == "Chambre")
         {
             setVisibleAjout(false);
+            setNullText();
             
             L1.setText("Numero chambre :");
             L2.setText("Code Service :");
+            T2.setToolTipText("Compose de 3 lettres");
             L3.setText("Surveillant :");
+            T3.setToolTipText("Numero de l'infirmier");
             L4.setText("Nombre de lits :");
-            
+                      
             L1.setVisible(true);
             T1.setVisible(true);
             L2.setVisible(true);
@@ -665,16 +705,20 @@ public class MainForm extends javax.swing.JPanel {
         else if(jComboBox2.getSelectedItem().toString() == "Docteur")
         {
             setVisibleAjout(false);
+            setNullText();
             
             L1.setText("No :");
             L2.setText("Nom :");
             L3.setText("Prenom :");
             L4.setText("Adresse :");
+            T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
             L5.setText("Tel :");
+            T5.setToolTipText("Format : 00 00 00 00 00");
             L6.setText("Specialite :");
             ComboB.removeAllItems();
             ComboB.addItem("Anesthesiste");
             ComboB.addItem("Cardiologue");
+            ComboB.addItem("Generaliste");
             ComboB.addItem("Orthopediste");
             ComboB.addItem("Pneumologue");
             ComboB.addItem("Radiologue");
@@ -697,30 +741,38 @@ public class MainForm extends javax.swing.JPanel {
         else if(jComboBox2.getSelectedItem().toString() == "Infirmier")
         {
             setVisibleAjout(false);
+            setNullText();
             
             L1.setText("No :");
             L2.setText("Nom :");
             L3.setText("Prenom :");
             L4.setText("Adresse :");
+            T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
             L5.setText("Tel :");
+            T5.setToolTipText("Format : 00 00 00 00 00");
             L6.setText("Rotation :");
             ComboB.removeAllItems();
             ComboB.addItem("JOUR");
             ComboB.addItem("NUIT");
             L7.setText("Code Service :");
+            T7.setToolTipText("Compose de 3 lettres");
             L8.setText("Salaire :");
+            T8.setToolTipText("Format : 0.00");
             
             setVisibleAjout(true);
         }
         else if(jComboBox2.getSelectedItem().toString() == "Malade")
         {
             setVisibleAjout(false);
+            setNullText();
             
             L1.setText("No :");
             L2.setText("Nom :");
             L3.setText("Prenom :");
             L4.setText("Adresse :");
+            T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
             L5.setText("Tel :");
+            T5.setToolTipText("Format : 00 00 00 00 00");
             L7.setText("Mutuelle :");
             
             L1.setVisible(true);
@@ -739,6 +791,7 @@ public class MainForm extends javax.swing.JPanel {
         else if(jComboBox2.getSelectedItem().toString() == "Service")
         {
             setVisibleAjout(false);
+            setNullText();
             
             L1.setText("Code :");
             L2.setText("Nom :");
@@ -780,6 +833,8 @@ public class MainForm extends javax.swing.JPanel {
     private void T1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1ActionPerformed
 
         // TODO add your handling code here:
+        L1.setToolTipText("pfff");
+        
     }//GEN-LAST:event_T1ActionPerformed
 
     private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
@@ -797,6 +852,108 @@ public class MainForm extends javax.swing.JPanel {
     private void ComboBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBActionPerformed
+
+    private void BoutonAjoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAjoActionPerformed
+        // TODO add your handling code here:
+        String choix = jComboBox2.getSelectedItem().toString();
+        switch(choix)
+        {
+            case "Chambre" :
+                if(T1.getText().length() != 3 || T2.getText().length() > 3 || T3.getText().length() > 4 || T4.getText().length() > 2)
+                {
+                    jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+                    setNullText();
+                }
+                else
+                {
+                    DAO<Chambre> chambreDAO = new ChambreDAO();
+                    try
+                    {
+                        String code = T2.getText();
+                        int no = Integer.parseInt(T1.getText());
+                        int surveillant = Integer.parseInt(T3.getText());
+                        int lits = Integer.parseInt(T4.getText());
+                        
+                        Chambre cham = new Chambre (code, no, surveillant, lits);
+                        chambreDAO.create(cham);
+                        
+                        jOptionPane1.showMessageDialog(null, "La chambre a bien été enregistré.","VALIDATION",JOptionPane.PLAIN_MESSAGE);
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+                    }
+                    setNullText();
+                }
+                break;
+                                 
+            case "Docteur":
+                if(T1.getText().length() > 4 || T5.getText().length() != 14)
+                {
+                    jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+                    setNullText();
+                }
+                else
+                {
+                    DAO<Docteur> docteurDAO = new DocteurDAO();
+                    try
+                    {
+                        int numero = Integer.parseInt(T1.getText());
+                        String nom = T2.getText();
+                        String prenom = T3.getText();
+                        String adresse = T4.getText();
+                        String tel = T5.getText();
+                        String spe = ComboB.getSelectedItem().toString();
+                        
+                        Docteur doc = new Docteur (numero, nom, prenom, tel, adresse, spe);
+                        docteurDAO.create(doc);
+                        
+                        jOptionPane1.showMessageDialog(null, "Le docteur a bien été enregistré.","VALIDATION",JOptionPane.PLAIN_MESSAGE);
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+                    }
+                    setNullText();
+                }
+                break;
+            
+            case "Infirmier":
+                if(T1.getText().length() > 4 || T7.getText().length() != 3 || T5.getText().length() != 14)
+                {
+                    jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+                    setNullText();
+                }
+                else
+                {
+                    DAO<Infirmier> infirmierDAO = new InfirmierDAO();
+                    try
+                    {
+                        int numero = Integer.parseInt(T1.getText());
+                        String nom = T2.getText();
+                        String prenom = T3.getText();
+                        String adresse = T4.getText();
+                        String tel = T5.getText();
+                        String rotation = ComboB.getSelectedItem().toString();
+                        String code = T7.getText();
+                        double salaire = Double.parseDouble(T8.getText());
+                        System.out.print(salaire);
+                        Infirmier inf = new Infirmier(numero, nom, prenom, tel, adresse, code, rotation, salaire);
+                        infirmierDAO.create(inf);
+                        
+                        jOptionPane1.showMessageDialog(null, "L'infirmier a bien été enregistré.","VALIDATION",JOptionPane.PLAIN_MESSAGE);
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+                    }
+                    setNullText();
+                }
+                break;
+                    
+ 
+        }        
+    }//GEN-LAST:event_BoutonAjoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -829,6 +986,7 @@ public class MainForm extends javax.swing.JPanel {
     public javax.swing.JComboBox choix_table;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

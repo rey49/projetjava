@@ -6,6 +6,7 @@
 package projet.java;
 
 import Vue.*;
+import static java.lang.Integer.parseInt;
 
 /**
  *
@@ -19,15 +20,7 @@ public class ProjetJAVA {
     public static void main(String[] args) {
         MainFen fenetre = new MainFen();
         
-//        try {
-//            Connexion.getInstance().setAutoCommit(false);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        DAO<Employe> employedao = new EmployeDAO();
-//        DAO<Chambre> chambredao = new ChambreDAO();
-//        DAO<Service> servicedao = new ServiceDAO();
-//
+
     }
 
 }

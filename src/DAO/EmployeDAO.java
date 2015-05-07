@@ -74,7 +74,7 @@ public class EmployeDAO extends DAO<Employe> {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
             ).executeUpdate(
-                    "INSERT into employe values('" + obj.getNumero() + "'," + obj.getNom() + "," + obj.getPrenom() + "," + obj.getAdresse() + "," + obj.getTel() + ")"
+                    "INSERT into employe values(" + obj.getNumero() + ",'" + obj.getNom() + "','" + obj.getPrenom() + "','" + obj.getAdresse() + "','" + obj.getTel() + "');"
             );
         } catch (SQLException e) {
             e.printStackTrace();

@@ -12,7 +12,7 @@ package modele;
 public class Infirmier extends Employe
 {
     private String rotation;
-    private int salaire;
+    private double salaire;
     private String code_service;
 
     public Infirmier() {
@@ -29,7 +29,7 @@ public class Infirmier extends Employe
      * @param rotation pour savoir si l'infirmier travaille de jour ou de nuit
      * @param salaire le salaire de l'infirmier
      */
-    public Infirmier(int numero, String nom, String prenom, String tel, String adresse, String code_service,String rotation, int salaire)
+    public Infirmier(int numero, String nom, String prenom, String tel, String adresse, String code_service,String rotation, double salaire)
     {
         super(numero, nom, prenom, tel, adresse);
         this.rotation = rotation;
@@ -42,8 +42,8 @@ public class Infirmier extends Employe
         return rotation;
     }
 
-    public int getSalaire() {
-        return salaire;
+    public double getSalaire() {
+        return this.salaire;
     }
 
     public String getCode_service() {
@@ -55,7 +55,7 @@ public class Infirmier extends Employe
         this.rotation = rotation;
     }
 
-    public void setSalaire(int salaire) {
+    public void setSalaire(double salaire) {
         this.salaire = salaire;
     }
 
