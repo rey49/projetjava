@@ -12,6 +12,7 @@ import java.sql.SQLException;
 /**
  *
  * @author thomas
+ * 
  */
 public class Connexion {
 
@@ -68,6 +69,7 @@ public class Connexion {
         return conn;
     }
 
+    //getter
     public static Boolean getType() {
         return type;
     }
@@ -91,7 +93,8 @@ public class Connexion {
     public static String getPassBDD() {
         return passBDD;
     }
-
+    
+    //setter
     public static void setType(Boolean type) {
         Connexion.type = type;
     }

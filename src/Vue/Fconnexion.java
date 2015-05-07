@@ -44,8 +44,8 @@ public class Fconnexion extends javax.swing.JPanel {
         LabelUserLocal = new javax.swing.JLabel();
         BoutonCoLocal = new javax.swing.JToggleButton();
         LabelPassLocal = new javax.swing.JLabel();
-        TextPassLocal = new javax.swing.JTextField();
         TextUserLocal = new javax.swing.JTextField();
+        TextPassLocal = new javax.swing.JPasswordField();
 
         LabelPassSQL.setText("Password MYSQL :");
 
@@ -137,17 +137,16 @@ public class Fconnexion extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(91, 91, 91)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BoutonCoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(LabelPassLocal)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(TextPassLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(LabelUserLocal)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(TextUserLocal))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(LabelPassLocal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TextPassLocal))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(LabelUserLocal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TextUserLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(1515, 1515, 1515))
         );
         jPanel2Layout.setVerticalGroup(
@@ -158,12 +157,12 @@ public class Fconnexion extends javax.swing.JPanel {
                     .addComponent(LabelUserLocal)
                     .addComponent(TextUserLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelPassLocal)
                     .addComponent(TextPassLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(BoutonCoLocal)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(942, Short.MAX_VALUE))
         );
 
         conOnglet.addTab("Connexion Locale", jPanel2);
@@ -197,7 +196,7 @@ public class Fconnexion extends javax.swing.JPanel {
     private javax.swing.JLabel LabelUserLocal;
     private javax.swing.JLabel LabelUserSQL;
     public javax.swing.JPasswordField TextPassEce;
-    public javax.swing.JTextField TextPassLocal;
+    public javax.swing.JPasswordField TextPassLocal;
     public javax.swing.JPasswordField TextPassSQL;
     public javax.swing.JTextField TextUserEce;
     public javax.swing.JTextField TextUserLocal;

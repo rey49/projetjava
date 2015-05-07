@@ -8,7 +8,8 @@ package controleur;
 import com.jcraft.jsch.*;
 
 /**
- *
+ * 
+ * Etablit une connexion au serveur de la base de données via un tunnel SSH
  * @author pieraggi
  * code issu du TP3 sur la connexion à une BDD à l'aide d'un tunnel SSH
  */
