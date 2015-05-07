@@ -42,17 +42,24 @@ public class MainForm extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         LabelTable = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
-        LabelNom = new javax.swing.JLabel();
-        LabelPrenom = new javax.swing.JLabel();
-        LabelAdresse = new javax.swing.JLabel();
-        LabelTel = new javax.swing.JLabel();
-        LabelSPe = new javax.swing.JLabel();
-        TextNom = new javax.swing.JTextField();
-        TextPrenom = new javax.swing.JTextField();
-        TextAdr = new javax.swing.JTextField();
-        TextTel = new javax.swing.JTextField();
-        ComboSpe = new javax.swing.JComboBox();
         BoutonAjo = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        L1 = new javax.swing.JLabel();
+        L2 = new javax.swing.JLabel();
+        L3 = new javax.swing.JLabel();
+        L4 = new javax.swing.JLabel();
+        L5 = new javax.swing.JLabel();
+        L6 = new javax.swing.JLabel();
+        L7 = new javax.swing.JLabel();
+        L8 = new javax.swing.JLabel();
+        T1 = new javax.swing.JTextField();
+        T2 = new javax.swing.JTextField();
+        T3 = new javax.swing.JTextField();
+        T4 = new javax.swing.JTextField();
+        T5 = new javax.swing.JTextField();
+        T7 = new javax.swing.JTextField();
+        ComboB = new javax.swing.JComboBox();
+        T8 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         PanelLecture = new javax.swing.JScrollPane();
@@ -75,34 +82,150 @@ public class MainForm extends javax.swing.JPanel {
 
         LabelTable.setText("Table :");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Medecin", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chambre", "Docteur", "Infirmier", "Malade", "Service" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
 
-        LabelNom.setText("Nom :");
-
-        LabelPrenom.setText("Prenom :");
-
-        LabelAdresse.setText("Adresse :");
-
-        LabelTel.setText("Tel :");
-
-        LabelSPe.setText("Specialité :");
-
-        TextNom.setText("jTextField7");
-
-        TextPrenom.setText("jTextField7");
-
-        TextAdr.setText("jTextField7");
-
-        TextTel.setText("jTextField7");
-
-        ComboSpe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cancerologue", "Item 2", "Item 3", "Item 4" }));
-
         BoutonAjo.setText("Ajouter");
+
+        L1.setVisible(false);
+        L1.setText("L1");
+
+        L2.setVisible(false);
+        L2.setText("L2");
+
+        L3.setVisible(false);
+        L3.setText("L3");
+
+        L4.setVisible(false);
+        L4.setText("L4");
+
+        L5.setVisible(false);
+        L5.setText("L5");
+
+        L6.setVisible(false);
+        L6.setText("L6");
+
+        L7.setVisible(false);
+        L7.setText("L7");
+
+        L8.setVisible(false);
+        L8.setText("L8");
+
+        T1.setVisible(false);
+        T1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        T1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T1ActionPerformed(evt);
+            }
+        });
+
+        T2.setVisible(false);
+        T2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        T3.setVisible(false);
+        T3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T3ActionPerformed(evt);
+            }
+        });
+
+        T4.setVisible(false);
+
+        T5.setVisible(false);
+
+        T7.setVisible(false);
+        T7.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        T7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T7ActionPerformed(evt);
+            }
+        });
+
+        ComboB.setVisible(false);
+        ComboB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBActionPerformed(evt);
+            }
+        });
+
+        T8.setVisible(false);
+        T8.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        T8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(L1)
+                    .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboB, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L6)
+                    .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L5)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(T2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L2)
+                            .addComponent(L3)
+                            .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L4))
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(T8, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L8)
+                            .addComponent(L7)
+                            .addComponent(T7, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(212, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(L1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(L2)
+                    .addComponent(L7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(L3)
+                    .addComponent(L8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(L4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(L5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(L6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ComboB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -112,25 +235,16 @@ public class MainForm extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(LabelTable)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(LabelNom)
-                            .addComponent(LabelPrenom)
-                            .addComponent(LabelAdresse)
-                            .addComponent(LabelTel)
-                            .addComponent(LabelSPe)
-                            .addComponent(TextNom)
-                            .addComponent(TextPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                            .addComponent(TextAdr, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                            .addComponent(TextTel, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                            .addComponent(ComboSpe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(LabelTable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(191, 191, 191)
-                        .addComponent(BoutonAjo)))
-                .addContainerGap(767, Short.MAX_VALUE))
+                        .addComponent(BoutonAjo))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,27 +253,9 @@ public class MainForm extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelTable)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(LabelNom)
-                .addGap(3, 3, 3)
-                .addComponent(TextNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(LabelPrenom)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LabelAdresse)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextAdr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LabelTel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(LabelSPe)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ComboSpe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BoutonAjo)
                 .addGap(45, 45, 45))
         );
@@ -517,6 +613,26 @@ public class MainForm extends javax.swing.JPanel {
         PanelLecture.setViewportView(table_aff);
 
     }
+    
+    private void setVisibleAjout(boolean a)
+    {
+        L1.setVisible(a);
+        T1.setVisible(a);
+        L2.setVisible(a);
+        T2.setVisible(a);
+        L3.setVisible(a);
+        T3.setVisible(a);
+        L4.setVisible(a);
+        T4.setVisible(a);
+        L5.setVisible(a);
+        T5.setVisible(a);
+        L6.setVisible(a);
+        ComboB.setVisible(a);
+        L7.setVisible(a);
+        T7.setVisible(a);
+        L8.setVisible(a);
+        T8.setVisible(a);
+    }
 
     private void choix_tableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choix_tableActionPerformed
         // TODO add your handling code here:
@@ -528,6 +644,116 @@ public class MainForm extends javax.swing.JPanel {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
+        if(jComboBox2.getSelectedItem().toString() == "Chambre")
+        {
+            setVisibleAjout(false);
+            
+            L1.setText("Numero chambre :");
+            L2.setText("Code Service :");
+            L3.setText("Surveillant :");
+            L4.setText("Nombre de lits :");
+            
+            L1.setVisible(true);
+            T1.setVisible(true);
+            L2.setVisible(true);
+            T2.setVisible(true);
+            L3.setVisible(true);
+            T3.setVisible(true);
+            L4.setVisible(true);
+            T4.setVisible(true);
+        } 
+        else if(jComboBox2.getSelectedItem().toString() == "Docteur")
+        {
+            setVisibleAjout(false);
+            
+            L1.setText("No :");
+            L2.setText("Nom :");
+            L3.setText("Prenom :");
+            L4.setText("Adresse :");
+            L5.setText("Tel :");
+            L6.setText("Specialite :");
+            ComboB.removeAllItems();
+            ComboB.addItem("Anesthesiste");
+            ComboB.addItem("Cardiologue");
+            ComboB.addItem("Orthopediste");
+            ComboB.addItem("Pneumologue");
+            ComboB.addItem("Radiologue");
+            ComboB.addItem("Traumatologue");
+            
+            L1.setVisible(true);
+            T1.setVisible(true);
+            L2.setVisible(true);
+            T2.setVisible(true);
+            L3.setVisible(true);
+            T3.setVisible(true);
+            L4.setVisible(true);
+            T4.setVisible(true);
+            L5.setVisible(true);
+            T5.setVisible(true);
+            L6.setVisible(true);
+            ComboB.setVisible(true);
+            
+        }
+        else if(jComboBox2.getSelectedItem().toString() == "Infirmier")
+        {
+            setVisibleAjout(false);
+            
+            L1.setText("No :");
+            L2.setText("Nom :");
+            L3.setText("Prenom :");
+            L4.setText("Adresse :");
+            L5.setText("Tel :");
+            L6.setText("Rotation :");
+            ComboB.removeAllItems();
+            ComboB.addItem("JOUR");
+            ComboB.addItem("NUIT");
+            L7.setText("Code Service :");
+            L8.setText("Salaire :");
+            
+            setVisibleAjout(true);
+        }
+        else if(jComboBox2.getSelectedItem().toString() == "Malade")
+        {
+            setVisibleAjout(false);
+            
+            L1.setText("No :");
+            L2.setText("Nom :");
+            L3.setText("Prenom :");
+            L4.setText("Adresse :");
+            L5.setText("Tel :");
+            L7.setText("Mutuelle :");
+            
+            L1.setVisible(true);
+            T1.setVisible(true);
+            L2.setVisible(true);
+            T2.setVisible(true);
+            L3.setVisible(true);
+            T3.setVisible(true);
+            L4.setVisible(true);
+            T4.setVisible(true);
+            L5.setVisible(true);
+            T5.setVisible(true);
+            L7.setVisible(true);
+            T7.setVisible(true);
+        }
+        else if(jComboBox2.getSelectedItem().toString() == "Service")
+        {
+            setVisibleAjout(false);
+            
+            L1.setText("Code :");
+            L2.setText("Nom :");
+            L3.setText("Batiment :");
+            L4.setText("Directeur :");
+               
+            L1.setVisible(true);
+            T1.setVisible(true);
+            L2.setVisible(true);
+            T2.setVisible(true);
+            L3.setVisible(true);
+            T3.setVisible(true);
+            L4.setVisible(true);
+            T4.setVisible(true);
+        }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void BoutonAffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAffActionPerformed
@@ -551,28 +777,55 @@ public class MainForm extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void T1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1ActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T1ActionPerformed
+
+    private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T3ActionPerformed
+
+    private void T7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T7ActionPerformed
+
+    private void T8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T8ActionPerformed
+
+    private void ComboBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BoutonAff;
     private javax.swing.JButton BoutonAjo;
     private javax.swing.JToggleButton BoutonCopier;
+    private javax.swing.JComboBox ComboB;
     private javax.swing.JComboBox ComboRequete;
-    private javax.swing.JComboBox ComboSpe;
-    private javax.swing.JLabel LabelAdresse;
+    private javax.swing.JLabel L1;
+    private javax.swing.JLabel L2;
+    private javax.swing.JLabel L3;
+    private javax.swing.JLabel L4;
+    private javax.swing.JLabel L5;
+    private javax.swing.JLabel L6;
+    private javax.swing.JLabel L7;
+    private javax.swing.JLabel L8;
     private javax.swing.JLabel LabelChoix;
-    private javax.swing.JLabel LabelNom;
-    private javax.swing.JLabel LabelPrenom;
     private javax.swing.JLabel LabelReq;
-    private javax.swing.JLabel LabelSPe;
     private javax.swing.JLabel LabelTable;
-    private javax.swing.JLabel LabelTel;
     private javax.swing.JScrollPane PanelLecture;
     private javax.swing.JScrollPane PanelReq;
+    private javax.swing.JTextField T1;
+    private javax.swing.JTextField T2;
+    private javax.swing.JTextField T3;
+    private javax.swing.JTextField T4;
+    private javax.swing.JTextField T5;
+    private javax.swing.JTextField T7;
+    private javax.swing.JTextField T8;
     private javax.swing.JTable TableReq;
-    private javax.swing.JTextField TextAdr;
-    private javax.swing.JTextField TextNom;
-    private javax.swing.JTextField TextPrenom;
-    private javax.swing.JTextField TextTel;
     public javax.swing.JComboBox choix_table;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox2;
@@ -584,6 +837,7 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton saveBouton;
     public javax.swing.JTable table_aff;
