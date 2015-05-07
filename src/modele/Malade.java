@@ -16,9 +16,17 @@ public class Malade extends Personne
     private String mutuelle;
     
     public Malade(){
-        
     }
     
+    /**
+     * Constructeur : initialise les données d'un malade
+     * @param numero l'identifiant unique du malade
+     * @param nom le nom du malade
+     * @param prenom le prénom du malade
+     * @param tel le numéro de téléphone du malade
+     * @param adresse l'adresse du malade
+     * @param mutuelle la mutuelle du malade
+     */
     public Malade(int numero, String nom, String prenom, String tel, String adresse, String mutuelle)
     {
         super(nom,prenom,tel);

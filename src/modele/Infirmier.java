@@ -18,6 +18,17 @@ public class Infirmier extends Employe
     public Infirmier() {
     }
     
+    /**
+     * Constructeur : initialise les données d'un infirmier
+     * @param numero l'identifiant unique de l'infirmier
+     * @param nom le nom de l'infirmier
+     * @param prenom le prénom de l'infirmier
+     * @param tel le numéro de téléphone de l'infirmier
+     * @param adresse l'adresse de l'infirmier
+     * @param code_service le code du service dans lequel travaille l'infirmier
+     * @param rotation pour savoir si l'infirmier travaille de jour ou de nuit
+     * @param salaire le salaire de l'infirmier
+     */
     public Infirmier(int numero, String nom, String prenom, String tel, String adresse, String code_service,String rotation, int salaire)
     {
         super(numero, nom, prenom, tel, adresse);

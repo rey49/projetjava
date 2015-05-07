@@ -15,8 +15,16 @@ public class Employe extends Personne
     private String adresse;
     
     public Employe(){
-        
     }
+    
+    /**
+     * Constructeur : initialise les données d'un employé
+     * @param numero l'identifiant unique de l'employé
+     * @param nom le nom de l'employé
+     * @param prenom le prénom de l'employé
+     * @param tel le numéro de téléphone de l'employé
+     * @param adresse l'adresse de l'employé
+     */
     public Employe(int numero, String nom, String prenom, String tel, String adresse)
     {
         super(nom, prenom, tel);

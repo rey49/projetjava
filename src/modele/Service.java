@@ -17,8 +17,16 @@ public class Service
     private int directeur;
     
     
-    public Service() {}
+    public Service() {
+    }
     
+    /**
+     * Constructeur : initialise les données d'un service
+     * @param code le code en 3 lettres du service
+     * @param nom le nom complet du service
+     * @param batiment la lettre référence du bâtiment dans lequel se trouve le service
+     * @param directeur l'identifiant unique du docteur qui dirige le service
+     */
     public Service(String code, String nom, String batiment, int directeur)
     {
         this.code = code;

@@ -18,6 +18,13 @@ public class Chambre {
 
     public Chambre(){}
     
+    /**
+     * Constructeur : initialise les données d'une chambre
+     * @param code_service le service dans lequel se trouve la chambre
+     * @param no_chambre le numéro de la chambre
+     * @param surveillant le surveillant responsable de la chambre
+     * @param nb_lits le nombre de lits que possède la chambre
+     */
     public Chambre(String code_service, int no_chambre, int surveillant, int nb_lits) {
         this.code_service = code_service;
         this.no_chambre = no_chambre;

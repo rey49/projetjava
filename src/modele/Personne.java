@@ -18,6 +18,12 @@ public class Personne
     public Personne() {
     }
     
+    /**
+     * Constructeur : initialise les données d'une personne
+     * @param nom le nom de la personne
+     * @param prenom le prénom de la personne
+     * @param tel le numéro de téléphone de la personne
+     */
     public Personne(String nom, String prenom, String tel)
     {
         this.nom = nom;
