@@ -5,6 +5,7 @@
  */
 package Vue;
 
+import DAO.*;
 import controleur.Connexion;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -15,8 +16,10 @@ import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 /**
  *
@@ -34,7 +37,6 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
         setLayout(new BorderLayout());
         setBounds(0, 0, 800, 700);
         setResizable(true);
-        setVisible(true);
 
         //panel principal pour stocker les 2 autres panels
         p0 = new JPanel();
@@ -43,10 +45,14 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
         connexionPanel = new Fconnexion();
         form = new MainForm();
 
+        //p0.add(form); //ligne de test
         p0.add(connexionPanel);
         add("Center", p0);
+        p0.setVisible(true);
 
-        connexionPanel.BoutonCo.addActionListener((ActionListener) this);
+        //listeners
+        connexionPanel.BoutonCo.addActionListener(this);
+        form.BoutonAff.addActionListener(this);
 
         // pour fermer la fenetre
         addWindowListener(new WindowAdapter() {
@@ -55,6 +61,8 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
                 System.exit(0); // tout fermer												System.exit(0); // tout fermer
             }
         });
+
+        setVisible(true);
     }
 
     public void changer(JPanel panel) {
@@ -75,18 +83,29 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
      */
     @Override
     public void actionPerformed(ActionEvent evt) {
-        if (evt.getActionCommand().equals("Connexion")) {
-            Connexion.setPasswordECE(connexionPanel.TextPassEce.getText());
-            Connexion.setUsernameECE(connexionPanel.TextUserEce.getText());
-            Connexion.setPassBDD(connexionPanel.TextPassSQL.getText());
-            Connexion.setLoginBDD(connexionPanel.TextUserSQL.getText());
+        switch (evt.getActionCommand()) {
+            case "Connexion":
+                Connexion.setPasswordECE(connexionPanel.TextPassEce.getText());
+                Connexion.setUsernameECE(connexionPanel.TextUserEce.getText());
+                Connexion.setPassBDD(connexionPanel.TextPassSQL.getText());
+                Connexion.setLoginBDD(connexionPanel.TextUserSQL.getText());
 
-            try {
-                Connexion.getInstance().setAutoCommit(false);
-                changer(form);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+                //ne s'affiche que si la connexion echoue 
+                connexionPanel.afResult.setText("erreur de connexion !");
+
+                try {
+                    Connexion.getInstance().setAutoCommit(false);
+                    changer(form);
+                } catch (SQLException e) {
+                    //e.printStackTrace();
+                }
+                break;
+            case "Annuler":
+                System.exit(0);
+                break;
+            case "Afficher":
+                form.afficher_table();
+                break;
         }
     }
 

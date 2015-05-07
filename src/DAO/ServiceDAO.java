@@ -25,15 +25,15 @@ public class ServiceDAO extends DAO<Service> {
                             ResultSet.TYPE_SCROLL_INSENSITIVE,
                             ResultSet.CONCUR_UPDATABLE
                     ).executeQuery(
-                            "SELECT * FROM service"
+                            "SELECT * FROM service ORDER BY 'code'"
                     );
 
             if (result.first()) {
-                while(result.next())
+                do
                 {
                     Service serv = new Service(result.getString("code"), result.getString("nom"), result.getString("batiment"), result.getInt("directeur"));
                     tab_serv.add(serv);
-                }
+                }while(result.next());
             }
         } catch (SQLException e) {
             e.printStackTrace();
