@@ -88,6 +88,7 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
 
                 //ne s'affiche que si la connexion echoue 
                 //connexionPanel.afResult.setText("erreur de connexion !");
+                
                 //teste si on veut la connexion locale ou en ligne
                 if (connexionPanel.conOnglet.getSelectedIndex() == 0) {
                     Connexion.setType(true);
@@ -100,7 +101,7 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
                     Connexion.setPassBDD(connexionPanel.TextPassLocal.getText());
                     Connexion.setLoginBDD(connexionPanel.TextUserLocal.getText());
                 }
-
+                
                 try {
                     Connexion.getInstance().setAutoCommit(false);
                     changer(form);
