@@ -52,7 +52,7 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
 
         //listeners
         connexionPanel.BoutonCo.addActionListener(this);
-        form.BoutonAff.addActionListener(this);
+        connexionPanel.BoutonCoLocal.addActionListener(this);
 
         // pour fermer la fenetre
         addWindowListener(new WindowAdapter() {
@@ -85,13 +85,21 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
     public void actionPerformed(ActionEvent evt) {
         switch (evt.getActionCommand()) {
             case "Connexion":
-                Connexion.setPasswordECE(connexionPanel.TextPassEce.getText());
-                Connexion.setUsernameECE(connexionPanel.TextUserEce.getText());
-                Connexion.setPassBDD(connexionPanel.TextPassSQL.getText());
-                Connexion.setLoginBDD(connexionPanel.TextUserSQL.getText());
 
                 //ne s'affiche que si la connexion echoue 
-                connexionPanel.afResult.setText("erreur de connexion !");
+                //connexionPanel.afResult.setText("erreur de connexion !");
+                //teste si on veut la connexion locale ou en ligne
+                if (connexionPanel.conOnglet.getSelectedIndex() == 0) {
+                    Connexion.setType(true);
+                    Connexion.setPasswordECE(connexionPanel.TextPassEce.getText());
+                    Connexion.setUsernameECE(connexionPanel.TextUserEce.getText());
+                    Connexion.setPassBDD(connexionPanel.TextPassSQL.getText());
+                    Connexion.setLoginBDD(connexionPanel.TextUserSQL.getText());
+                } else {
+                    Connexion.setType(false);
+                    Connexion.setPassBDD(connexionPanel.TextPassLocal.getText());
+                    Connexion.setLoginBDD(connexionPanel.TextUserLocal.getText());
+                }
 
                 try {
                     Connexion.getInstance().setAutoCommit(false);
@@ -102,9 +110,6 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
                 break;
             case "Annuler":
                 System.exit(0);
-                break;
-            case "Afficher":
-                form.afficher_table();
                 break;
         }
     }

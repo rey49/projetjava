@@ -28,7 +28,7 @@ public class Fconnexion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        conOnglet = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         LabelPassSQL = new javax.swing.JLabel();
         TextUserSQL = new javax.swing.JTextField();
@@ -123,7 +123,7 @@ public class Fconnexion extends javax.swing.JPanel {
                 .addContainerGap(825, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Connexion Reseau", jPanel1);
+        conOnglet.addTab("Connexion Reseau", jPanel1);
 
         LabelUserLocal.setText("User MYSQL :");
 
@@ -166,18 +166,18 @@ public class Fconnexion extends javax.swing.JPanel {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Connexion Locale", jPanel2);
+        conOnglet.addTab("Connexion Locale", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(conOnglet)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(conOnglet, javax.swing.GroupLayout.PREFERRED_SIZE, 1126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -189,7 +189,7 @@ public class Fconnexion extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BoutonCo;
-    private javax.swing.JToggleButton BoutonCoLocal;
+    public javax.swing.JToggleButton BoutonCoLocal;
     private javax.swing.JLabel LabelPassEce;
     private javax.swing.JLabel LabelPassLocal;
     private javax.swing.JLabel LabelPassSQL;
@@ -197,14 +197,14 @@ public class Fconnexion extends javax.swing.JPanel {
     private javax.swing.JLabel LabelUserLocal;
     private javax.swing.JLabel LabelUserSQL;
     public javax.swing.JPasswordField TextPassEce;
-    private javax.swing.JTextField TextPassLocal;
+    public javax.swing.JTextField TextPassLocal;
     public javax.swing.JPasswordField TextPassSQL;
     public javax.swing.JTextField TextUserEce;
-    private javax.swing.JTextField TextUserLocal;
+    public javax.swing.JTextField TextUserLocal;
     public javax.swing.JTextField TextUserSQL;
-    private javax.swing.JLabel afResult;
+    public javax.swing.JLabel afResult;
+    public javax.swing.JTabbedPane conOnglet;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

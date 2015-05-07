@@ -176,9 +176,8 @@ public class MainForm extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(PanelLecture, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addComponent(PanelLecture, javax.swing.GroupLayout.DEFAULT_SIZE, 846, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -205,6 +204,11 @@ public class MainForm extends javax.swing.JPanel {
         });
 
         BoutonAff.setText("Afficher");
+        BoutonAff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoutonAffActionPerformed(evt);
+            }
+        });
 
         saveBouton.setText("<html>\n<p>Enregistrer</p> \n<p>modifications</p>");
 
@@ -506,6 +510,11 @@ public class MainForm extends javax.swing.JPanel {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void BoutonAffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAffActionPerformed
+        // TODO add your handling code here:
+        afficher_table();
+    }//GEN-LAST:event_BoutonAffActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

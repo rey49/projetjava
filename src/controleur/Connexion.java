@@ -15,6 +15,7 @@ import java.sql.SQLException;
  */
 public class Connexion {
 
+    private static Boolean type = true;
     private static Connection conn;
     private static String usernameECE = "";
     private static String passwordECE = "";
@@ -23,31 +24,52 @@ public class Connexion {
 
     /**
      * Permet de créer un objet de connexion à la base de données
+     *
      * @return toutes les informations de connexion à la base de données
      */
-    public static Connection getInstance(){
+    public static Connection getInstance() {
         if (conn == null) {
-            try {
-                // chargement driver "com.mysql.jdbc.Driver"
-                Class.forName("com.mysql.jdbc.Driver");
+            if (type) {
+                try {
+                    // chargement driver "com.mysql.jdbc.Driver"
+                    Class.forName("com.mysql.jdbc.Driver");
 
-                // Connexion via le tunnel SSH avec le username et le password ECE
-                SSHTunnel ssh = new SSHTunnel(usernameECE, passwordECE);
+                    // Connexion via le tunnel SSH avec le username et le password ECE
+                    SSHTunnel ssh = new SSHTunnel(usernameECE, passwordECE);
 
-                if (ssh.connect()) {
-                    System.out.println("Connexion reussie");
+                    if (ssh.connect()) {
+                        System.out.println("Connexion reussie");
 
-                    // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
-                    String urlDatabase = "jdbc:mysql://localhost:3305/" + usernameECE;
+                        // url de connexion "jdbc:mysql://localhost:3305/usernameECE"
+                        String urlDatabase = "jdbc:mysql://localhost:3305/" + usernameECE;
+
+                        //création d'une connexion JDBC à la base
+                        conn = DriverManager.getConnection(urlDatabase, loginBDD, passBDD);
+                    }
+                } catch (ClassNotFoundException | SQLException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    // chargement driver "com.mysql.jdbc.Driver"
+                    Class.forName("com.mysql.jdbc.Driver");
+
+                    // url de connexion a la bdd locale
+                    String urlDatabase = "jdbc:mysql://localhost/hopital";
 
                     //création d'une connexion JDBC à la base
                     conn = DriverManager.getConnection(urlDatabase, loginBDD, passBDD);
+                } catch (ClassNotFoundException | SQLException e) {
+                    e.printStackTrace();
                 }
-            } catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
             }
+
         }
         return conn;
+    }
+
+    public static Boolean getType() {
+        return type;
     }
 
     public static Connection getConn() {
@@ -68,6 +90,10 @@ public class Connexion {
 
     public static String getPassBDD() {
         return passBDD;
+    }
+
+    public static void setType(Boolean type) {
+        Connexion.type = type;
     }
 
     public static void setConn(Connection conn) {
