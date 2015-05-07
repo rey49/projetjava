@@ -937,7 +937,6 @@ public class MainForm extends javax.swing.JPanel {
                         String rotation = ComboB.getSelectedItem().toString();
                         String code = T7.getText();
                         double salaire = Double.parseDouble(T8.getText());
-                        System.out.print(salaire);
                         Infirmier inf = new Infirmier(numero, nom, prenom, tel, adresse, code, rotation, salaire);
                         infirmierDAO.create(inf);
                         
