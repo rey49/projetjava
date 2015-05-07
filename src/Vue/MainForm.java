@@ -5,6 +5,11 @@ import DAO.*;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import modele.*;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.general.DefaultPieDataset;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -59,6 +64,7 @@ public class MainForm extends javax.swing.JPanel {
         BoutonAff = new javax.swing.JButton();
         saveBouton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         LabelReq = new javax.swing.JLabel();
@@ -246,15 +252,28 @@ public class MainForm extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Lecture et Modification", jPanel1);
 
+        jButton1.setText("Test_reporting");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1027, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(793, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 701, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(543, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reporting", jPanel4);
@@ -516,6 +535,22 @@ public class MainForm extends javax.swing.JPanel {
         afficher_table();
     }//GEN-LAST:event_BoutonAffActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultPieDataset pieDataset = new DefaultPieDataset();
+        pieDataset.setValue("One",new Integer(10));
+        pieDataset.setValue("Two",new Integer(20));
+        pieDataset.setValue("Three",new Integer(30));
+        pieDataset.setValue("Four",new Integer(40));
+        JFreeChart chart = ChartFactory.createPieChart("Pie Chart", pieDataset, true, true, true);
+        PiePlot p = (PiePlot) chart.getPlot();
+        ChartPanel panel = new ChartPanel(chart);
+        panel.setSize(450,500);
+        jPanel4.add(panel);
+        jPanel4.repaint();
+        jPanel4.revalidate();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BoutonAff;
@@ -539,6 +574,7 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JTextField TextPrenom;
     private javax.swing.JTextField TextTel;
     public javax.swing.JComboBox choix_table;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
