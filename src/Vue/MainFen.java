@@ -106,9 +106,6 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
                     //e.printStackTrace();
                 }
                 break;
-            case "Annuler":
-                System.exit(0);
-                break;
         }
     }
 

@@ -92,6 +92,7 @@ public class ServiceDAO extends DAO<Service> {
                     + "directeur = '" + obj.getDirecteur() + "'"
                     + " WHERE code = '" + obj.getCode()
             );
+            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
