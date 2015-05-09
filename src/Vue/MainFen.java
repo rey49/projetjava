@@ -5,7 +5,6 @@
  */
 package Vue;
 
-import DAO.*;
 import controleur.Connexion;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -16,10 +15,8 @@ import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
 /**
  *

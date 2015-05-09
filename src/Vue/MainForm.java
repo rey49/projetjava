@@ -4,6 +4,8 @@ import DAO.ChambreDAO;
 import DAO.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import modele.*;
 import org.jfree.chart.ChartFactory;
@@ -23,6 +25,18 @@ import org.jfree.data.general.DefaultPieDataset;
  */
 public class MainForm extends javax.swing.JPanel {
 
+//    CellEditorListener ChangeNotification = new CellEditorListener() {
+//        @Override
+//        public void editingCanceled(ChangeEvent e) {
+//            System.out.println("The user canceled editing.");
+//        }
+//
+//        @Override
+//        public void editingStopped(ChangeEvent e) {
+//            System.out.println("The user stopped editing successfully.");
+//            System.out.println();
+//        }
+//    };
     /**
      * Creates new form NewJPanel
      */
@@ -70,7 +84,6 @@ public class MainForm extends javax.swing.JPanel {
         LabelChoix = new javax.swing.JLabel();
         choix_table = new javax.swing.JComboBox();
         BoutonAff = new javax.swing.JButton();
-        saveBouton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -307,11 +320,6 @@ public class MainForm extends javax.swing.JPanel {
         LabelChoix.setText("Table à afficher :");
 
         choix_table.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Malade", "Chambre", "Infirmier", "Service", "Docteur", "Employe", "Hospitalisation" }));
-        choix_table.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                choix_tableActionPerformed(evt);
-            }
-        });
 
         BoutonAff.setText("Afficher");
         BoutonAff.addActionListener(new java.awt.event.ActionListener() {
@@ -319,8 +327,6 @@ public class MainForm extends javax.swing.JPanel {
                 BoutonAffActionPerformed(evt);
             }
         });
-
-        saveBouton.setText("<html>\n<p>Enregistrer</p> \n<p>modifications</p>");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -332,8 +338,7 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(BoutonCopier, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(LabelChoix, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(choix_table, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BoutonAff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(saveBouton))
+                    .addComponent(BoutonAff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -345,9 +350,7 @@ public class MainForm extends javax.swing.JPanel {
                 .addComponent(LabelChoix)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(choix_table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 504, Short.MAX_VALUE)
-                .addComponent(saveBouton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 575, Short.MAX_VALUE)
                 .addComponent(BoutonAff)
                 .addContainerGap())
         );
@@ -472,24 +475,134 @@ public class MainForm extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private int type = -1;
+
     public void afficher_table() {
         //declaration des variables communes aux cases
         DefaultTableModel tableModel = new DefaultTableModel(0, 0);
+
+        //listener pour prendre en compte les modifications
+        tableModel.addTableModelListener(new TableModelListener() {
+
+            @Override
+            public void tableChanged(TableModelEvent tme) {
+                if (tme.getType() == TableModelEvent.UPDATE) {
+                    if (tme.getFirstRow() != TableModelEvent.HEADER_ROW) {
+                        System.out.println("");
+                        System.out.println("Cell " + tme.getFirstRow() + ", "
+                                + tme.getColumn() + " changed. The new value: "
+                                + table_aff.getValueAt(tme.getFirstRow(),
+                                        tme.getColumn()));
+                        switch (type) {
+                            case 0 :
+                                MaladeDAO maDAO = new MaladeDAO();
+                                Malade ma = new Malade();
+                                ma.setNumero(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
+                                ma.setNom(table_aff.getValueAt(tme.getFirstRow(), 1).toString());
+                                ma.setPrenom(table_aff.getValueAt(tme.getFirstRow(), 2).toString());
+                                ma.setAdresse(table_aff.getValueAt(tme.getFirstRow(), 3).toString());
+                                ma.setTel(table_aff.getValueAt(tme.getFirstRow(), 4).toString());
+                                ma.setMutuelle(table_aff.getValueAt(tme.getFirstRow(), 5).toString());
+
+                                maDAO.update(ma);
+                                break;
+                            case  1 :
+                                ChambreDAO chDAO = new ChambreDAO();
+                                Chambre ch = new Chambre();
+                                ch.setCode_service(table_aff.getValueAt(tme.getFirstRow(), 0).toString());
+                                ch.setNo_chambre(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 1).toString()));
+                                ch.setSurveillant(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 2).toString()));
+                                ch.setNb_lits(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 3).toString()));
+                                
+                                chDAO.update(ch);
+                                break;
+                            case 2 : 
+                                InfirmierDAO infDAO = new InfirmierDAO();
+                                Infirmier inf = new Infirmier();
+                                inf.setNumero(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
+                                inf.setNom(table_aff.getValueAt(tme.getFirstRow(), 1).toString());
+                                inf.setPrenom(table_aff.getValueAt(tme.getFirstRow(), 2).toString());
+                                inf.setTel(table_aff.getValueAt(tme.getFirstRow(), 3).toString());
+                                inf.setAdresse(table_aff.getValueAt(tme.getFirstRow(), 4).toString());
+                                inf.setCode_service(table_aff.getValueAt(tme.getFirstRow(), 5).toString());
+                                inf.setRotation(table_aff.getValueAt(tme.getFirstRow(), 6).toString());
+                                inf.setSalaire(Double.parseDouble(table_aff.getValueAt(tme.getFirstRow(), 7).toString()));
+                                
+                                infDAO.update(inf);
+                                break;
+                            case 3:
+                                //"Code", "Nom", "Batiment", "Directeur"
+                                ServiceDAO seDAO = new ServiceDAO();
+                                Service se = new Service();
+                                
+                                se.setCode(table_aff.getValueAt(tme.getFirstRow(), 0).toString());
+                                se.setNom(table_aff.getValueAt(tme.getFirstRow(), 1).toString());
+                                se.setBatiment(table_aff.getValueAt(tme.getFirstRow(), 2).toString());
+                                se.setDirecteur(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 3).toString()));
+                                
+                                seDAO.update(se);
+                                break;
+                            case 4 : //Docteur
+                                //Numero", "Nom", "Prenom", "Telephone", "Adresse", "Specialite"
+                                DocteurDAO doDAO = new DocteurDAO();
+                                Docteur doc = new Docteur();
+                                
+                                doc.setNumero(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
+                                doc.setNom(table_aff.getValueAt(tme.getFirstRow(), 1).toString());
+                                doc.setPrenom(table_aff.getValueAt(tme.getFirstRow(), 2).toString());
+                                doc.setTel(table_aff.getValueAt(tme.getFirstRow(), 3).toString());
+                                doc.setAdresse(table_aff.getValueAt(tme.getFirstRow(), 4).toString());
+                                doc.setSpecialite(table_aff.getValueAt(tme.getFirstRow(), 5).toString());
+                                
+                                doDAO.update(doc);
+                                break;
+                            case 5 : //employe
+                                //Numero", "Nom", "Prenom", "Telephone", "Adresse
+                                EmployeDAO empDAO = new EmployeDAO();
+                                Employe emp = new Employe();
+                                
+                                emp.setNumero(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
+                                emp.setNom(table_aff.getValueAt(tme.getFirstRow(), 1).toString());
+                                emp.setPrenom(table_aff.getValueAt(tme.getFirstRow(), 2).toString());
+                                emp.setTel(table_aff.getValueAt(tme.getFirstRow(), 3).toString());
+                                emp.setAdresse(table_aff.getValueAt(tme.getFirstRow(), 4).toString());
+                                
+                                empDAO.update(emp);
+                                break;
+                            case 6 : //hospitalisation
+                                //Numero Malade", "Code service", "Numero Chambre", "Lit
+                                HospitalisationDAO hopDAO = new HospitalisationDAO();
+                                Hospitalisation hop = new Hospitalisation();
+                                
+                                hop.setNo_malade(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
+                                hop.setCode_service(table_aff.getValueAt(tme.getFirstRow(), 1).toString());
+                                hop.setNo_chambre(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
+                                hop.setNo_lit(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
+                                
+                                hopDAO.update(hop);
+                                break;
+                        }
+                    }
+                }
+            }
+        });
+
         ArrayList tab;
         String[] title;
-        
+
         switch (choix_table.getSelectedIndex()) {
-            case 0 : //malade
+            case 0: //malade
                 //declaration d'une nouvelle classe DAO
                 MaladeDAO maDAO = new MaladeDAO();
-                
+
                 //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
                 tab = maDAO.all();
-                
+
                 //création des titres des colonnes
-                title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Mutuelle","tab docteur"};
-                tableModel = new DefaultTableModel(title, 0);
-                
+                title = new String[]{"Numero", "Nom", "Prenom", "Adresse", "Tel", "Mutuelle", "tab docteur"};
+                //tableModel = new DefaultTableModel(title, 0);
+                tableModel.setColumnIdentifiers(title);
+
                 //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
                 for (int i = 0; i < tab.size(); i++) {
                     Malade elem = (Malade) tab.get(i);
@@ -497,8 +610,8 @@ public class MainForm extends javax.swing.JPanel {
                         elem.getNumero(),
                         elem.getNom(),
                         elem.getPrenom(),
-                        elem.getTel(),
                         elem.getAdresse(),
+                        elem.getTel(),
                         elem.getMutuelle(),
                         elem.getTab_docteur()
                     };
@@ -508,14 +621,14 @@ public class MainForm extends javax.swing.JPanel {
             case 1: //chambre
                 //declaration d'une nouvelle classe DAO
                 ChambreDAO chDAO = new ChambreDAO();
-                
+
                 //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
                 tab = chDAO.all();
-                
+
                 //création des titres des colonnes
                 title = new String[]{"Code service", "No Chambre", "Surveillant", "Nb de lits"};
-                tableModel = new DefaultTableModel(title, 0);
-                
+                tableModel.setColumnIdentifiers(title);
+
                 //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
                 for (int i = 0; i < tab.size(); i++) {
                     Chambre elem = (Chambre) tab.get(i);
@@ -528,17 +641,17 @@ public class MainForm extends javax.swing.JPanel {
                     tableModel.addRow(obj);
                 }
                 break;
-            case 2 : //infirmier
+            case 2: //infirmier
                 //declaration d'une nouvelle classe DAO
                 InfirmierDAO infDAO = new InfirmierDAO();
-                
+
                 //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
                 tab = infDAO.all();
-                
+
                 //création des titres des colonnes
                 title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Code Service", "Rotation", "Salaire"};
-                tableModel = new DefaultTableModel(title, 0);
-                
+                tableModel.setColumnIdentifiers(title);
+
                 //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
                 for (int i = 0; i < tab.size(); i++) {
                     Infirmier elem = (Infirmier) tab.get(i);
@@ -555,17 +668,17 @@ public class MainForm extends javax.swing.JPanel {
                     tableModel.addRow(obj);
                 }
                 break;
-            case 3 : //Service
+            case 3: //Service
                 //declaration d'une nouvelle classe DAO
                 ServiceDAO servDAO = new ServiceDAO();
-                
+
                 //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
                 tab = servDAO.all();
-                
+
                 //création des titres des colonnes
                 title = new String[]{"Code", "Nom", "Batiment", "Directeur"};
-                tableModel = new DefaultTableModel(title, 0);
-                
+                tableModel.setColumnIdentifiers(title);
+
                 //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
                 for (int i = 0; i < tab.size(); i++) {
                     Service elem = (Service) tab.get(i);
@@ -578,17 +691,17 @@ public class MainForm extends javax.swing.JPanel {
                     tableModel.addRow(obj);
                 }
                 break;
-            case 4 : //Docteur
+            case 4: //Docteur
                 //declaration d'une nouvelle classe DAO
                 DocteurDAO docDAO = new DocteurDAO();
-                
+
                 //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
                 tab = docDAO.all();
-                
+
                 //création des titres des colonnes
                 title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Specialite"};
-                tableModel = new DefaultTableModel(title, 0);
-                
+                tableModel.setColumnIdentifiers(title);
+
                 //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
                 for (int i = 0; i < tab.size(); i++) {
                     Docteur elem = (Docteur) tab.get(i);
@@ -603,17 +716,17 @@ public class MainForm extends javax.swing.JPanel {
                     tableModel.addRow(obj);
                 }
                 break;
-            case 5 : //employe
+            case 5: //employe
                 //declaration d'une nouvelle classe DAO
                 EmployeDAO empDAO = new EmployeDAO();
-                
+
                 //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
                 tab = empDAO.all();
-                
+
                 //création des titres des colonnes
                 title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse"};
-                tableModel = new DefaultTableModel(title, 0);
-                
+                tableModel.setColumnIdentifiers(title);
+
                 //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
                 for (int i = 0; i < tab.size(); i++) {
                     Employe elem = (Employe) tab.get(i);
@@ -627,17 +740,17 @@ public class MainForm extends javax.swing.JPanel {
                     tableModel.addRow(obj);
                 }
                 break;
-            case 6 : //hospitalisation
+            case 6: //hospitalisation
                 //declaration d'une nouvelle classe DAO
                 HospitalisationDAO hopDAO = new HospitalisationDAO();
-                
+
                 //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
                 tab = hopDAO.all();
-                
+
                 //création des titres des colonnes
                 title = new String[]{"Numero Malade", "Code service", "Numero Chambre", "Lit"};
-                tableModel = new DefaultTableModel(title, 0);
-                
+                tableModel.setColumnIdentifiers(title);
+
                 //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
                 for (int i = 0; i < tab.size(); i++) {
                     Hospitalisation elem = (Hospitalisation) tab.get(i);
@@ -651,14 +764,15 @@ public class MainForm extends javax.swing.JPanel {
                 }
                 break;
         }
-        
+        type = choix_table.getSelectedIndex(); //stockage du type de la table affiché
+
         //affichage du JTable remplis avec les informations demandées par l'utilisateur
         table_aff.setModel(tableModel);
         PanelLecture.setViewportView(table_aff);
 
     }
-    private void setNullText()
-    {
+
+    private void setNullText() {
         T1.setText("");
         T1.setToolTipText("");
         T2.setText("");
@@ -673,10 +787,10 @@ public class MainForm extends javax.swing.JPanel {
         T7.setToolTipText("");
         T8.setText("");
         T8.setToolTipText("");
-        
+
     }
-    private void setVisibleAjout(boolean a)
-    {
+
+    private void setVisibleAjout(boolean a) {
         L1.setVisible(a);
         T1.setVisible(a);
         L2.setVisible(a);
@@ -695,28 +809,23 @@ public class MainForm extends javax.swing.JPanel {
         T8.setVisible(a);
     }
 
-    private void choix_tableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choix_tableActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_choix_tableActionPerformed
-
     private void BoutonCopierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonCopierActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoutonCopierActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-        if(jComboBox2.getSelectedItem().toString() == "Chambre")
-        {
+        if (jComboBox2.getSelectedItem().toString() == "Chambre") {
             setVisibleAjout(false);
             setNullText();
-            
+
             L1.setText("Numero chambre :");
             L2.setText("Code Service :");
             T2.setToolTipText("Compose de 3 lettres");
             L3.setText("Surveillant :");
             T3.setToolTipText("Numero de l'infirmier");
             L4.setText("Nombre de lits :");
-                      
+
             L1.setVisible(true);
             T1.setVisible(true);
             L2.setVisible(true);
@@ -725,12 +834,10 @@ public class MainForm extends javax.swing.JPanel {
             T3.setVisible(true);
             L4.setVisible(true);
             T4.setVisible(true);
-        } 
-        else if(jComboBox2.getSelectedItem().toString() == "Docteur")
-        {
+        } else if (jComboBox2.getSelectedItem().toString() == "Docteur") {
             setVisibleAjout(false);
             setNullText();
-            
+
             L1.setText("No :");
             L2.setText("Nom :");
             L3.setText("Prenom :");
@@ -747,7 +854,7 @@ public class MainForm extends javax.swing.JPanel {
             ComboB.addItem("Pneumologue");
             ComboB.addItem("Radiologue");
             ComboB.addItem("Traumatologue");
-            
+
             L1.setVisible(true);
             T1.setVisible(true);
             L2.setVisible(true);
@@ -760,13 +867,11 @@ public class MainForm extends javax.swing.JPanel {
             T5.setVisible(true);
             L6.setVisible(true);
             ComboB.setVisible(true);
-            
-        }
-        else if(jComboBox2.getSelectedItem().toString() == "Infirmier")
-        {
+
+        } else if (jComboBox2.getSelectedItem().toString() == "Infirmier") {
             setVisibleAjout(false);
             setNullText();
-            
+
             L1.setText("No :");
             L2.setText("Nom :");
             L3.setText("Prenom :");
@@ -782,14 +887,12 @@ public class MainForm extends javax.swing.JPanel {
             T7.setToolTipText("Compose de 3 lettres");
             L8.setText("Salaire :");
             T8.setToolTipText("Format : 0.00");
-            
+
             setVisibleAjout(true);
-        }
-        else if(jComboBox2.getSelectedItem().toString() == "Malade")
-        {
+        } else if (jComboBox2.getSelectedItem().toString() == "Malade") {
             setVisibleAjout(false);
             setNullText();
-            
+
             L1.setText("No :");
             L2.setText("Nom :");
             L3.setText("Prenom :");
@@ -798,7 +901,7 @@ public class MainForm extends javax.swing.JPanel {
             L5.setText("Tel :");
             T5.setToolTipText("Format : 00 00 00 00 00");
             L7.setText("Mutuelle :");
-            
+
             L1.setVisible(true);
             T1.setVisible(true);
             L2.setVisible(true);
@@ -811,17 +914,15 @@ public class MainForm extends javax.swing.JPanel {
             T5.setVisible(true);
             L7.setVisible(true);
             T7.setVisible(true);
-        }
-        else if(jComboBox2.getSelectedItem().toString() == "Service")
-        {
+        } else if (jComboBox2.getSelectedItem().toString() == "Service") {
             setVisibleAjout(false);
             setNullText();
-            
+
             L1.setText("Code :");
             L2.setText("Nom :");
             L3.setText("Batiment :");
             L4.setText("Directeur :");
-               
+
             L1.setVisible(true);
             T1.setVisible(true);
             L2.setVisible(true);
@@ -840,25 +941,25 @@ public class MainForm extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         DefaultPieDataset pieDataset = new DefaultPieDataset();
-        pieDataset.setValue("One",new Integer(10));
-        pieDataset.setValue("Two",new Integer(20));
-        pieDataset.setValue("Three",new Integer(30));
-        pieDataset.setValue("Four",new Integer(40));
+        pieDataset.setValue("One", new Integer(10));
+        pieDataset.setValue("Two", new Integer(20));
+        pieDataset.setValue("Three", new Integer(30));
+        pieDataset.setValue("Four", new Integer(40));
         JFreeChart chart = ChartFactory.createPieChart("Pie Chart", pieDataset, true, true, true);
         PiePlot p = (PiePlot) chart.getPlot();
         ChartPanel panel = new ChartPanel(chart);
-        panel.setSize(450,500);
+        panel.setSize(450, 500);
         jPanel4.add(panel);
         jPanel4.repaint();
         jPanel4.revalidate();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void T1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1ActionPerformed
 
         // TODO add your handling code here:
         L1.setToolTipText("pfff");
-        
+
     }//GEN-LAST:event_T1ActionPerformed
 
     private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
@@ -880,79 +981,62 @@ public class MainForm extends javax.swing.JPanel {
     private void BoutonAjoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAjoActionPerformed
         // TODO add your handling code here:
         String choix = jComboBox2.getSelectedItem().toString();
-        switch(choix)
-        {
-            case "Chambre" :
-                if(T1.getText().length() != 3 || T2.getText().length() > 3 || T3.getText().length() > 4 || T4.getText().length() > 2)
-                {
-                    jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+        switch (choix) {
+            case "Chambre":
+                if (T1.getText().length() != 3 || T2.getText().length() > 3 || T3.getText().length() > 4 || T4.getText().length() > 2) {
+                    jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     setNullText();
-                }
-                else
-                {
+                } else {
                     DAO<Chambre> chambreDAO = new ChambreDAO();
-                    try
-                    {
+                    try {
                         String code = T2.getText();
                         int no = Integer.parseInt(T1.getText());
                         int surveillant = Integer.parseInt(T3.getText());
                         int lits = Integer.parseInt(T4.getText());
-                        
-                        Chambre cham = new Chambre (code, no, surveillant, lits);
+
+                        Chambre cham = new Chambre(code, no, surveillant, lits);
                         chambreDAO.create(cham);
-                        
-                        jOptionPane1.showMessageDialog(null, "La chambre a bien été enregistré.","VALIDATION",JOptionPane.PLAIN_MESSAGE);
-                    }
-                    catch (NumberFormatException e)
-                    {
-                        jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+
+                        jOptionPane1.showMessageDialog(null, "La chambre a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                    } catch (NumberFormatException e) {
+                        jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
                     setNullText();
                 }
                 break;
-                                 
+
             case "Docteur":
-                if(T1.getText().length() > 4 || T5.getText().length() != 14)
-                {
-                    jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+                if (T1.getText().length() > 4 || T5.getText().length() != 14) {
+                    jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     setNullText();
-                }
-                else
-                {
+                } else {
                     DAO<Docteur> docteurDAO = new DocteurDAO();
-                    try
-                    {
+                    try {
                         int numero = Integer.parseInt(T1.getText());
                         String nom = T2.getText();
                         String prenom = T3.getText();
                         String adresse = T4.getText();
                         String tel = T5.getText();
                         String spe = ComboB.getSelectedItem().toString();
-                        
-                        Docteur doc = new Docteur (numero, nom, prenom, tel, adresse, spe);
+
+                        Docteur doc = new Docteur(numero, nom, prenom, tel, adresse, spe);
                         docteurDAO.create(doc);
-                        
-                        jOptionPane1.showMessageDialog(null, "Le docteur a bien été enregistré.","VALIDATION",JOptionPane.PLAIN_MESSAGE);
-                    }
-                    catch (NumberFormatException e)
-                    {
-                        jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+
+                        jOptionPane1.showMessageDialog(null, "Le docteur a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                    } catch (NumberFormatException e) {
+                        jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
                     setNullText();
                 }
                 break;
-            
+
             case "Infirmier":
-                if(T1.getText().length() > 4 || T7.getText().length() != 3 || T5.getText().length() != 14)
-                {
-                    jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+                if (T1.getText().length() > 4 || T7.getText().length() != 3 || T5.getText().length() != 14) {
+                    jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     setNullText();
-                }
-                else
-                {
+                } else {
                     DAO<Infirmier> infirmierDAO = new InfirmierDAO();
-                    try
-                    {
+                    try {
                         int numero = Integer.parseInt(T1.getText());
                         String nom = T2.getText();
                         String prenom = T3.getText();
@@ -963,21 +1047,17 @@ public class MainForm extends javax.swing.JPanel {
                         double salaire = Double.parseDouble(T8.getText());
                         Infirmier inf = new Infirmier(numero, nom, prenom, tel, adresse, code, rotation, salaire);
                         infirmierDAO.create(inf);
-                        
-                        jOptionPane1.showMessageDialog(null, "L'infirmier a bien été enregistré.","VALIDATION",JOptionPane.PLAIN_MESSAGE);
-                    }
-                    catch (NumberFormatException e)
-                    {
-                        jOptionPane1.showMessageDialog(null, "Erreur de saisie","ERREUR", JOptionPane.ERROR_MESSAGE);
+
+                        jOptionPane1.showMessageDialog(null, "L'infirmier a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                    } catch (NumberFormatException e) {
+                        jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
                     setNullText();
                 }
                 break;
-                    
- 
-        }        
-    }//GEN-LAST:event_BoutonAjoActionPerformed
 
+        }
+    }//GEN-LAST:event_BoutonAjoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BoutonAff;
@@ -1020,7 +1100,6 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JButton saveBouton;
     public javax.swing.JTable table_aff;
     // End of variables declaration//GEN-END:variables
 }

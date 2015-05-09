@@ -31,7 +31,7 @@ public class Malade extends Personne {
      * @param adresse l'adresse du malade
      * @param mutuelle la mutuelle du malade
      */
-    public Malade(int numero, String nom, String prenom, String tel, String adresse, String mutuelle) {
+    public Malade(int numero, String nom, String prenom, String adresse, String tel, String mutuelle) {
         super(nom, prenom, tel);
         this.numero = numero;
         this.mutuelle = mutuelle;

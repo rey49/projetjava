@@ -120,12 +120,12 @@ public class MaladeDAO extends DAO<Malade>{
                 	ResultSet.TYPE_SCROLL_INSENSITIVE, 
                 	ResultSet.CONCUR_UPDATABLE
                  ).executeUpdate(
-                	"UPDATE malade SET nom = '" + obj.getNom() + "'," +
-                        "prenom = '" + obj.getPrenom() + "'," +
-                        "adresse = '" + obj.getAdresse() + "'," +
-                        "tel = '" + obj.getTel() + "'," +
+                	"UPDATE malade SET nom = '" + obj.getNom() + "', " +
+                        "prenom = '" + obj.getPrenom() + "', " +
+                        "adresse = '" + obj.getAdresse() + "', " +
+                        "tel = '" + obj.getTel() + "', " +
                         "mutuelle = '" + obj.getMutuelle() + "'" +
-                        " WHERE numero = '" + obj.getNumero()
+                        " WHERE numero = " + obj.getNumero() + ";"
                          
                         );
 	    } catch (SQLException e) {

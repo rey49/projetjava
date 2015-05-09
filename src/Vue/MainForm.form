@@ -457,7 +457,6 @@
                               <Component id="LabelChoix" max="32767" attributes="0"/>
                               <Component id="choix_table" alignment="0" max="32767" attributes="0"/>
                               <Component id="BoutonAff" max="32767" attributes="0"/>
-                              <Component id="saveBouton" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -472,9 +471,7 @@
                           <Component id="LabelChoix" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="choix_table" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="504" max="32767" attributes="0"/>
-                          <Component id="saveBouton" min="-2" pref="53" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace pref="575" max="32767" attributes="0"/>
                           <Component id="BoutonAff" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -509,9 +506,6 @@
                       </StringArray>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="choix_tableActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
@@ -526,11 +520,6 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="saveBouton">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;p&gt;Enregistrer&lt;/p&gt; &#xa;&lt;p&gt;modifications&lt;/p&gt;"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
