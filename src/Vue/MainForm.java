@@ -306,7 +306,7 @@ public class MainForm extends javax.swing.JPanel {
 
         LabelChoix.setText("Table à afficher :");
 
-        choix_table.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Malade", "Chambre", "Infirmier", "Service", "Docteur", "Employe" }));
+        choix_table.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Malade", "Chambre", "Infirmier", "Service", "Docteur", "Employe", "Hospitalisation" }));
         choix_table.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 choix_tableActionPerformed(evt);
@@ -487,7 +487,7 @@ public class MainForm extends javax.swing.JPanel {
                 tab = maDAO.all();
                 
                 //création des titres des colonnes
-                title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Mutuelle"};
+                title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Mutuelle","tab docteur"};
                 tableModel = new DefaultTableModel(title, 0);
                 
                 //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
@@ -499,7 +499,8 @@ public class MainForm extends javax.swing.JPanel {
                         elem.getPrenom(),
                         elem.getTel(),
                         elem.getAdresse(),
-                        elem.getMutuelle()
+                        elem.getMutuelle(),
+                        elem.getTab_docteur()
                     };
                     tableModel.addRow(obj);
                 }
@@ -622,6 +623,29 @@ public class MainForm extends javax.swing.JPanel {
                         elem.getPrenom(),
                         elem.getTel(),
                         elem.getAdresse()
+                    };
+                    tableModel.addRow(obj);
+                }
+                break;
+            case 6 : //hospitalisation
+                //declaration d'une nouvelle classe DAO
+                HospitalisationDAO hopDAO = new HospitalisationDAO();
+                
+                //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+                tab = hopDAO.all();
+                
+                //création des titres des colonnes
+                title = new String[]{"Numero Malade", "Code service", "Numero Chambre", "Lit"};
+                tableModel = new DefaultTableModel(title, 0);
+                
+                //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+                for (int i = 0; i < tab.size(); i++) {
+                    Hospitalisation elem = (Hospitalisation) tab.get(i);
+                    Object obj[] = {
+                        elem.getNo_malade(),
+                        elem.getCode_service(),
+                        elem.getNo_chambre(),
+                        elem.getNo_lit()
                     };
                     tableModel.addRow(obj);
                 }

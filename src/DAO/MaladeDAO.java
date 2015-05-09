@@ -8,6 +8,7 @@ package DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import modele.Docteur;
 import modele.Malade;
 
 /**
@@ -32,7 +33,7 @@ public class MaladeDAO extends DAO<Malade>{
             if (result.first()) {
                 do 
                 {
-                    Malade mal = new Malade(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("adresse"), result.getString("tel"), result.getString("mutuelle"));
+                    Malade mal = find(result.getInt("numero"));
                     tab_mal.add(mal);
                 }while(result.next());
                 
@@ -60,6 +61,30 @@ public class MaladeDAO extends DAO<Malade>{
 
             if (result.first()) {
                 mal = new Malade(id, result.getString("nom"), result.getString("prenom"), result.getString("adresse"), result.getString("tel"), result.getString("mutuelle"));
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        //récupération du tableau de docteur
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            "SELECT * FROM soigne WHERE no_malade = " + id
+                    );
+
+            if (result.first()) {
+                DocteurDAO docDAO = new DocteurDAO();
+                ArrayList<Docteur> tab_docteur = new ArrayList();
+                
+                do{
+                    tab_docteur.add(docDAO.find(result.getInt("no_docteur")));
+                }while(result.next());
+                
+                mal.setTab_docteur(tab_docteur);
             }
         }catch(SQLException e){
             e.printStackTrace();

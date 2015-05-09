@@ -5,21 +5,25 @@
  */
 package modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Gib
  */
-public class Malade extends Personne
-{
+public class Malade extends Personne {
+
     private int numero;
     private String adresse;
     private String mutuelle;
-    
-    public Malade(){
+    private ArrayList<Docteur> tab_docteur;
+
+    public Malade() {
     }
-    
+
     /**
      * Constructeur : initialise les données d'un malade
+     *
      * @param numero l'identifiant unique du malade
      * @param nom le nom du malade
      * @param prenom le prénom du malade
@@ -27,16 +31,19 @@ public class Malade extends Personne
      * @param adresse l'adresse du malade
      * @param mutuelle la mutuelle du malade
      */
-    public Malade(int numero, String nom, String prenom, String tel, String adresse, String mutuelle)
-    {
-        super(nom,prenom,tel);
+    public Malade(int numero, String nom, String prenom, String tel, String adresse, String mutuelle) {
+        super(nom, prenom, tel);
         this.numero = numero;
         this.mutuelle = mutuelle;
         this.adresse = adresse;
-        
+
     }
-    
+
     //Getter
+    public ArrayList<Docteur> getTab_docteur() {
+        return tab_docteur;
+    }
+
     public int getNumero() {
         return numero;
     }
@@ -48,8 +55,12 @@ public class Malade extends Personne
     public String getMutuelle() {
         return mutuelle;
     }
-    
+
     //Setter
+    public void setTab_docteur(ArrayList<Docteur> tab_docteur) {
+        this.tab_docteur = tab_docteur;
+    }
+
     public void setNumero(int numero) {
         this.numero = numero;
     }
@@ -61,5 +72,5 @@ public class Malade extends Personne
     public void setMutuelle(String mutuelle) {
         this.mutuelle = mutuelle;
     }
-    
+
 }
