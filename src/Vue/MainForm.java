@@ -576,8 +576,8 @@ public class MainForm extends javax.swing.JPanel {
                                 
                                 hop.setNo_malade(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
                                 hop.setCode_service(table_aff.getValueAt(tme.getFirstRow(), 1).toString());
-                                hop.setNo_chambre(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
-                                hop.setNo_lit(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 0).toString()));
+                                hop.setNo_chambre(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 2).toString()));
+                                hop.setNo_lit(Integer.parseInt(table_aff.getValueAt(tme.getFirstRow(), 3).toString()));
                                 
                                 hopDAO.update(hop);
                                 break;
