@@ -102,7 +102,6 @@ public class InfirmierDAO extends DAO<Infirmier> {
                     + "rotation = '" + obj.getRotation()+ "', " + "salaire =  '" + obj.getSalaire()
                     + " WHERE numero = '" + obj.getNumero() + "';"
             );
-            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

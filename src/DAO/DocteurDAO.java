@@ -103,7 +103,6 @@ public class DocteurDAO extends DAO<Docteur> {
                     + " UPDATE docteur SET specialite = '" + obj.getSpecialite() + "', "
                     + " WHERE numero = '" + obj.getNumero() + "';"
             );
-            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -117,7 +117,6 @@ public class HospitalisationDAO extends DAO<Hospitalisation> {
                     + "lit =  '" + obj.getNo_lit()
                     + " WHERE no_malade = '" + obj.getNo_malade()+ "';"
             );
-            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

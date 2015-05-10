@@ -8,8 +8,6 @@ package DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import modele.Docteur;
 import modele.Malade;
 
@@ -128,8 +126,7 @@ public class MaladeDAO extends DAO<Malade> {
                     + "mutuelle = '" + obj.getMutuelle() + "'"
                     + " WHERE numero = " + obj.getNumero() + ";"
             );
-            
-            this.connect.commit();
+           
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -94,7 +94,6 @@ public class EmployeDAO extends DAO<Employe> {
                     + "tel =  '" + obj.getTel()
                     + " WHERE numero = '" + obj.getNumero() + "';"
             );
-            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
