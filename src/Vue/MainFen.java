@@ -32,7 +32,7 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
      *
      */
     public MainFen() {
-        super("Base de Donnée");
+        super("Base de Données");
 
         setLayout(new BorderLayout());
         setBounds(0, 0, 1000, 700);
