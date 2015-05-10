@@ -537,7 +537,7 @@ public class MainForm extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private int type = -1; //stocke un int pour connaitre quelle table est actuellement affichée
-    
+
     /**
      *
      * @param row
@@ -554,15 +554,15 @@ public class MainForm extends javax.swing.JPanel {
                 ma.setAdresse(table_aff.getValueAt(row, 3).toString());
                 ma.setTel(table_aff.getValueAt(row, 4).toString());
                 ma.setMutuelle(table_aff.getValueAt(row, 5).toString());
-                
-                if(sql == 0)
-                {
+
+                if (sql == 0) {
                     maDAO.update(ma);
                     System.out.println("updated");
-                }else if(sql == 1)
-                {
+                } else if (sql == 1) {
                     maDAO.delete(ma);
-                }else System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                } else {
+                    System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                }
                 break;
             case 1:
                 ChambreDAO chDAO = new ChambreDAO();
@@ -571,14 +571,14 @@ public class MainForm extends javax.swing.JPanel {
                 ch.setNo_chambre(Integer.parseInt(table_aff.getValueAt(row, 1).toString()));
                 ch.setSurveillant(Integer.parseInt(table_aff.getValueAt(row, 2).toString()));
                 ch.setNb_lits(Integer.parseInt(table_aff.getValueAt(row, 3).toString()));
-                
-                if(sql == 0)
-                {
+
+                if (sql == 0) {
                     chDAO.update(ch);
-                }else if(sql == 1)
-                {
+                } else if (sql == 1) {
                     chDAO.delete(ch);
-                }else System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                } else {
+                    System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                }
                 break;
             case 2:
                 InfirmierDAO infDAO = new InfirmierDAO();
@@ -591,15 +591,15 @@ public class MainForm extends javax.swing.JPanel {
                 inf.setCode_service(table_aff.getValueAt(row, 5).toString());
                 inf.setRotation(table_aff.getValueAt(row, 6).toString());
                 inf.setSalaire(Double.parseDouble(table_aff.getValueAt(row, 7).toString()));
-                
-                if(sql == 0)
-                {
+
+                if (sql == 0) {
                     infDAO.update(inf);
                     System.out.println("updated");
-                }else if(sql == 1)
-                {
+                } else if (sql == 1) {
                     infDAO.delete(inf);
-                }else System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                } else {
+                    System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                }
                 break;
             case 3:
                 //"Code", "Nom", "Batiment", "Directeur"
@@ -610,14 +610,14 @@ public class MainForm extends javax.swing.JPanel {
                 se.setNom(table_aff.getValueAt(row, 1).toString());
                 se.setBatiment(table_aff.getValueAt(row, 2).toString());
                 se.setDirecteur(Integer.parseInt(table_aff.getValueAt(row, 3).toString()));
-                
-                if(sql == 0)
-                {
+
+                if (sql == 0) {
                     seDAO.update(se);
-                }else if(sql == 1)
-                {
+                } else if (sql == 1) {
                     seDAO.delete(se);
-                }else System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                } else {
+                    System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                }
 
                 break;
             case 4: //Docteur
@@ -631,14 +631,14 @@ public class MainForm extends javax.swing.JPanel {
                 doc.setTel(table_aff.getValueAt(row, 3).toString());
                 doc.setAdresse(table_aff.getValueAt(row, 4).toString());
                 doc.setSpecialite(table_aff.getValueAt(row, 5).toString());
-                
-                if(sql == 0)
-                {
+
+                if (sql == 0) {
                     doDAO.update(doc);
-                }else if(sql == 1)
-                {
+                } else if (sql == 1) {
                     doDAO.delete(doc);
-                }else System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                } else {
+                    System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                }
 
                 break;
             case 5: //employe
@@ -651,14 +651,14 @@ public class MainForm extends javax.swing.JPanel {
                 emp.setPrenom(table_aff.getValueAt(row, 2).toString());
                 emp.setTel(table_aff.getValueAt(row, 3).toString());
                 emp.setAdresse(table_aff.getValueAt(row, 4).toString());
-                
-                if(sql == 0)
-                {
+
+                if (sql == 0) {
                     empDAO.update(emp);
-                }else if(sql == 1)
-                {
+                } else if (sql == 1) {
                     empDAO.delete(emp);
-                }else System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                } else {
+                    System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                }
                 break;
             case 6: //hospitalisation
                 //Numero Malade", "Code service", "Numero Chambre", "Lit
@@ -669,14 +669,14 @@ public class MainForm extends javax.swing.JPanel {
                 hop.setCode_service(table_aff.getValueAt(row, 1).toString());
                 hop.setNo_chambre(Integer.parseInt(table_aff.getValueAt(row, 2).toString()));
                 hop.setNo_lit(Integer.parseInt(table_aff.getValueAt(row, 3).toString()));
-                
-                if(sql == 0)
-                {
+
+                if (sql == 0) {
                     hopDAO.update(hop);
-                }else if(sql == 1)
-                {
+                } else if (sql == 1) {
                     hopDAO.delete(hop);
-                }else System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                } else {
+                    System.out.println("choix de commande sql erroné (mauvaise valeur de int sql)");
+                }
                 break;
         }
     }
@@ -685,9 +685,8 @@ public class MainForm extends javax.swing.JPanel {
         //declaration des variables communes aux cases
         //DefaultTableModel tableModel = new DefaultTableModel(0, 0);
         CustomModel tableModel = new CustomModel();
-        
+
         //listener pour prendre en compte les modifications
-        
         tableModel.addTableModelListener(new TableModelListener() {
 
             @Override
@@ -897,7 +896,7 @@ public class MainForm extends javax.swing.JPanel {
 
     }
 
-     private void setNullText() {
+    private void setNullText() {
         T1.setText("");
         T1.setToolTipText("");
         T2.setText("");
@@ -914,49 +913,45 @@ public class MainForm extends javax.swing.JPanel {
         T8.setToolTipText("");
 
     }
-    
-    private void setAllServiceComboBox()
-    {
+
+    private void setAllServiceComboBox() {
         ArrayList tab;
         ServiceDAO servDAO = new ServiceDAO();
         tab = servDAO.all();
         Combo1.removeAllItems();
-        for(int i=0; i<tab.size(); i++)
-        {
+        for (int i = 0; i < tab.size(); i++) {
             Service serv = (Service) tab.get(i);
             String code = serv.getCode();
-            Combo1.addItem(code);   
+            Combo1.addItem(code);
         }
     }
-    
-    private void setAllInfirmierComboBox()
-    {
+
+    private void setAllInfirmierComboBox() {
         ArrayList tab;
         InfirmierDAO infDAO = new InfirmierDAO();
         tab = infDAO.all();
         Combo2.removeAllItems();
-        for(int i=0; i<tab.size(); i++)
-        {
+        for (int i = 0; i < tab.size(); i++) {
             Infirmier inf = (Infirmier) tab.get(i);
             int numero = inf.getNumero();
             Combo2.addItem(numero);
         }
     }
-    
-     private void setAllDocteurComboBox()
-    {
+
+    private void setAllDocteurComboBox() {
         ArrayList tab;
         DocteurDAO docDAO = new DocteurDAO();
         tab = docDAO.all();
         Combo3.removeAllItems();
-        for(int i=0; i<tab.size(); i++)
-        {
+        for (int i = 0; i < tab.size(); i++) {
             Docteur doc = (Docteur) tab.get(i);
             int numero = doc.getNumero();
             Combo3.addItem(numero);
         }
     }
+
     //Permet de rendre visible ou non nos boutons
+
     private void setVisibleAjout(boolean a) {
         L1.setVisible(a);
         T1.setVisible(a);
@@ -980,7 +975,7 @@ public class MainForm extends javax.swing.JPanel {
         Combo2.setVisible(a);
         L11.setVisible(a);
         Combo3.setVisible(a);
-        
+
     }
 
     private void BoutonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonSupprActionPerformed
@@ -992,7 +987,9 @@ public class MainForm extends javax.swing.JPanel {
             if ((Boolean) model.getValueAt(i, (model.getColumnCount() - 1))) {
                 trObjTab(i, 1);
                 model.removeRow(i);
-                System.out.println("supprimé");
+                //affichage du JTable remplis avec les informations demandées par l'utilisateur
+                table_aff.setModel(model);
+                PanelLecture.setViewportView(table_aff);
             }
         }
 
@@ -1000,11 +997,11 @@ public class MainForm extends javax.swing.JPanel {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-           // TODO add your handling code here:
+        // TODO add your handling code here:
         setAllServiceComboBox();
         setAllInfirmierComboBox();
         setAllDocteurComboBox();
-        
+
         if (jComboBox2.getSelectedItem().toString() == "Chambre") {
             //On affiche rien pour l'instant
             setVisibleAjout(false);
@@ -1027,7 +1024,7 @@ public class MainForm extends javax.swing.JPanel {
             Combo2.setVisible(true);
             L2.setVisible(true);
             T2.setVisible(true);
-            
+
         } else if (jComboBox2.getSelectedItem().toString() == "Docteur") {
             setVisibleAjout(false);
             setNullText();
@@ -1064,7 +1061,7 @@ public class MainForm extends javax.swing.JPanel {
             T5.setVisible(true);
             L6.setVisible(true);
             ComboB.setVisible(true);
-            
+
         } else if (jComboBox2.getSelectedItem().toString() == "Infirmier") {
             setVisibleAjout(false);
             setNullText();
@@ -1086,7 +1083,7 @@ public class MainForm extends javax.swing.JPanel {
             L9.setText("Code Service :");
             L7.setText("Salaire :");
             T7.setToolTipText("Format : 0.00");
-            
+
             L1.setVisible(true);
             T1.setVisible(true);
             L2.setVisible(true);
@@ -1103,8 +1100,7 @@ public class MainForm extends javax.swing.JPanel {
             Combo1.setVisible(true);
             L7.setVisible(true);
             T7.setVisible(true);
- 
-            
+
         } else if (jComboBox2.getSelectedItem().toString() == "Malade") {
             setVisibleAjout(false);
             setNullText();
@@ -1134,7 +1130,7 @@ public class MainForm extends javax.swing.JPanel {
             T5.setVisible(true);
             L7.setVisible(true);
             T7.setVisible(true);
-            
+
         } else if (jComboBox2.getSelectedItem().toString() == "Service") {
             setVisibleAjout(false);
             setNullText();
@@ -1201,77 +1197,64 @@ public class MainForm extends javax.swing.JPanel {
 
     private void BoutonAjoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAjoActionPerformed
         // TODO add your handling code here:
-         ArrayList tab;
+        ArrayList tab;
         boolean condition1 = false;
         boolean condition2 = false;
         boolean condition3 = false;
         boolean condition4 = false;
         boolean condition5 = false;
         boolean condition6 = false;
-        
+
         String choix = jComboBox2.getSelectedItem().toString();
         switch (choix) {
             case "Chambre":
-                if (T1.getText().length() > 3 || T1.getText().length() == 0) 
-                {
+                if (T1.getText().length() > 3 || T1.getText().length() == 0) {
                     T1.setBackground(Color.red);
                     condition1 = false;
-                } 
-                else
-                {
+                } else {
                     condition1 = true;
                     T1.setBackground(Color.white);
-                    try{
+                    try {
                         int test = Integer.parseInt(T1.getText());
-                    }
-                    catch (NumberFormatException e)
-                    {
+                    } catch (NumberFormatException e) {
                         T1.setBackground(Color.red);
                         condition1 = false;
                         jOptionPane1.showMessageDialog(null, "Le numero chambre doit être comprise entre 100 et 999", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-                
-                if (T2.getText().length() > 2 || T2.getText().length() == 0)
-                {
+
+                if (T2.getText().length() > 2 || T2.getText().length() == 0) {
                     T2.setBackground(Color.red);
                     condition2 = false;
-                }
-                else
-                {
+                } else {
                     T2.setBackground(Color.white);
                     condition2 = true;
-                    try{
+                    try {
                         int test = Integer.parseInt(T2.getText());
-                    }
-                    catch (NumberFormatException e)
-                    {
+                    } catch (NumberFormatException e) {
                         T2.setBackground(Color.red);
                         condition1 = false;
                         jOptionPane1.showMessageDialog(null, "Le nombre de lits doit être comprise entre comprise entre 0 et 99", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-                
-                if(condition1 && condition2)
-                {
+
+                if (condition1 && condition2) {
                     DAO<Chambre> chambreDAO = new ChambreDAO();
                     try {
                         String code = Combo1.getSelectedItem().toString();
                         int no = Integer.parseInt(T1.getText());
                         int surveillant = (int) Combo2.getSelectedItem();
                         int lits = Integer.parseInt(T2.getText());
-                        
+
                         ChambreDAO chamDAO = new ChambreDAO();
                         tab = chamDAO.all();
-                        for(int i=0; i<tab.size(); i++)
-                        {
+                        for (int i = 0; i < tab.size(); i++) {
                             Chambre cham = (Chambre) tab.get(i);
                             int numero_test = cham.getNo_chambre();
                             String code_test = cham.getCode_service();
-                            if((no == numero_test) && (code.equals(code_test)))
-                            {
-                                no =Integer.parseInt("a");
-                            }                           
+                            if ((no == numero_test) && (code.equals(code_test))) {
+                                no = Integer.parseInt("a");
+                            }
                         }
 
                         Chambre cham = new Chambre(code, no, surveillant, lits);
@@ -1283,81 +1266,63 @@ public class MainForm extends javax.swing.JPanel {
                         T1.setBackground(Color.red);
                         jOptionPane1.showMessageDialog(null, "La chambre existe déjà dans la base de donnée", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
                     }
-                    
+
                 }
                 break;
 
-            case "Docteur":                        
+            case "Docteur":
                 //BLINDAGE
                 //No est vide 
-                if (T1.getText().length() > 4 || T1.getText().length() == 0) 
-                {
+                if (T1.getText().length() > 4 || T1.getText().length() == 0) {
                     T1.setBackground(Color.red);
                     condition1 = false;
-                } 
-                else
-                {
+                } else {
                     condition1 = true;
                     T1.setBackground(Color.white);
-                    try{
+                    try {
                         int test = Integer.parseInt(T1.getText());
-                    }
-                    catch (NumberFormatException e)
-                    {
+                    } catch (NumberFormatException e) {
                         T1.setBackground(Color.red);
                         condition1 = false;
                         jOptionPane1.showMessageDialog(null, "Le numero du docteur doit être comprise entre 0 et 9999", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 //Nom est vide
-                if(T2.getText().length() > 12 || T2.getText().length() == 0)
-                {
+                if (T2.getText().length() > 12 || T2.getText().length() == 0) {
                     T2.setBackground(Color.red);
                     condition2 = false;
-                }
-                else
-                {
+                } else {
                     condition2 = true;
                     T2.setBackground(Color.white);
                 }
                 //Prenom est vide
-                if(T3.getText().length() > 12 || T3.getText().length() == 0)
-                {
+                if (T3.getText().length() > 12 || T3.getText().length() == 0) {
                     T3.setBackground(Color.red);
                     condition3 = false;
-                }
-                else
-                {
+                } else {
                     condition3 = true;
                     T3.setBackground(Color.white);
                 }
                 //Adresse est vide
-                if(T4.getText().length() > 40 || T4.getText().length() == 0)
-                {
+                if (T4.getText().length() > 40 || T4.getText().length() == 0) {
                     T4.setBackground(Color.red);
                     condition4 = false;
-                }
-                else
-                {
+                } else {
                     condition4 = true;
                     T4.setBackground(Color.white);
                 }
-                
+
                 //Tel est vide
-                if (T5.getText().length() != 14) 
-                {
+                if (T5.getText().length() != 14) {
                     T5.setBackground(Color.red);
                     condition5 = false;
                     jOptionPane1.showMessageDialog(null, "Le format du tel doit être : 00 00 00 00 00", "ERREUR", JOptionPane.ERROR_MESSAGE);
-                } 
-                else
-                {
+                } else {
                     condition5 = true;
                     T5.setBackground(Color.white);
                 }
-                
-                if(condition1 && condition2 && condition3 && condition4 && condition5)
-                {
+
+                if (condition1 && condition2 && condition3 && condition4 && condition5) {
                     DAO<Docteur> docteurDAO = new DocteurDAO();
                     try {
                         int numero = Integer.parseInt(T1.getText());
@@ -1366,18 +1331,16 @@ public class MainForm extends javax.swing.JPanel {
                         String adresse = T4.getText();
                         String tel = T5.getText();
                         String spe = ComboB.getSelectedItem().toString();
-                        
+
                         EmployeDAO empDAO = new EmployeDAO();
                         tab = empDAO.all();
-                        for(int i=0; i<tab.size(); i++)
-                        {
+                        for (int i = 0; i < tab.size(); i++) {
                             Employe emp = (Employe) tab.get(i);
                             int numero_test = emp.getNumero();
-                            if(numero_test == numero)
-                            {
-                                numero =Integer.parseInt("a");
+                            if (numero_test == numero) {
+                                numero = Integer.parseInt("a");
                             }
-                           
+
                         }
                         Docteur doc = new Docteur(numero, nom, prenom, tel, adresse, spe);
                         docteurDAO.create(doc);
@@ -1388,97 +1351,75 @@ public class MainForm extends javax.swing.JPanel {
                         T1.setBackground(Color.red);
                         jOptionPane1.showMessageDialog(null, "Ce numero est déjà utilisé dans la base de donnée", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
-                    
+
                 }
                 break;
 
             case "Infirmier":
                 //BLINDAGE
                 //No est vide
-                if (T1.getText().length() > 4 || T1.getText().length() == 0) 
-                {
+                if (T1.getText().length() > 4 || T1.getText().length() == 0) {
                     T1.setBackground(Color.red);
                     condition1 = false;
-                } 
-                else
-                {
+                } else {
                     condition1 = true;
                     T1.setBackground(Color.white);
-                    try{
+                    try {
                         int test = Integer.parseInt(T1.getText());
-                    }
-                    catch (NumberFormatException e)
-                    {
+                    } catch (NumberFormatException e) {
                         T1.setBackground(Color.red);
                         condition1 = false;
                         jOptionPane1.showMessageDialog(null, "Le numero de l'infirmier doit être comprise entre 0 et 9999", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 //Nom est vide
-                if(T2.getText().length() > 12 || T2.getText().length() == 0)
-                {
+                if (T2.getText().length() > 12 || T2.getText().length() == 0) {
                     T2.setBackground(Color.red);
                     condition2 = false;
-                }
-                else
-                {
+                } else {
                     condition2 = true;
                     T2.setBackground(Color.white);
                 }
                 //Prenom est vide
-                if(T3.getText().length() > 12 || T3.getText().length() == 0)
-                {
+                if (T3.getText().length() > 12 || T3.getText().length() == 0) {
                     T3.setBackground(Color.red);
                     condition3 = false;
-                }
-                else
-                {
+                } else {
                     condition3 = true;
                     T3.setBackground(Color.white);
                 }
                 //Adresse est vide
-                if(T4.getText().length() > 40 || T4.getText().length() == 0)
-                {
+                if (T4.getText().length() > 40 || T4.getText().length() == 0) {
                     T4.setBackground(Color.red);
                     condition4 = false;
-                }
-                else
-                {
+                } else {
                     condition4 = true;
                     T4.setBackground(Color.white);
-                }  
+                }
                 //Tel est vide
-                if (T5.getText().length() != 14) 
-                {
+                if (T5.getText().length() != 14) {
                     T5.setBackground(Color.red);
                     condition5 = false;
                     jOptionPane1.showMessageDialog(null, "Le format du tel doit être : 00 00 00 00 00", "ERREUR", JOptionPane.ERROR_MESSAGE);
-                } 
-                else
-                {
+                } else {
                     condition5 = true;
                     T5.setBackground(Color.white);
                 }
                 //Salaire est vide
                 condition6 = true;
                 T7.setBackground(Color.white);
-                try{
+                try {
                     double test = Double.parseDouble(T7.getText());
-                    if(test > 9999.99)
-                    {
+                    if (test > 9999.99) {
                         test = Double.parseDouble("a");
                     }
-                }
-                catch (NumberFormatException e)
-                {
+                } catch (NumberFormatException e) {
                     T7.setBackground(Color.red);
                     condition6 = false;
                     jOptionPane1.showMessageDialog(null, "Le salaire est incorrect", "ERREUR", JOptionPane.ERROR_MESSAGE);
                 }
-                
-                
-                if(condition1 && condition2 && condition3 && condition4 && condition5 && condition6)
-                {
+
+                if (condition1 && condition2 && condition3 && condition4 && condition5 && condition6) {
                     DAO<Infirmier> infirmierDAO = new InfirmierDAO();
                     try {
                         int numero = Integer.parseInt(T1.getText());
@@ -1489,16 +1430,14 @@ public class MainForm extends javax.swing.JPanel {
                         String tel = T5.getText();
                         String rotation = ComboB.getSelectedItem().toString();
                         double salaire = Double.parseDouble(T7.getText());
-                        
+
                         EmployeDAO empDAO = new EmployeDAO();
                         tab = empDAO.all();
-                        for(int i=0; i<tab.size(); i++)
-                        {
+                        for (int i = 0; i < tab.size(); i++) {
                             Employe emp = (Employe) tab.get(i);
                             int numero_test = emp.getNumero();
-                            if(numero_test == numero)
-                            {
-                                numero =Integer.parseInt("a");
+                            if (numero_test == numero) {
+                                numero = Integer.parseInt("a");
                             }
                         }
                         Infirmier inf = new Infirmier(numero, nom, prenom, tel, adresse, code, rotation, salaire);
@@ -1509,90 +1448,69 @@ public class MainForm extends javax.swing.JPanel {
                         T1.setBackground(Color.red);
                         jOptionPane1.showMessageDialog(null, "Ce numero est déjà utilisé dans la base de donnée", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
-                    
+
                 }
                 break;
-            case "Malade":                        
+            case "Malade":
                 //BLINDAGE
                 //No est vide
-                if (T1.getText().length() > 4 || T1.getText().length() == 0) 
-                {
+                if (T1.getText().length() > 4 || T1.getText().length() == 0) {
                     T1.setBackground(Color.red);
                     condition1 = false;
-                } 
-                else
-                {
+                } else {
                     condition1 = true;
                     T1.setBackground(Color.white);
-                    try{
+                    try {
                         int test = Integer.parseInt(T1.getText());
-                    }
-                    catch (NumberFormatException e)
-                    {
+                    } catch (NumberFormatException e) {
                         T1.setBackground(Color.red);
                         condition1 = false;
                         jOptionPane1.showMessageDialog(null, "Le numero du malade doit être comprise entre 0 et 9999", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 //Nom est vide
-                if(T2.getText().length() > 12 || T2.getText().length() == 0)
-                {
+                if (T2.getText().length() > 12 || T2.getText().length() == 0) {
                     T2.setBackground(Color.red);
                     condition2 = false;
-                }
-                else
-                {
+                } else {
                     condition2 = true;
                     T2.setBackground(Color.white);
                 }
                 //Prenom est vide
-                if(T3.getText().length() > 12 || T3.getText().length() == 0)
-                {
+                if (T3.getText().length() > 12 || T3.getText().length() == 0) {
                     T3.setBackground(Color.red);
                     condition3 = false;
-                }
-                else
-                {
+                } else {
                     condition3 = true;
                     T3.setBackground(Color.white);
                 }
                 //Adresse est vide 
-                if(T4.getText().length() > 40 || T4.getText().length() == 0)
-                {
+                if (T4.getText().length() > 40 || T4.getText().length() == 0) {
                     T4.setBackground(Color.red);
                     condition4 = false;
-                }
-                else
-                {
+                } else {
                     condition4 = true;
                     T4.setBackground(Color.white);
-                }  
+                }
                 //Tel est vide 
-                if (T5.getText().length() != 14) 
-                {
+                if (T5.getText().length() != 14) {
                     T5.setBackground(Color.red);
                     condition5 = false;
                     jOptionPane1.showMessageDialog(null, "Le format du tel doit être : 00 00 00 00 00", "ERREUR", JOptionPane.ERROR_MESSAGE);
-                } 
-                else
-                {
+                } else {
                     condition5 = true;
                     T5.setBackground(Color.white);
                 }
                 //Mutuelle est vide
-                if (T7.getText().length() > 6 || T7.getText().length() == 0) 
-                {
+                if (T7.getText().length() > 6 || T7.getText().length() == 0) {
                     T7.setBackground(Color.red);
                     condition6 = false;
-                } 
-                else
-                {
+                } else {
                     condition6 = true;
                     T7.setBackground(Color.white);
                 }
 
-                if(condition1 && condition2 && condition3 && condition4 && condition5 && condition6)
-                {
+                if (condition1 && condition2 && condition3 && condition4 && condition5 && condition6) {
                     try {
                         int numero = Integer.parseInt(T1.getText());
                         String nom = T2.getText();
@@ -1600,17 +1518,14 @@ public class MainForm extends javax.swing.JPanel {
                         String adresse = T4.getText();
                         String tel = T5.getText();
                         String mutuelle = T7.getText();
-                        
 
                         MaladeDAO maladeDAO = new MaladeDAO();
                         tab = maladeDAO.all();
-                        for(int i=0; i<tab.size(); i++)
-                        {
+                        for (int i = 0; i < tab.size(); i++) {
                             Malade malade_test = (Malade) tab.get(i);
                             int numero_test = malade_test.getNumero();
-                            if(numero_test == numero)
-                            {
-                                numero =Integer.parseInt("a");
+                            if (numero_test == numero) {
+                                numero = Integer.parseInt("a");
                             }
                         }
                         Malade malade = new Malade(numero, nom, prenom, tel, adresse, mutuelle);
@@ -1621,63 +1536,51 @@ public class MainForm extends javax.swing.JPanel {
                         T1.setBackground(Color.red);
                         jOptionPane1.showMessageDialog(null, "Ce numero est déjà utilisé dans la base de donnée", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
-                    
+
                 }
                 break;
-            case "Service" :
+            case "Service":
                 //BLINDAGE
                 //Code est vide
-                if (T1.getText().length() > 3 || T1.getText().length() == 0) 
-                {
+                if (T1.getText().length() > 3 || T1.getText().length() == 0) {
                     T1.setBackground(Color.red);
                     condition1 = false;
-                } 
-                else
-                {
+                } else {
                     condition1 = true;
                     T1.setBackground(Color.white);
                 }
                 //Nom est vide
-                if (T2.getText().length() > 30 || T2.getText().length() == 0)
-                {
+                if (T2.getText().length() > 30 || T2.getText().length() == 0) {
                     T2.setBackground(Color.red);
                     condition2 = false;
-                }
-                else
-                {
+                } else {
                     T2.setBackground(Color.white);
                     condition2 = true;
                 }
                 //Batiment est vide
-                if (T3.getText().length() > 1 || T2.getText().length() == 0)
-                {
+                if (T3.getText().length() > 1 || T2.getText().length() == 0) {
                     T3.setBackground(Color.red);
                     condition3 = false;
-                }
-                else
-                {
+                } else {
                     T3.setBackground(Color.white);
                     condition3 = true;
                 }
-                
-                if(condition1 && condition2 && condition3)
-                {
+
+                if (condition1 && condition2 && condition3) {
                     try {
                         String code = T1.getText();
                         String nom = T2.getText();
                         String batiment = T3.getText();
                         int directeur = Integer.parseInt(Combo3.getSelectedItem().toString());
-                        
+
                         ServiceDAO servDAO = new ServiceDAO();
                         tab = servDAO.all();
-                        for(int i=0; i<tab.size(); i++)
-                        {
+                        for (int i = 0; i < tab.size(); i++) {
                             Service serv = (Service) tab.get(i);
                             String code_test = serv.getCode();
-                            if(code.equals(code_test))
-                            {
-                                int no =Integer.parseInt("a");
-                            }                           
+                            if (code.equals(code_test)) {
+                                int no = Integer.parseInt("a");
+                            }
                         }
 
                         Service serv = new Service(code, nom, batiment, directeur);
@@ -1688,7 +1591,7 @@ public class MainForm extends javax.swing.JPanel {
                         T1.setBackground(Color.red);
                         jOptionPane1.showMessageDialog(null, "Ce code service existe déjà dans la base de donnée", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
                     }
-                    
+
                 }
                 break;
 

@@ -105,7 +105,6 @@ public class CustomModel extends AbstractTableModel {
             if (indice != position) {
                 temp[indice2++] = value;
             }
-            System.out.println("Indice = " + indice);
             indice++;
         }
         this.data = temp;

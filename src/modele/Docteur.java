@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Docteur extends Employe
 {
     private String specialite;
-    private ArrayList<Integer> tab_ma;
+    private ArrayList<Integer> tab_ma = new ArrayList<Integer>();
     
     public Docteur() {
     }

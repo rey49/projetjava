@@ -16,7 +16,7 @@ public class Malade extends Personne {
     private int numero;
     private String adresse;
     private String mutuelle;
-    private ArrayList<Integer> tab_docteur;
+    private ArrayList<Integer> tab_docteur = new ArrayList<>();
 
     public Malade() {
     }
