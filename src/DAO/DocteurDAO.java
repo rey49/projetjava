@@ -117,8 +117,8 @@ public class DocteurDAO extends DAO<Docteur> {
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE
                 ).executeUpdate(
-                        "INSERT into soigne values('" + obj.getNumero() + "',"
-                        + "'" + tab_ma.get(i) + "')"
+                        "INSERT into soigne values(" + obj.getNumero() + ","
+                        + tab_ma.get(i) + ")"
                 );
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -130,32 +130,46 @@ public class DocteurDAO extends DAO<Docteur> {
     @Override
     public Docteur update(Docteur obj) {
         try {
+            DAO<Employe> employeDAO = new EmployeDAO();
+            Employe emp = new Employe(obj.getNumero(), obj.getNom(), obj.getPrenom(), obj.getTel(), obj.getAdresse());
+            employeDAO.update(emp); 
             this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
-            ).executeUpdate(
-                    "UPDATE employe SET nom = '" + obj.getNom() + "', "
-                    + "Prenom = '" + obj.getPrenom() + "', " + "adresse =  '" + obj.getAdresse() + "', "
-                    + "tel =  '" + obj.getTel() + "', "
-                    + " WHERE numero = '" + obj.getNumero() + "';"
-                    + " UPDATE docteur SET specialite = '" + obj.getSpecialite() + "', "
-                    + " WHERE numero = '" + obj.getNumero() + "';"
+            ).executeUpdate(" UPDATE docteur SET specialite = '" + obj.getSpecialite() + "' "
+                          + " WHERE numero = " + obj.getNumero() + ";"
             );
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         //création des relations entre le malade et le docteur
-        ArrayList<Integer> tab_ma = obj.getTab_ma();
+        DocteurDAO docDAO = new DocteurDAO();
+        
+        Docteur doc = docDAO.find(obj.getNumero());
+        
+        ArrayList<Integer> tab_ma = doc.getTab_ma();
         for (int i = 0; i < tab_ma.size(); i++) {
 
             try {
                 this.connect.createStatement(
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE
-                ).executeUpdate("DELETE FROM soigne WHERE no_docteur = '" + obj.getNumero() + "'; " + //suppression des valeurs
-                        "INSERT into soigne values('" + obj.getNumero() + "',"                        //ajout des nouvelles valeurs
-                        + "'" + tab_ma.get(i)+ "')"
+                ).executeUpdate("DELETE FROM soigne WHERE no_docteur = " + obj.getNumero() + " AND no_malade = "+ tab_ma.get(i) +"; " //suppression des valeurs
+                );
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        tab_ma = obj.getTab_ma();
+        for (int i = 0; i < tab_ma.size(); i++) {
+
+            try {
+                this.connect.createStatement(
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                ).executeUpdate("INSERT into soigne values(" + obj.getNumero() + "," + tab_ma.get(i)+ ")"
                 );
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -167,15 +181,29 @@ public class DocteurDAO extends DAO<Docteur> {
     @Override
     public void delete(Docteur obj) {
         try {
+            DAO<Employe> employeDAO = new EmployeDAO();
+            Employe emp = new Employe(obj.getNumero(), obj.getNom(), obj.getPrenom(), obj.getTel(), obj.getAdresse());
+            employeDAO.delete(emp);
             this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
-            ).executeUpdate("DELETE FROM employe WHERE numero = '" + obj.getNumero() + "'; "
-                          + "DELETE FROM docteur WHERE numero = '" + obj.getNumero() + "'; "
-                          + "DELETE FROM soigne WHERE no_docteur = '" + obj.getNumero() + "';"
+            ).executeUpdate("DELETE FROM docteur WHERE numero = " + obj.getNumero() + "; "
             );
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        
+        for (int i = 0; i < obj.getTab_ma().size(); i++) {
+            try {
+                this.connect.createStatement(
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                ).executeUpdate("DELETE FROM soigne WHERE no_malade = " + obj.getTab_ma().get(i)+ " AND no_docteur = " +  obj.getNumero() + ";"
+                );
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
         }
     }
     

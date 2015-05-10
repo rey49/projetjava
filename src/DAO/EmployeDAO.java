@@ -92,7 +92,7 @@ public class EmployeDAO extends DAO<Employe> {
                     "UPDATE employe SET nom = '" + obj.getNom() + "', "
                     + "Prenom = '" + obj.getPrenom() + "', " + "adresse =  '" + obj.getAdresse() + "', "
                     + "tel =  '" + obj.getTel()
-                    + " WHERE numero = '" + obj.getNumero() + "';"
+                    + "' WHERE numero = " + obj.getNumero() + ";"
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,7 +106,7 @@ public class EmployeDAO extends DAO<Employe> {
             this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
-            ).executeUpdate("DELETE FROM employe WHERE numero = '" + obj.getNumero() + "' ");
+            ).executeUpdate("DELETE FROM employe WHERE numero = " + obj.getNumero() + ";");
         } catch (SQLException e) {
             e.printStackTrace();
         }
