@@ -28,10 +28,9 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" pref="952" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -102,7 +101,7 @@
                       <Component id="L12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="PanelChoix" min="-2" pref="161" max="-2" attributes="0"/>
-                      <EmptySpace pref="255" max="32767" attributes="0"/>
+                      <EmptySpace pref="320" max="32767" attributes="0"/>
                       <Component id="BoutonAjo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
@@ -513,7 +512,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="PanelLecture" alignment="1" pref="859" max="32767" attributes="0"/>
+                      <Component id="PanelLecture" alignment="1" pref="924" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -602,7 +601,7 @@
                           <Component id="LabelChoix" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="choix_table" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="733" max="32767" attributes="0"/>
+                          <EmptySpace pref="798" max="32767" attributes="0"/>
                           <Component id="BoutonAff" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -680,7 +679,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="98" max="-2" attributes="0"/>
-                      <EmptySpace pref="701" max="32767" attributes="0"/>
+                      <EmptySpace pref="766" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -731,7 +730,7 @@
                               <Component id="LabelReq" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="ComboRequete" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="208" max="32767" attributes="0"/>
+                          <EmptySpace pref="241" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -769,11 +768,11 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="592" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="624" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="PanelReq" pref="581" max="32767" attributes="0"/>
+                              <Component id="PanelReq" pref="613" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
