@@ -663,8 +663,9 @@ public class MainForm extends javax.swing.JPanel {
         //declaration des variables communes aux cases
         //DefaultTableModel tableModel = new DefaultTableModel(0, 0);
         CustomModel tableModel = new CustomModel();
-
+        
         //listener pour prendre en compte les modifications
+        
         tableModel.addTableModelListener(new TableModelListener() {
 
             @Override

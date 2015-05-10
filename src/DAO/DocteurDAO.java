@@ -76,11 +76,10 @@ public class DocteurDAO extends DAO<Docteur> {
                     );
 
             if (result.first()) {
-                MaladeDAO maDAO = new MaladeDAO();
                 ArrayList<Integer> tab_ma = new ArrayList();
 
                 do {
-                    tab_ma.add(maDAO.find(result.getInt("no_malade")).getNumero());
+                    tab_ma.add(result.getInt("no_malade"));
                 } while (result.next());
 
                 doct.setTab_ma(tab_ma);

@@ -71,10 +71,8 @@ public class CustomModel extends AbstractTableModel {
     @Override
     public void setValueAt(Object value, int row, int col) {
         //On interdit la modification sur certaines colonnes !
-        if (!this.getColumnName(col).equals("Age")
-                && !this.getColumnName(col).equals("Suppression")) {
-            this.data[row][col] = value;
-        }
+        this.data[row][col] = value;
+        fireTableCellUpdated(row, col);
     }
 
     /**
