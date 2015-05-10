@@ -71,15 +71,17 @@ public class DocteurDAO extends DAO<Docteur> {
     @Override
     public Docteur create(Docteur obj) {
         try {
+            
+            DAO<Employe> employeDAO = new EmployeDAO();
+            Employe emp = new Employe(obj.getNumero(), obj.getNom(), obj.getPrenom(), obj.getTel(), obj.getAdresse());
+            employeDAO.create(emp); 
             this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
             ).executeUpdate(
                     "INSERT into docteur values(" + obj.getNumero() + ",'" + obj.getSpecialite() + "');"             
             );
-            DAO<Employe> employeDAO = new EmployeDAO();
-            Employe emp = new Employe(obj.getNumero(), obj.getNom(), obj.getPrenom(), obj.getTel(), obj.getAdresse());
-            employeDAO.create(emp);            
+                    
             
         } catch (SQLException e) {
             e.printStackTrace();

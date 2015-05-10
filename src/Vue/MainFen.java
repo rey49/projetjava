@@ -32,7 +32,7 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
         super("Base de Donnée");
 
         setLayout(new BorderLayout());
-        setBounds(0, 0, 800, 700);
+        setBounds(0, 0, 1000, 700);
         setResizable(true);
 
         //panel principal pour stocker les 2 autres panels

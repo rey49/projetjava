@@ -2,6 +2,7 @@ package Vue;
 
 import DAO.ChambreDAO;
 import DAO.*;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
@@ -57,7 +58,6 @@ public class MainForm extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         LabelTable = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox();
-        BoutonAjo = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         L1 = new javax.swing.JLabel();
         L2 = new javax.swing.JLabel();
@@ -67,14 +67,19 @@ public class MainForm extends javax.swing.JPanel {
         L6 = new javax.swing.JLabel();
         L7 = new javax.swing.JLabel();
         L8 = new javax.swing.JLabel();
+        L9 = new javax.swing.JLabel();
+        L10 = new javax.swing.JLabel();
         T1 = new javax.swing.JTextField();
         T2 = new javax.swing.JTextField();
         T3 = new javax.swing.JTextField();
         T4 = new javax.swing.JTextField();
         T5 = new javax.swing.JTextField();
         T7 = new javax.swing.JTextField();
-        ComboB = new javax.swing.JComboBox();
         T8 = new javax.swing.JTextField();
+        ComboB = new javax.swing.JComboBox();
+        Combo1 = new javax.swing.JComboBox();
+        Combo2 = new javax.swing.JComboBox();
+        BoutonAjo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         PanelLecture = new javax.swing.JScrollPane();
@@ -104,13 +109,6 @@ public class MainForm extends javax.swing.JPanel {
             }
         });
 
-        BoutonAjo.setText("Ajouter");
-        BoutonAjo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoutonAjoActionPerformed(evt);
-            }
-        });
-
         L1.setVisible(false);
         L1.setText("L1");
 
@@ -134,6 +132,12 @@ public class MainForm extends javax.swing.JPanel {
 
         L8.setVisible(false);
         L8.setText("L8");
+
+        L9.setVisible(false);
+        L9.setText("L9");
+
+        L10.setVisible(false);
+        L10.setText("L10");
 
         T1.setVisible(false);
         T1.setToolTipText("");
@@ -166,6 +170,14 @@ public class MainForm extends javax.swing.JPanel {
             }
         });
 
+        T8.setVisible(false);
+        T8.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        T8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T8ActionPerformed(evt);
+            }
+        });
+
         ComboB.setVisible(false);
         ComboB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,11 +185,17 @@ public class MainForm extends javax.swing.JPanel {
             }
         });
 
-        T8.setVisible(false);
-        T8.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        T8.addActionListener(new java.awt.event.ActionListener() {
+        Combo1.setVisible(false);
+        Combo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T8ActionPerformed(evt);
+                Combo1ActionPerformed(evt);
+            }
+        });
+
+        Combo2.setVisible(false);
+        Combo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combo2ActionPerformed(evt);
             }
         });
 
@@ -188,8 +206,6 @@ public class MainForm extends javax.swing.JPanel {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(L1)
-                    .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboB, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(L6)
                     .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,22 +217,39 @@ public class MainForm extends javax.swing.JPanel {
                             .addComponent(L3)
                             .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(L4))
+                            .addComponent(L4)
+                            .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L1))
                         .addGap(53, 53, 53)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(T8, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(L8)
-                            .addComponent(L7)
-                            .addComponent(T7, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(212, Short.MAX_VALUE))
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(T8)
+                                .addComponent(L8)
+                                .addComponent(L7)
+                                .addComponent(T7)
+                                .addComponent(Combo1, 0, 227, Short.MAX_VALUE))
+                            .addComponent(L9))
+                        .addGap(52, 52, 52)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(L10)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(Combo2, 0, 227, Short.MAX_VALUE))))
+                .addGap(20, 20, 20))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(L1)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(L1)
+                    .addComponent(L9)
+                    .addComponent(L10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Combo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Combo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(L2)
@@ -244,9 +277,15 @@ public class MainForm extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(L6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ComboB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addComponent(ComboB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        BoutonAjo.setText("Ajouter");
+        BoutonAjo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoutonAjoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -260,12 +299,12 @@ public class MainForm extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(BoutonAjo))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(267, Short.MAX_VALUE))
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addComponent(BoutonAjo)))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,9 +315,9 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addComponent(BoutonAjo)
-                .addGap(45, 45, 45))
+                .addGap(22, 22, 22))
         );
 
         jTabbedPane1.addTab("Ajout", jPanel2);
@@ -772,6 +811,7 @@ public class MainForm extends javax.swing.JPanel {
 
     }
 
+    //Mettre tous nos champs textes à ""
     private void setNullText() {
         T1.setText("");
         T1.setToolTipText("");
@@ -790,6 +830,7 @@ public class MainForm extends javax.swing.JPanel {
 
     }
 
+    //Permet de rendre visible ou non nos boutons
     private void setVisibleAjout(boolean a) {
         L1.setVisible(a);
         T1.setVisible(a);
@@ -807,6 +848,11 @@ public class MainForm extends javax.swing.JPanel {
         T7.setVisible(a);
         L8.setVisible(a);
         T8.setVisible(a);
+        L9.setVisible(a);
+        Combo1.setVisible(a);
+        L10.setVisible(a);
+        Combo2.setVisible(a);
+        
     }
 
     private void BoutonCopierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonCopierActionPerformed
@@ -815,25 +861,48 @@ public class MainForm extends javax.swing.JPanel {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
+        ArrayList tab;
         if (jComboBox2.getSelectedItem().toString() == "Chambre") {
+            //On affiche rien pour l'instant
             setVisibleAjout(false);
             setNullText();
 
+            //Label des champs nécessaire
             L1.setText("Numero chambre :");
-            L2.setText("Code Service :");
-            T2.setToolTipText("Compose de 3 lettres");
-            L3.setText("Surveillant :");
-            T3.setToolTipText("Numero de l'infirmier");
-            L4.setText("Nombre de lits :");
+            T1.setToolTipText("Le numero chambre doit etre comprise entre comprise entre 0 et 999");
+            L9.setText("Code Service :");
+            L10.setText("Surveillant :");
+            L2.setText("Nombre de lits :");
+            L2.setToolTipText("Le nombre de lits doit etre comprise entre comprise entre 0 et 99");
 
+            //On affiche nos champs
             L1.setVisible(true);
             T1.setVisible(true);
+            L9.setVisible(true);
+            Combo1.setVisible(true);
+            L10.setVisible(true);
+            Combo2.setVisible(true);
             L2.setVisible(true);
             T2.setVisible(true);
-            L3.setVisible(true);
-            T3.setVisible(true);
-            L4.setVisible(true);
-            T4.setVisible(true);
+            
+            ServiceDAO servDAO = new ServiceDAO();
+            tab = servDAO.all();
+            for(int i=0; i<tab.size(); i++)
+            {
+                Service serv = (Service) tab.get(i);
+                String code = serv.getCode();
+                Combo1.addItem(code);   
+            }
+            
+            InfirmierDAO infDAO = new InfirmierDAO();
+            tab = infDAO.all();
+            for(int i=0; i<tab.size(); i++)
+            {
+                Infirmier inf = (Infirmier) tab.get(i);
+                int numero = inf.getNumero();
+                Combo2.addItem(numero);
+            }
+            
         } else if (jComboBox2.getSelectedItem().toString() == "Docteur") {
             setVisibleAjout(false);
             setNullText();
@@ -867,7 +936,7 @@ public class MainForm extends javax.swing.JPanel {
             T5.setVisible(true);
             L6.setVisible(true);
             ComboB.setVisible(true);
-
+            
         } else if (jComboBox2.getSelectedItem().toString() == "Infirmier") {
             setVisibleAjout(false);
             setNullText();
@@ -889,6 +958,7 @@ public class MainForm extends javax.swing.JPanel {
             T8.setToolTipText("Format : 0.00");
 
             setVisibleAjout(true);
+            
         } else if (jComboBox2.getSelectedItem().toString() == "Malade") {
             setVisibleAjout(false);
             setNullText();
@@ -914,6 +984,7 @@ public class MainForm extends javax.swing.JPanel {
             T5.setVisible(true);
             L7.setVisible(true);
             T7.setVisible(true);
+            
         } else if (jComboBox2.getSelectedItem().toString() == "Service") {
             setVisibleAjout(false);
             setNullText();
@@ -956,10 +1027,7 @@ public class MainForm extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void T1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1ActionPerformed
-
         // TODO add your handling code here:
-        L1.setToolTipText("pfff");
-
     }//GEN-LAST:event_T1ActionPerformed
 
     private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
@@ -980,36 +1048,75 @@ public class MainForm extends javax.swing.JPanel {
 
     private void BoutonAjoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAjoActionPerformed
         // TODO add your handling code here:
+        ArrayList tab;
         String choix = jComboBox2.getSelectedItem().toString();
         switch (choix) {
             case "Chambre":
-                if (T1.getText().length() != 3 || T2.getText().length() > 3 || T3.getText().length() > 4 || T4.getText().length() > 2) {
-                    jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
-                    setNullText();
-                } else {
+                if (T1.getText().length() > 3 || T1.getText().length() == 0) 
+                {
+                    T1.setBackground(Color.red);
+                    jOptionPane1.showMessageDialog(null, "Le numero chambre doit etre comprise entre comprise entre 0 et 999", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                } 
+                else
+                {
+                    T1.setBackground(Color.white);
+                }
+                
+                if (T2.getText().length() > 2 || T2.getText().length() == 0)
+                {
+                    T2.setBackground(Color.red);
+                    jOptionPane1.showMessageDialog(null, "Le nombre de lits doit etre comprise entre comprise entre 0 et 99", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                }
+                else
+                {
+                    T2.setBackground(Color.white);
+                }
+                
+                if((T1.getText().length() <= 3 && T1.getText().length() != 0)  || (T2.getText().length() <= 2 && T2.getText().length() != 0))
+                {
                     DAO<Chambre> chambreDAO = new ChambreDAO();
                     try {
-                        String code = T2.getText();
+                        String code = Combo1.getSelectedItem().toString();
                         int no = Integer.parseInt(T1.getText());
-                        int surveillant = Integer.parseInt(T3.getText());
-                        int lits = Integer.parseInt(T4.getText());
+                        int surveillant = (int) Combo2.getSelectedItem();
+                        int lits = Integer.parseInt(T2.getText());
 
                         Chambre cham = new Chambre(code, no, surveillant, lits);
                         chambreDAO.create(cham);
 
                         jOptionPane1.showMessageDialog(null, "La chambre a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                        setNullText();
                     } catch (NumberFormatException e) {
                         jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
-                    setNullText();
+                    
                 }
                 break;
 
             case "Docteur":
-                if (T1.getText().length() > 4 || T5.getText().length() != 14) {
-                    jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
-                    setNullText();
-                } else {
+                if (T1.getText().length() > 4 || T1.getText().length() == 0)
+                {
+                    T1.setBackground(Color.red);
+                    jOptionPane1.showMessageDialog(null, "Le numero du docteur doit etre comprise entre 0 et 9999", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                    
+                } 
+                else
+                {
+                    T1.setBackground(Color.white);
+                }
+                
+                if(T5.getText().length() != 14)
+                {
+                    T5.setBackground(Color.red);
+                    jOptionPane1.showMessageDialog(null, "Le format du tel doit etre : 00 00 00 00 00", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                }
+                else
+                {
+                    T5.setBackground(Color.white);
+                }
+                
+                if((T1.getText().length() < 4 && T1.getText().length() != 0) || T5.getText().length() == 14)
+                {
                     DAO<Docteur> docteurDAO = new DocteurDAO();
                     try {
                         int numero = Integer.parseInt(T1.getText());
@@ -1018,15 +1125,28 @@ public class MainForm extends javax.swing.JPanel {
                         String adresse = T4.getText();
                         String tel = T5.getText();
                         String spe = ComboB.getSelectedItem().toString();
-
+                        
+                        DocteurDAO docDAO = new DocteurDAO();
+                        tab = docDAO.all();
+                        for(int i=0; i<tab.size(); i++)
+                        {
+                            Docteur doc = (Docteur) tab.get(i);
+                            int numero_test = doc.getNumero();
+                            if(numero_test == numero)
+                            {
+                                numero =Integer.parseInt("a");
+                            }
+                           
+                        }
                         Docteur doc = new Docteur(numero, nom, prenom, tel, adresse, spe);
                         docteurDAO.create(doc);
 
                         jOptionPane1.showMessageDialog(null, "Le docteur a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                        setNullText();
                     } catch (NumberFormatException e) {
                         jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
-                    setNullText();
+                    
                 }
                 break;
 
@@ -1059,13 +1179,24 @@ public class MainForm extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_BoutonAjoActionPerformed
 
+    private void Combo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Combo1ActionPerformed
+
+    private void Combo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Combo2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BoutonAff;
     private javax.swing.JButton BoutonAjo;
     private javax.swing.JToggleButton BoutonCopier;
+    private javax.swing.JComboBox Combo1;
+    private javax.swing.JComboBox Combo2;
     private javax.swing.JComboBox ComboB;
     private javax.swing.JComboBox ComboRequete;
     private javax.swing.JLabel L1;
+    private javax.swing.JLabel L10;
     private javax.swing.JLabel L2;
     private javax.swing.JLabel L3;
     private javax.swing.JLabel L4;
@@ -1073,6 +1204,7 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JLabel L6;
     private javax.swing.JLabel L7;
     private javax.swing.JLabel L8;
+    private javax.swing.JLabel L9;
     private javax.swing.JLabel LabelChoix;
     private javax.swing.JLabel LabelReq;
     private javax.swing.JLabel LabelTable;

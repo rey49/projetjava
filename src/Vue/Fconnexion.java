@@ -131,6 +131,12 @@ public class Fconnexion extends javax.swing.JPanel {
 
         LabelPassLocal.setText("Password MYSQL :");
 
+        TextUserLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextUserLocalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -184,6 +190,10 @@ public class Fconnexion extends javax.swing.JPanel {
     private void BoutonCoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonCoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoutonCoActionPerformed
+
+    private void TextUserLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUserLocalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextUserLocalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
