@@ -670,8 +670,7 @@ public class MainForm extends javax.swing.JPanel {
 
             @Override
             public void tableChanged(TableModelEvent tme) {
-                System.out.println("listener");
-                if (tme.getType() == TableModelEvent.UPDATE) {
+                if (tme.getType() == TableModelEvent.UPDATE && tme.getColumn() != (tableModel.getColumnCount() - 1)) {
                     if (tme.getFirstRow() != TableModelEvent.HEADER_ROW) {
                         System.out.println("");
                         System.out.println("Cell " + tme.getFirstRow() + ", "
@@ -929,6 +928,7 @@ public class MainForm extends javax.swing.JPanel {
             if ((Boolean) model.getValueAt(i, (model.getColumnCount() - 1))) {
                 trObjTab(i, 1);
                 model.removeRow(i);
+                System.out.println("supprimé");
             }
         }
 
