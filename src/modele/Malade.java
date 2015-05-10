@@ -16,7 +16,7 @@ public class Malade extends Personne {
     private int numero;
     private String adresse;
     private String mutuelle;
-    private ArrayList<Docteur> tab_docteur;
+    private ArrayList<Integer> tab_docteur;
 
     public Malade() {
     }
@@ -40,7 +40,7 @@ public class Malade extends Personne {
     }
 
     //Getter
-    public ArrayList<Docteur> getTab_docteur() {
+    public ArrayList<Integer> getTab_docteur() {
         return tab_docteur;
     }
 
@@ -57,7 +57,7 @@ public class Malade extends Personne {
     }
 
     //Setter
-    public void setTab_docteur(ArrayList<Docteur> tab_docteur) {
+    public void setTab_docteur(ArrayList<Integer> tab_docteur) {
         this.tab_docteur = tab_docteur;
     }
 

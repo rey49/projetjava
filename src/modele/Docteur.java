@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Docteur extends Employe
 {
     private String specialite;
-    private ArrayList<Malade> tab_ma;
+    private ArrayList<Integer> tab_ma;
     
     public Docteur() {
     }
@@ -40,7 +40,7 @@ public class Docteur extends Employe
         return specialite;
     }
 
-    public ArrayList<Malade> getTab_ma() {
+    public ArrayList<Integer> getTab_ma() {
         return tab_ma;
     }
     
@@ -49,7 +49,7 @@ public class Docteur extends Employe
         this.specialite = specialite;
     }
 
-    public void setTab_ma(ArrayList<Malade> tab_ma) {
+    public void setTab_ma(ArrayList<Integer> tab_ma) {
         this.tab_ma = tab_ma;
     }
     

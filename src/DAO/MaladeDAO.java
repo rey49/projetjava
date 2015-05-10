@@ -8,7 +8,6 @@ package DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import modele.Docteur;
 import modele.Malade;
 
 /**
@@ -65,7 +64,7 @@ public class MaladeDAO extends DAO<Malade> {
             e.printStackTrace();
         }
 
-        //récupération du tableau de docteur
+        //récupération des id des docteurs
         try {
             ResultSet result = this.connect
                     .createStatement(
@@ -77,10 +76,10 @@ public class MaladeDAO extends DAO<Malade> {
 
             if (result.first()) {
                 DocteurDAO docDAO = new DocteurDAO();
-                ArrayList<Docteur> tab_docteur = new ArrayList();
+                ArrayList<Integer> tab_docteur = new ArrayList();
 
                 do {
-                    tab_docteur.add(docDAO.find(result.getInt("no_docteur")));
+                    tab_docteur.add(docDAO.find(result.getInt("no_docteur")).getNumero());
                 } while (result.next());
 
                 mal.setTab_docteur(tab_docteur);
@@ -111,7 +110,7 @@ public class MaladeDAO extends DAO<Malade> {
         }
 
         //création des relations entre le malade et le docteur
-        ArrayList<Docteur> tab_doc = obj.getTab_docteur();
+        ArrayList<Integer> tab_doc = obj.getTab_docteur();
         for (int i = 0; i < tab_doc.size(); i++) {
 
             try {
@@ -119,7 +118,7 @@ public class MaladeDAO extends DAO<Malade> {
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE
                 ).executeUpdate(
-                        "INSERT into soigne values('" + tab_doc.get(i).getNumero() + "',"
+                        "INSERT into soigne values('" + tab_doc.get(i) + "',"
                         + "'" + obj.getNumero() + "')"
                 );
             } catch (SQLException e) {
@@ -149,7 +148,7 @@ public class MaladeDAO extends DAO<Malade> {
         }
 
         //création des relations entre le malade et le docteur
-        ArrayList<Docteur> tab_doc = obj.getTab_docteur();
+        ArrayList<Integer> tab_doc = obj.getTab_docteur();
         for (int i = 0; i < tab_doc.size(); i++) {
 
             try {
@@ -157,7 +156,7 @@ public class MaladeDAO extends DAO<Malade> {
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE
                 ).executeUpdate("DELETE FROM soigne WHERE no_malade = '" + obj.getNumero() + "'; "
-                        +"INSERT into soigne values('" + tab_doc.get(i).getNumero() + "',"
+                        +"INSERT into soigne values('" + tab_doc.get(i) + "',"
                         + "'" + obj.getNumero() + "')"
                 );
             } catch (SQLException e) {

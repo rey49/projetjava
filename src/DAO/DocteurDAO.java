@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import modele.Docteur;
 import modele.Employe;
-import modele.Malade;
 
 /**
  *
@@ -78,10 +77,10 @@ public class DocteurDAO extends DAO<Docteur> {
 
             if (result.first()) {
                 MaladeDAO maDAO = new MaladeDAO();
-                ArrayList<Malade> tab_ma = new ArrayList();
+                ArrayList<Integer> tab_ma = new ArrayList();
 
                 do {
-                    tab_ma.add(maDAO.find(result.getInt("no_malade")));
+                    tab_ma.add(maDAO.find(result.getInt("no_malade")).getNumero());
                 } while (result.next());
 
                 doct.setTab_ma(tab_ma);
@@ -111,7 +110,7 @@ public class DocteurDAO extends DAO<Docteur> {
         }
         
         //création des relations entre le malade et le docteur
-        ArrayList<Malade> tab_ma = obj.getTab_ma();
+        ArrayList<Integer> tab_ma = obj.getTab_ma();
         for (int i = 0; i < tab_ma.size(); i++) {
 
             try {
@@ -120,7 +119,7 @@ public class DocteurDAO extends DAO<Docteur> {
                         ResultSet.CONCUR_UPDATABLE
                 ).executeUpdate(
                         "INSERT into soigne values('" + obj.getNumero() + "',"
-                        + "'" + tab_ma.get(i).getNumero() + "')"
+                        + "'" + tab_ma.get(i) + "')"
                 );
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -148,7 +147,7 @@ public class DocteurDAO extends DAO<Docteur> {
         }
 
         //création des relations entre le malade et le docteur
-        ArrayList<Malade> tab_ma = obj.getTab_ma();
+        ArrayList<Integer> tab_ma = obj.getTab_ma();
         for (int i = 0; i < tab_ma.size(); i++) {
 
             try {
@@ -157,7 +156,7 @@ public class DocteurDAO extends DAO<Docteur> {
                         ResultSet.CONCUR_UPDATABLE
                 ).executeUpdate("DELETE FROM soigne WHERE no_docteur = '" + obj.getNumero() + "'; " + //suppression des valeurs
                         "INSERT into soigne values('" + obj.getNumero() + "',"                        //ajout des nouvelles valeurs
-                        + "'" + tab_ma.get(i).getNumero() + "')"
+                        + "'" + tab_ma.get(i)+ "')"
                 );
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -514,7 +514,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="BoutonCopier" pref="150" max="32767" attributes="0"/>
+                              <Component id="BoutonSuppr" pref="150" max="32767" attributes="0"/>
                               <Component id="LabelChoix" max="32767" attributes="0"/>
                               <Component id="choix_table" alignment="0" max="32767" attributes="0"/>
                               <Component id="BoutonAff" max="32767" attributes="0"/>
@@ -527,7 +527,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BoutonCopier" min="-2" max="-2" attributes="0"/>
+                          <Component id="BoutonSuppr" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="LabelChoix" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -540,12 +540,12 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JToggleButton" name="BoutonCopier">
+                <Component class="javax.swing.JToggleButton" name="BoutonSuppr">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Copier la selection"/>
+                    <Property name="text" type="java.lang.String" value="supprimer"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonCopierActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonSupprActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="LabelChoix">
