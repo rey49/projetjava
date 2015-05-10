@@ -79,6 +79,8 @@ public class MainForm extends javax.swing.JPanel {
         ComboB = new javax.swing.JComboBox();
         Combo1 = new javax.swing.JComboBox();
         Combo2 = new javax.swing.JComboBox();
+        Combo3 = new javax.swing.JComboBox();
+        L11 = new javax.swing.JLabel();
         BoutonAjo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -199,6 +201,16 @@ public class MainForm extends javax.swing.JPanel {
             }
         });
 
+        Combo3.setVisible(false);
+        Combo3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combo3ActionPerformed(evt);
+            }
+        });
+
+        L11.setVisible(false);
+        L11.setText("L11");
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -222,19 +234,25 @@ public class MainForm extends javax.swing.JPanel {
                             .addComponent(L1))
                         .addGap(53, 53, 53)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(T8)
-                                .addComponent(L8)
-                                .addComponent(L7)
-                                .addComponent(T7)
-                                .addComponent(Combo1, 0, 227, Short.MAX_VALUE))
-                            .addComponent(L9))
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(L10)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(Combo2, 0, 227, Short.MAX_VALUE))))
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(T8)
+                                        .addComponent(L8)
+                                        .addComponent(L7)
+                                        .addComponent(T7)
+                                        .addComponent(Combo1, 0, 227, Short.MAX_VALUE)
+                                        .addComponent(Combo3, javax.swing.GroupLayout.Alignment.TRAILING, 0, 227, Short.MAX_VALUE))
+                                    .addComponent(L9))
+                                .addGap(52, 52, 52)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addComponent(L10)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(Combo2, 0, 227, Short.MAX_VALUE)))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(L11)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(20, 20, 20))
         );
         jPanel9Layout.setVerticalGroup(
@@ -267,9 +285,13 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(T8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(L4)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(L4)
+                    .addComponent(L11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Combo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(L5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -875,8 +897,7 @@ public class MainForm extends javax.swing.JPanel {
 
     }
 
-    //Mettre tous nos champs textes à ""
-    private void setNullText() {
+     private void setNullText() {
         T1.setText("");
         T1.setToolTipText("");
         T2.setText("");
@@ -893,7 +914,48 @@ public class MainForm extends javax.swing.JPanel {
         T8.setToolTipText("");
 
     }
-
+    
+    private void setAllServiceComboBox()
+    {
+        ArrayList tab;
+        ServiceDAO servDAO = new ServiceDAO();
+        tab = servDAO.all();
+        Combo1.removeAllItems();
+        for(int i=0; i<tab.size(); i++)
+        {
+            Service serv = (Service) tab.get(i);
+            String code = serv.getCode();
+            Combo1.addItem(code);   
+        }
+    }
+    
+    private void setAllInfirmierComboBox()
+    {
+        ArrayList tab;
+        InfirmierDAO infDAO = new InfirmierDAO();
+        tab = infDAO.all();
+        Combo2.removeAllItems();
+        for(int i=0; i<tab.size(); i++)
+        {
+            Infirmier inf = (Infirmier) tab.get(i);
+            int numero = inf.getNumero();
+            Combo2.addItem(numero);
+        }
+    }
+    
+     private void setAllDocteurComboBox()
+    {
+        ArrayList tab;
+        DocteurDAO docDAO = new DocteurDAO();
+        tab = docDAO.all();
+        Combo3.removeAllItems();
+        for(int i=0; i<tab.size(); i++)
+        {
+            Docteur doc = (Docteur) tab.get(i);
+            int numero = doc.getNumero();
+            Combo3.addItem(numero);
+        }
+    }
     //Permet de rendre visible ou non nos boutons
     private void setVisibleAjout(boolean a) {
         L1.setVisible(a);
@@ -916,7 +978,9 @@ public class MainForm extends javax.swing.JPanel {
         Combo1.setVisible(a);
         L10.setVisible(a);
         Combo2.setVisible(a);
-
+        L11.setVisible(a);
+        Combo3.setVisible(a);
+        
     }
 
     private void BoutonSupprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonSupprActionPerformed
@@ -936,7 +1000,11 @@ public class MainForm extends javax.swing.JPanel {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-        ArrayList tab;
+           // TODO add your handling code here:
+        setAllServiceComboBox();
+        setAllInfirmierComboBox();
+        setAllDocteurComboBox();
+        
         if (jComboBox2.getSelectedItem().toString() == "Chambre") {
             //On affiche rien pour l'instant
             setVisibleAjout(false);
@@ -959,31 +1027,18 @@ public class MainForm extends javax.swing.JPanel {
             Combo2.setVisible(true);
             L2.setVisible(true);
             T2.setVisible(true);
-
-            ServiceDAO servDAO = new ServiceDAO();
-            tab = servDAO.all();
-            for (int i = 0; i < tab.size(); i++) {
-                Service serv = (Service) tab.get(i);
-                String code = serv.getCode();
-                Combo1.addItem(code);
-            }
-
-            InfirmierDAO infDAO = new InfirmierDAO();
-            tab = infDAO.all();
-            for (int i = 0; i < tab.size(); i++) {
-                Infirmier inf = (Infirmier) tab.get(i);
-                int numero = inf.getNumero();
-                Combo2.addItem(numero);
-            }
-
+            
         } else if (jComboBox2.getSelectedItem().toString() == "Docteur") {
             setVisibleAjout(false);
             setNullText();
 
             L1.setText("No :");
             L2.setText("Nom :");
+            T2.setToolTipText("12 caractères maximum");
             L3.setText("Prenom :");
+            T3.setToolTipText("12 caractères maximum");
             L4.setText("Adresse :");
+            T4.setToolTipText("40 caractères maximum");
             T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
             L5.setText("Tel :");
             T5.setToolTipText("Format : 00 00 00 00 00");
@@ -1009,15 +1064,18 @@ public class MainForm extends javax.swing.JPanel {
             T5.setVisible(true);
             L6.setVisible(true);
             ComboB.setVisible(true);
-
+            
         } else if (jComboBox2.getSelectedItem().toString() == "Infirmier") {
             setVisibleAjout(false);
             setNullText();
 
             L1.setText("No :");
             L2.setText("Nom :");
+            T2.setToolTipText("12 caractères maximum");
             L3.setText("Prenom :");
+            T3.setToolTipText("12 caractères maximum");
             L4.setText("Adresse :");
+            T4.setToolTipText("40 caractères maximum");
             T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
             L5.setText("Tel :");
             T5.setToolTipText("Format : 00 00 00 00 00");
@@ -1025,25 +1083,44 @@ public class MainForm extends javax.swing.JPanel {
             ComboB.removeAllItems();
             ComboB.addItem("JOUR");
             ComboB.addItem("NUIT");
-            L7.setText("Code Service :");
-            T7.setToolTipText("Compose de 3 lettres");
-            L8.setText("Salaire :");
-            T8.setToolTipText("Format : 0.00");
-
-            setVisibleAjout(true);
-
+            L9.setText("Code Service :");
+            L7.setText("Salaire :");
+            T7.setToolTipText("Format : 0.00");
+            
+            L1.setVisible(true);
+            T1.setVisible(true);
+            L2.setVisible(true);
+            T2.setVisible(true);
+            L3.setVisible(true);
+            T3.setVisible(true);
+            L4.setVisible(true);
+            T4.setVisible(true);
+            L5.setVisible(true);
+            T5.setVisible(true);
+            L6.setVisible(true);
+            ComboB.setVisible(true);
+            L9.setVisible(true);
+            Combo1.setVisible(true);
+            L7.setVisible(true);
+            T7.setVisible(true);
+ 
+            
         } else if (jComboBox2.getSelectedItem().toString() == "Malade") {
             setVisibleAjout(false);
             setNullText();
 
             L1.setText("No :");
             L2.setText("Nom :");
+            T2.setToolTipText("12 caractères maximum");
             L3.setText("Prenom :");
+            T3.setToolTipText("12 caractères maximum");
             L4.setText("Adresse :");
+            T4.setToolTipText("40 caractères maximum");
             T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
             L5.setText("Tel :");
             T5.setToolTipText("Format : 00 00 00 00 00");
             L7.setText("Mutuelle :");
+            T7.setToolTipText("6 caractères maximum");
 
             L1.setVisible(true);
             T1.setVisible(true);
@@ -1057,15 +1134,18 @@ public class MainForm extends javax.swing.JPanel {
             T5.setVisible(true);
             L7.setVisible(true);
             T7.setVisible(true);
-
+            
         } else if (jComboBox2.getSelectedItem().toString() == "Service") {
             setVisibleAjout(false);
             setNullText();
 
             L1.setText("Code :");
+            T1.setToolTipText("3 caractères maximum");
             L2.setText("Nom :");
+            T2.setToolTipText("30 caractères maximum");
             L3.setText("Batiment :");
-            L4.setText("Directeur :");
+            T3.setToolTipText("1 caractère maximum");
+            L11.setText("Directeur :");
 
             L1.setVisible(true);
             T1.setVisible(true);
@@ -1073,8 +1153,8 @@ public class MainForm extends javax.swing.JPanel {
             T2.setVisible(true);
             L3.setVisible(true);
             T3.setVisible(true);
-            L4.setVisible(true);
-            T4.setVisible(true);
+            L11.setVisible(true);
+            Combo3.setVisible(true);
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
@@ -1121,31 +1201,78 @@ public class MainForm extends javax.swing.JPanel {
 
     private void BoutonAjoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAjoActionPerformed
         // TODO add your handling code here:
-        ArrayList tab;
+         ArrayList tab;
+        boolean condition1 = false;
+        boolean condition2 = false;
+        boolean condition3 = false;
+        boolean condition4 = false;
+        boolean condition5 = false;
+        boolean condition6 = false;
+        
         String choix = jComboBox2.getSelectedItem().toString();
         switch (choix) {
             case "Chambre":
-                if (T1.getText().length() > 3 || T1.getText().length() == 0) {
+                if (T1.getText().length() > 3 || T1.getText().length() == 0) 
+                {
                     T1.setBackground(Color.red);
-                    jOptionPane1.showMessageDialog(null, "Le numero chambre doit etre comprise entre comprise entre 0 et 999", "ERREUR", JOptionPane.ERROR_MESSAGE);
-                } else {
+                    condition1 = false;
+                } 
+                else
+                {
+                    condition1 = true;
                     T1.setBackground(Color.white);
+                    try{
+                        int test = Integer.parseInt(T1.getText());
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        T1.setBackground(Color.red);
+                        condition1 = false;
+                        jOptionPane1.showMessageDialog(null, "Le numero chambre doit être comprise entre 100 et 999", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
-
-                if (T2.getText().length() > 2 || T2.getText().length() == 0) {
+                
+                if (T2.getText().length() > 2 || T2.getText().length() == 0)
+                {
                     T2.setBackground(Color.red);
-                    jOptionPane1.showMessageDialog(null, "Le nombre de lits doit etre comprise entre comprise entre 0 et 99", "ERREUR", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    T2.setBackground(Color.white);
+                    condition2 = false;
                 }
-
-                if ((T1.getText().length() <= 3 && T1.getText().length() != 0) || (T2.getText().length() <= 2 && T2.getText().length() != 0)) {
+                else
+                {
+                    T2.setBackground(Color.white);
+                    condition2 = true;
+                    try{
+                        int test = Integer.parseInt(T2.getText());
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        T2.setBackground(Color.red);
+                        condition1 = false;
+                        jOptionPane1.showMessageDialog(null, "Le nombre de lits doit être comprise entre comprise entre 0 et 99", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                
+                if(condition1 && condition2)
+                {
                     DAO<Chambre> chambreDAO = new ChambreDAO();
                     try {
                         String code = Combo1.getSelectedItem().toString();
                         int no = Integer.parseInt(T1.getText());
                         int surveillant = (int) Combo2.getSelectedItem();
                         int lits = Integer.parseInt(T2.getText());
+                        
+                        ChambreDAO chamDAO = new ChambreDAO();
+                        tab = chamDAO.all();
+                        for(int i=0; i<tab.size(); i++)
+                        {
+                            Chambre cham = (Chambre) tab.get(i);
+                            int numero_test = cham.getNo_chambre();
+                            String code_test = cham.getCode_service();
+                            if((no == numero_test) && (code.equals(code_test)))
+                            {
+                                no =Integer.parseInt("a");
+                            }                           
+                        }
 
                         Chambre cham = new Chambre(code, no, surveillant, lits);
                         chambreDAO.create(cham);
@@ -1153,29 +1280,84 @@ public class MainForm extends javax.swing.JPanel {
                         jOptionPane1.showMessageDialog(null, "La chambre a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
                         setNullText();
                     } catch (NumberFormatException e) {
-                        jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                        T1.setBackground(Color.red);
+                        jOptionPane1.showMessageDialog(null, "La chambre existe déjà dans la base de donnée", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
                     }
-
+                    
                 }
                 break;
 
-            case "Docteur":
-                if (T1.getText().length() > 4 || T1.getText().length() == 0) {
+            case "Docteur":                        
+                //BLINDAGE
+                //No est vide 
+                if (T1.getText().length() > 4 || T1.getText().length() == 0) 
+                {
                     T1.setBackground(Color.red);
-                    jOptionPane1.showMessageDialog(null, "Le numero du docteur doit etre comprise entre 0 et 9999", "ERREUR", JOptionPane.ERROR_MESSAGE);
-
-                } else {
+                    condition1 = false;
+                } 
+                else
+                {
+                    condition1 = true;
                     T1.setBackground(Color.white);
+                    try{
+                        int test = Integer.parseInt(T1.getText());
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        T1.setBackground(Color.red);
+                        condition1 = false;
+                        jOptionPane1.showMessageDialog(null, "Le numero du docteur doit être comprise entre 0 et 9999", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
-
-                if (T5.getText().length() != 14) {
+                //Nom est vide
+                if(T2.getText().length() > 12 || T2.getText().length() == 0)
+                {
+                    T2.setBackground(Color.red);
+                    condition2 = false;
+                }
+                else
+                {
+                    condition2 = true;
+                    T2.setBackground(Color.white);
+                }
+                //Prenom est vide
+                if(T3.getText().length() > 12 || T3.getText().length() == 0)
+                {
+                    T3.setBackground(Color.red);
+                    condition3 = false;
+                }
+                else
+                {
+                    condition3 = true;
+                    T3.setBackground(Color.white);
+                }
+                //Adresse est vide
+                if(T4.getText().length() > 40 || T4.getText().length() == 0)
+                {
+                    T4.setBackground(Color.red);
+                    condition4 = false;
+                }
+                else
+                {
+                    condition4 = true;
+                    T4.setBackground(Color.white);
+                }
+                
+                //Tel est vide
+                if (T5.getText().length() != 14) 
+                {
                     T5.setBackground(Color.red);
-                    jOptionPane1.showMessageDialog(null, "Le format du tel doit etre : 00 00 00 00 00", "ERREUR", JOptionPane.ERROR_MESSAGE);
-                } else {
+                    condition5 = false;
+                    jOptionPane1.showMessageDialog(null, "Le format du tel doit être : 00 00 00 00 00", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                } 
+                else
+                {
+                    condition5 = true;
                     T5.setBackground(Color.white);
                 }
-
-                if ((T1.getText().length() < 4 && T1.getText().length() != 0) || T5.getText().length() == 14) {
+                
+                if(condition1 && condition2 && condition3 && condition4 && condition5)
+                {
                     DAO<Docteur> docteurDAO = new DocteurDAO();
                     try {
                         int numero = Integer.parseInt(T1.getText());
@@ -1184,16 +1366,18 @@ public class MainForm extends javax.swing.JPanel {
                         String adresse = T4.getText();
                         String tel = T5.getText();
                         String spe = ComboB.getSelectedItem().toString();
-
-                        DocteurDAO docDAO = new DocteurDAO();
-                        tab = docDAO.all();
-                        for (int i = 0; i < tab.size(); i++) {
-                            Docteur doc = (Docteur) tab.get(i);
-                            int numero_test = doc.getNumero();
-                            if (numero_test == numero) {
-                                numero = Integer.parseInt("a");
+                        
+                        EmployeDAO empDAO = new EmployeDAO();
+                        tab = empDAO.all();
+                        for(int i=0; i<tab.size(); i++)
+                        {
+                            Employe emp = (Employe) tab.get(i);
+                            int numero_test = emp.getNumero();
+                            if(numero_test == numero)
+                            {
+                                numero =Integer.parseInt("a");
                             }
-
+                           
                         }
                         Docteur doc = new Docteur(numero, nom, prenom, tel, adresse, spe);
                         docteurDAO.create(doc);
@@ -1201,35 +1385,310 @@ public class MainForm extends javax.swing.JPanel {
                         jOptionPane1.showMessageDialog(null, "Le docteur a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
                         setNullText();
                     } catch (NumberFormatException e) {
-                        jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                        T1.setBackground(Color.red);
+                        jOptionPane1.showMessageDialog(null, "Ce numero est déjà utilisé dans la base de donnée", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
-
+                    
                 }
                 break;
 
             case "Infirmier":
-                if (T1.getText().length() > 4 || T7.getText().length() != 3 || T5.getText().length() != 14) {
-                    jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
-                    setNullText();
-                } else {
+                //BLINDAGE
+                //No est vide
+                if (T1.getText().length() > 4 || T1.getText().length() == 0) 
+                {
+                    T1.setBackground(Color.red);
+                    condition1 = false;
+                } 
+                else
+                {
+                    condition1 = true;
+                    T1.setBackground(Color.white);
+                    try{
+                        int test = Integer.parseInt(T1.getText());
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        T1.setBackground(Color.red);
+                        condition1 = false;
+                        jOptionPane1.showMessageDialog(null, "Le numero de l'infirmier doit être comprise entre 0 et 9999", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                //Nom est vide
+                if(T2.getText().length() > 12 || T2.getText().length() == 0)
+                {
+                    T2.setBackground(Color.red);
+                    condition2 = false;
+                }
+                else
+                {
+                    condition2 = true;
+                    T2.setBackground(Color.white);
+                }
+                //Prenom est vide
+                if(T3.getText().length() > 12 || T3.getText().length() == 0)
+                {
+                    T3.setBackground(Color.red);
+                    condition3 = false;
+                }
+                else
+                {
+                    condition3 = true;
+                    T3.setBackground(Color.white);
+                }
+                //Adresse est vide
+                if(T4.getText().length() > 40 || T4.getText().length() == 0)
+                {
+                    T4.setBackground(Color.red);
+                    condition4 = false;
+                }
+                else
+                {
+                    condition4 = true;
+                    T4.setBackground(Color.white);
+                }  
+                //Tel est vide
+                if (T5.getText().length() != 14) 
+                {
+                    T5.setBackground(Color.red);
+                    condition5 = false;
+                    jOptionPane1.showMessageDialog(null, "Le format du tel doit être : 00 00 00 00 00", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                } 
+                else
+                {
+                    condition5 = true;
+                    T5.setBackground(Color.white);
+                }
+                //Salaire est vide
+                condition6 = true;
+                T7.setBackground(Color.white);
+                try{
+                    double test = Double.parseDouble(T7.getText());
+                    if(test > 9999.99)
+                    {
+                        test = Double.parseDouble("a");
+                    }
+                }
+                catch (NumberFormatException e)
+                {
+                    T7.setBackground(Color.red);
+                    condition6 = false;
+                    jOptionPane1.showMessageDialog(null, "Le salaire est incorrect", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                }
+                
+                
+                if(condition1 && condition2 && condition3 && condition4 && condition5 && condition6)
+                {
                     DAO<Infirmier> infirmierDAO = new InfirmierDAO();
+                    try {
+                        int numero = Integer.parseInt(T1.getText());
+                        String code = Combo1.getSelectedItem().toString();
+                        String nom = T2.getText();
+                        String prenom = T3.getText();
+                        String adresse = T4.getText();
+                        String tel = T5.getText();
+                        String rotation = ComboB.getSelectedItem().toString();
+                        double salaire = Double.parseDouble(T7.getText());
+                        
+                        EmployeDAO empDAO = new EmployeDAO();
+                        tab = empDAO.all();
+                        for(int i=0; i<tab.size(); i++)
+                        {
+                            Employe emp = (Employe) tab.get(i);
+                            int numero_test = emp.getNumero();
+                            if(numero_test == numero)
+                            {
+                                numero =Integer.parseInt("a");
+                            }
+                        }
+                        Infirmier inf = new Infirmier(numero, nom, prenom, tel, adresse, code, rotation, salaire);
+                        infirmierDAO.create(inf);
+                        jOptionPane1.showMessageDialog(null, "L'infirmier a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                        setNullText();
+                    } catch (NumberFormatException e) {
+                        T1.setBackground(Color.red);
+                        jOptionPane1.showMessageDialog(null, "Ce numero est déjà utilisé dans la base de donnée", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
+                }
+                break;
+            case "Malade":                        
+                //BLINDAGE
+                //No est vide
+                if (T1.getText().length() > 4 || T1.getText().length() == 0) 
+                {
+                    T1.setBackground(Color.red);
+                    condition1 = false;
+                } 
+                else
+                {
+                    condition1 = true;
+                    T1.setBackground(Color.white);
+                    try{
+                        int test = Integer.parseInt(T1.getText());
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        T1.setBackground(Color.red);
+                        condition1 = false;
+                        jOptionPane1.showMessageDialog(null, "Le numero du malade doit être comprise entre 0 et 9999", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                //Nom est vide
+                if(T2.getText().length() > 12 || T2.getText().length() == 0)
+                {
+                    T2.setBackground(Color.red);
+                    condition2 = false;
+                }
+                else
+                {
+                    condition2 = true;
+                    T2.setBackground(Color.white);
+                }
+                //Prenom est vide
+                if(T3.getText().length() > 12 || T3.getText().length() == 0)
+                {
+                    T3.setBackground(Color.red);
+                    condition3 = false;
+                }
+                else
+                {
+                    condition3 = true;
+                    T3.setBackground(Color.white);
+                }
+                //Adresse est vide 
+                if(T4.getText().length() > 40 || T4.getText().length() == 0)
+                {
+                    T4.setBackground(Color.red);
+                    condition4 = false;
+                }
+                else
+                {
+                    condition4 = true;
+                    T4.setBackground(Color.white);
+                }  
+                //Tel est vide 
+                if (T5.getText().length() != 14) 
+                {
+                    T5.setBackground(Color.red);
+                    condition5 = false;
+                    jOptionPane1.showMessageDialog(null, "Le format du tel doit être : 00 00 00 00 00", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                } 
+                else
+                {
+                    condition5 = true;
+                    T5.setBackground(Color.white);
+                }
+                //Mutuelle est vide
+                if (T7.getText().length() > 6 || T7.getText().length() == 0) 
+                {
+                    T7.setBackground(Color.red);
+                    condition6 = false;
+                } 
+                else
+                {
+                    condition6 = true;
+                    T7.setBackground(Color.white);
+                }
+
+                if(condition1 && condition2 && condition3 && condition4 && condition5 && condition6)
+                {
                     try {
                         int numero = Integer.parseInt(T1.getText());
                         String nom = T2.getText();
                         String prenom = T3.getText();
                         String adresse = T4.getText();
                         String tel = T5.getText();
-                        String rotation = ComboB.getSelectedItem().toString();
-                        String code = T7.getText();
-                        double salaire = Double.parseDouble(T8.getText());
-                        Infirmier inf = new Infirmier(numero, nom, prenom, tel, adresse, code, rotation, salaire);
-                        infirmierDAO.create(inf);
+                        String mutuelle = T7.getText();
+                        
 
-                        jOptionPane1.showMessageDialog(null, "L'infirmier a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                        MaladeDAO maladeDAO = new MaladeDAO();
+                        tab = maladeDAO.all();
+                        for(int i=0; i<tab.size(); i++)
+                        {
+                            Malade malade_test = (Malade) tab.get(i);
+                            int numero_test = malade_test.getNumero();
+                            if(numero_test == numero)
+                            {
+                                numero =Integer.parseInt("a");
+                            }
+                        }
+                        Malade malade = new Malade(numero, nom, prenom, tel, adresse, mutuelle);
+                        maladeDAO.create(malade);
+                        jOptionPane1.showMessageDialog(null, "Le malade a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                        setNullText();
                     } catch (NumberFormatException e) {
-                        jOptionPane1.showMessageDialog(null, "Erreur de saisie", "ERREUR", JOptionPane.ERROR_MESSAGE);
+                        T1.setBackground(Color.red);
+                        jOptionPane1.showMessageDialog(null, "Ce numero est déjà utilisé dans la base de donnée", "ERREUR", JOptionPane.ERROR_MESSAGE);
                     }
-                    setNullText();
+                    
+                }
+                break;
+            case "Service" :
+                //BLINDAGE
+                //Code est vide
+                if (T1.getText().length() > 3 || T1.getText().length() == 0) 
+                {
+                    T1.setBackground(Color.red);
+                    condition1 = false;
+                } 
+                else
+                {
+                    condition1 = true;
+                    T1.setBackground(Color.white);
+                }
+                //Nom est vide
+                if (T2.getText().length() > 30 || T2.getText().length() == 0)
+                {
+                    T2.setBackground(Color.red);
+                    condition2 = false;
+                }
+                else
+                {
+                    T2.setBackground(Color.white);
+                    condition2 = true;
+                }
+                //Batiment est vide
+                if (T3.getText().length() > 1 || T2.getText().length() == 0)
+                {
+                    T3.setBackground(Color.red);
+                    condition3 = false;
+                }
+                else
+                {
+                    T3.setBackground(Color.white);
+                    condition3 = true;
+                }
+                
+                if(condition1 && condition2 && condition3)
+                {
+                    try {
+                        String code = T1.getText();
+                        String nom = T2.getText();
+                        String batiment = T3.getText();
+                        int directeur = Integer.parseInt(Combo3.getSelectedItem().toString());
+                        
+                        ServiceDAO servDAO = new ServiceDAO();
+                        tab = servDAO.all();
+                        for(int i=0; i<tab.size(); i++)
+                        {
+                            Service serv = (Service) tab.get(i);
+                            String code_test = serv.getCode();
+                            if(code.equals(code_test))
+                            {
+                                int no =Integer.parseInt("a");
+                            }                           
+                        }
+
+                        Service serv = new Service(code, nom, batiment, directeur);
+                        servDAO.create(serv);
+                        jOptionPane1.showMessageDialog(null, "Le service a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                        setNullText();
+                    } catch (NumberFormatException e) {
+                        T1.setBackground(Color.red);
+                        jOptionPane1.showMessageDialog(null, "Ce code service existe déjà dans la base de donnée", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
+                    }
+                    
                 }
                 break;
 
@@ -1244,16 +1703,22 @@ public class MainForm extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Combo2ActionPerformed
 
+    private void Combo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Combo3ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BoutonAff;
     private javax.swing.JButton BoutonAjo;
     private javax.swing.JToggleButton BoutonSuppr;
     private javax.swing.JComboBox Combo1;
     private javax.swing.JComboBox Combo2;
+    private javax.swing.JComboBox Combo3;
     private javax.swing.JComboBox ComboB;
     private javax.swing.JComboBox ComboRequete;
     private javax.swing.JLabel L1;
     private javax.swing.JLabel L10;
+    private javax.swing.JLabel L11;
     private javax.swing.JLabel L2;
     private javax.swing.JLabel L3;
     private javax.swing.JLabel L4;

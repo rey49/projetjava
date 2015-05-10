@@ -71,15 +71,16 @@ public class InfirmierDAO extends DAO<Infirmier> {
     @Override
     public Infirmier create(Infirmier obj) {
         try {
+            DAO<Employe> employeDAO = new EmployeDAO();
+            Employe emp = new Employe(obj.getNumero(), obj.getNom(), obj.getPrenom(), obj.getTel(), obj.getAdresse());
+            employeDAO.create(emp); 
+            
             this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
             ).executeUpdate(
                     "INSERT into infirmier values(" + obj.getNumero() + ",'" + obj.getCode_service() + "','" + obj.getRotation() + "'," + obj.getSalaire() + ");"
             );
-            DAO<Employe> employeDAO = new EmployeDAO();
-            Employe emp = new Employe(obj.getNumero(), obj.getNom(), obj.getPrenom(), obj.getTel(), obj.getAdresse());
-            employeDAO.create(emp); 
             
         } catch (SQLException e) {
             e.printStackTrace();
@@ -102,6 +103,7 @@ public class InfirmierDAO extends DAO<Infirmier> {
                     + "rotation = '" + obj.getRotation()+ "', " + "salaire =  '" + obj.getSalaire()
                     + " WHERE numero = '" + obj.getNumero() + "';"
             );
+            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
