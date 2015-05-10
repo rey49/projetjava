@@ -18,6 +18,13 @@ public class Hospitalisation {
     
     public Hospitalisation() {
     }
+        /**
+     * Constructeur : initialise les données d'un infirmier
+     * @param no_malade l'identifiant unique du malade
+     * @param code_service l'identifiant du service
+     * @param no_chambre numero de la chambre liée a l'hospitalisation
+     * @param no_lit le numéro de lit lié à l'hospitalisation
+     */
     
     public Hospitalisation(int no_malade,String code_service, int no_chambre, int no_lit)
     {
