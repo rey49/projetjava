@@ -2,6 +2,7 @@ package Vue;
 
 import DAO.ChambreDAO;
 import DAO.*;
+import controleur.Reporting;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -11,6 +12,7 @@ import modele.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 
@@ -93,12 +95,16 @@ public class MainForm extends javax.swing.JPanel {
         LabelChoix = new javax.swing.JLabel();
         choix_table = new javax.swing.JComboBox();
         BoutonAff = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jOptionPane1 = new javax.swing.JOptionPane();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        Diag1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        choix_requete = new javax.swing.JComboBox();
+        Diag2 = new javax.swing.JButton();
 
         LabelTable.setText("Table :");
 
@@ -395,32 +401,6 @@ public class MainForm extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Lecture et Modification", jPanel1);
 
-        jButton1.setText("Test_reporting");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(793, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(766, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Reporting", jPanel4);
-
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.PAGE_AXIS));
 
         jButton2.setText("jButton2");
@@ -459,6 +439,73 @@ public class MainForm extends javax.swing.JPanel {
         jPanel3.add(jPanel7);
 
         jTabbedPane1.addTab("Requête", jPanel3);
+
+        jPanel8.setBackground(new java.awt.Color(50, 180, 255));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+
+        Diag1.setText("Circulaire");
+        Diag1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Diag1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Afficher un diagramme :");
+
+        choix_requete.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Docteurs/Spécialité", "Malades/Mutuelle" }));
+
+        Diag2.setText("En barres");
+        Diag2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Diag2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Diag1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(choix_requete, 0, 189, Short.MAX_VALUE)
+                    .addComponent(Diag2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Diag1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Diag2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(188, 188, 188)
+                        .addComponent(choix_requete, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Reporting", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1617,6 +1664,43 @@ public class MainForm extends javax.swing.JPanel {
         req.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void Diag1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Diag1ActionPerformed
+        int dim = 800;
+        JFreeChart chart;
+        Reporting monR = new Reporting();
+        
+        //génération du diagramme
+        chart = monR.circulaire(choix_requete.getSelectedIndex());
+        
+        //affichage du diagramme
+        PiePlot p = (PiePlot) chart.getPlot();
+        ChartPanel panel = new ChartPanel(chart);
+        panel.setSize(dim, dim);
+        jPanel8.removeAll();
+        jPanel8.add(panel);
+        jPanel8.repaint();
+        jPanel8.revalidate();
+    }//GEN-LAST:event_Diag1ActionPerformed
+
+    private void Diag2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Diag2ActionPerformed
+        int dim = 800;
+        JFreeChart chart;
+        Reporting monR = new Reporting();
+        
+        //génération du diagramme
+        chart = monR.barres(choix_requete.getSelectedIndex());
+        
+        //affichage du diagramme
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.blue);
+        ChartPanel panel = new ChartPanel(chart);
+        panel.setSize(dim, dim);
+        jPanel8.removeAll();
+        jPanel8.add(panel);
+        jPanel8.repaint();
+        jPanel8.revalidate();
+    }//GEN-LAST:event_Diag2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BoutonAff;
     private javax.swing.JButton BoutonAjo;
@@ -1625,6 +1709,8 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JComboBox Combo2;
     private javax.swing.JComboBox Combo3;
     private javax.swing.JComboBox ComboB;
+    private javax.swing.JButton Diag1;
+    private javax.swing.JButton Diag2;
     private javax.swing.JLabel L1;
     private javax.swing.JLabel L10;
     private javax.swing.JLabel L11;
@@ -1649,10 +1735,11 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JTextField T7;
     private javax.swing.JTextField T8;
     private javax.swing.JTable Table_md;
+    private javax.swing.JComboBox choix_requete;
     public javax.swing.JComboBox choix_table;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1661,6 +1748,7 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JTable table_aff;
