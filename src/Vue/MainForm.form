@@ -69,12 +69,19 @@
                               <Component id="jComboBox2" min="-2" pref="89" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
+                              <Component id="BoutonAjo" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="390" max="-2" attributes="0"/>
-                              <Component id="BoutonAjo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="PanelChoix" min="-2" max="-2" attributes="0"/>
+                                  <Component id="L12" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace pref="180" max="32767" attributes="0"/>
@@ -91,7 +98,11 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="290" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="L12" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="PanelChoix" min="-2" pref="161" max="-2" attributes="0"/>
+                      <EmptySpace pref="255" max="32767" attributes="0"/>
                       <Component id="BoutonAjo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
@@ -128,22 +139,22 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="T2" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
-                              <Component id="L2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="L3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="T3" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
-                              <Component id="T4" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
-                              <Component id="L4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="T1" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
-                              <Component id="L1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="ComboB" min="-2" pref="227" max="-2" attributes="0"/>
                               <Component id="L6" min="-2" max="-2" attributes="0"/>
                               <Component id="T5" min="-2" pref="227" max="-2" attributes="0"/>
                               <Component id="L5" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="T2" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
+                                      <Component id="L2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="L3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="T3" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
+                                      <Component id="T4" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
+                                      <Component id="L4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="T1" alignment="0" min="-2" pref="227" max="-2" attributes="0"/>
+                                      <Component id="L1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -167,20 +178,13 @@
                                           </Group>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="L11" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ComboM" min="-2" pref="227" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="279" max="32767" attributes="0"/>
+                                          <Component id="L11" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="L12" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -199,7 +203,7 @@
                               <Component id="Combo1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="Combo2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="L2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="L7" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -230,15 +234,9 @@
                               <Component id="Combo3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="L5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="L12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="L5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="T5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ComboM" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="T5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="L6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -456,19 +454,6 @@
                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="L11.setVisible(false);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="ComboM">
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ComboM.setVisible(false);"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JLabel" name="L12">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="L12"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="L12.setVisible(false);"/>
-                  </AuxValues>
-                </Component>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JButton" name="BoutonAjo">
@@ -478,6 +463,29 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonAjoActionPerformed"/>
               </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="PanelChoix">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="PanelChoix.setVisible(false);"/>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="Table_md">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Table_md.setVisible(false);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="L12">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="L12"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="L12.setVisible(false);"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -505,7 +513,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="PanelLecture" alignment="1" pref="701" max="32767" attributes="0"/>
+                      <Component id="PanelLecture" alignment="1" pref="859" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -594,7 +602,7 @@
                           <Component id="LabelChoix" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="choix_table" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="575" max="32767" attributes="0"/>
+                          <EmptySpace pref="733" max="32767" attributes="0"/>
                           <Component id="BoutonAff" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -672,7 +680,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="98" max="-2" attributes="0"/>
-                      <EmptySpace pref="543" max="32767" attributes="0"/>
+                      <EmptySpace pref="701" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -723,7 +731,7 @@
                               <Component id="LabelReq" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="ComboRequete" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="125" max="32767" attributes="0"/>
+                          <EmptySpace pref="208" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -761,11 +769,11 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="517" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="592" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="PanelReq" pref="506" max="32767" attributes="0"/>
+                              <Component id="PanelReq" pref="581" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

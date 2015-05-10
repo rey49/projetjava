@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 import modele.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -80,9 +81,10 @@ public class MainForm extends javax.swing.JPanel {
         Combo2 = new javax.swing.JComboBox();
         Combo3 = new javax.swing.JComboBox();
         L11 = new javax.swing.JLabel();
-        ComboM = new javax.swing.JComboBox();
-        L12 = new javax.swing.JLabel();
         BoutonAjo = new javax.swing.JButton();
+        PanelChoix = new javax.swing.JScrollPane();
+        Table_md = new javax.swing.JTable();
+        L12 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         PanelLecture = new javax.swing.JScrollPane();
@@ -212,11 +214,6 @@ public class MainForm extends javax.swing.JPanel {
         L11.setVisible(false);
         L11.setText("L11");
 
-        ComboM.setVisible(false);
-
-        L12.setVisible(false);
-        L12.setText("L12");
-
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -224,21 +221,21 @@ public class MainForm extends javax.swing.JPanel {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(T2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L2)
-                    .addComponent(L3)
-                    .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L4)
-                    .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L1)
                     .addComponent(ComboB, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(L6)
                     .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L5))
-                .addGap(53, 53, 53)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(L5)
                     .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(T2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L2)
+                            .addComponent(L3)
+                            .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L4)
+                            .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L1))
+                        .addGap(53, 53, 53)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,14 +254,9 @@ public class MainForm extends javax.swing.JPanel {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(Combo2, 0, 227, Short.MAX_VALUE)))
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(L11)
-                                    .addComponent(ComboM, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 279, Short.MAX_VALUE)))
-                        .addGap(20, 20, 20))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(L12)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(L11)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(20, 20, 20))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +271,7 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Combo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Combo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(L2)
                     .addComponent(L7))
@@ -304,13 +296,9 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Combo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(L5)
-                    .addComponent(L12))
+                .addComponent(L5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(L6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -324,6 +312,14 @@ public class MainForm extends javax.swing.JPanel {
             }
         });
 
+        PanelChoix.setVisible(false);
+
+        Table_md.setVisible(false);
+        PanelChoix.setViewportView(Table_md);
+
+        L12.setVisible(false);
+        L12.setText("L12");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -336,11 +332,16 @@ public class MainForm extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(390, 390, 390)
+                        .addComponent(BoutonAjo))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(390, 390, 390)
-                        .addComponent(BoutonAjo)))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PanelChoix, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(L12))))
                 .addContainerGap(180, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -352,7 +353,11 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(L12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelChoix, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
                 .addComponent(BoutonAjo)
                 .addGap(22, 22, 22))
         );
@@ -381,7 +386,7 @@ public class MainForm extends javax.swing.JPanel {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelLecture, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE)
+            .addComponent(PanelLecture, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel5);
@@ -426,7 +431,7 @@ public class MainForm extends javax.swing.JPanel {
                 .addComponent(LabelChoix)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(choix_table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 575, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 733, Short.MAX_VALUE)
                 .addComponent(BoutonAff)
                 .addContainerGap())
         );
@@ -456,7 +461,7 @@ public class MainForm extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(543, Short.MAX_VALUE))
+                .addContainerGap(701, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reporting", jPanel4);
@@ -485,7 +490,7 @@ public class MainForm extends javax.swing.JPanel {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelReq)
                     .addComponent(ComboRequete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel7);
@@ -513,11 +518,11 @@ public class MainForm extends javax.swing.JPanel {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGap(0, 592, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel8Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(PanelReq, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)))
+                    .addComponent(PanelReq, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)))
         );
 
         jPanel3.add(jPanel8);
@@ -964,21 +969,71 @@ public class MainForm extends javax.swing.JPanel {
             Combo3.addItem(numero);
         }
     }
-    
-    private void setAllMaladeComboBox() {
+
+    private void setAllDocteurTable() {
         ArrayList tab;
-        MaladeDAO maDAO = new MaladeDAO();
-        tab = maDAO.all();
-        ComboM.removeAllItems();
+        String[] title;
+        CustomModel tableModel = new CustomModel();
+
+        //declaration d'une nouvelle classe DAO
+        DocteurDAO docDAO = new DocteurDAO();
+
+        //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+        tab = docDAO.all();
+
+        //création des titres des colonnes
+        title = new String[]{"Numero", "Nom", "Prenom", "Specialite", "est soigné par"};
+        tableModel.setColumnIdentifiers(title);
+
+        //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
         for (int i = 0; i < tab.size(); i++) {
-            Malade ma = (Malade) tab.get(i);
-            int numero = ma.getNumero();
-            ComboM.addItem(numero);
+            Docteur elem = (Docteur) tab.get(i);
+            Object obj[] = {
+                elem.getNumero(),
+                elem.getNom(),
+                elem.getPrenom(),
+                elem.getSpecialite(),
+                new Boolean(false),};
+            tableModel.addRow(obj);
         }
+
+        //affichage du JTable remplis avec les informations demandées par l'utilisateur
+        Table_md.setModel(tableModel);
+        PanelChoix.setViewportView(Table_md);
+    }
+
+    private void setAllMaladeTable() {
+        ArrayList tab;
+        String[] title;
+        CustomModel tableModel = new CustomModel();
+
+        //declaration d'une nouvelle classe DAO
+        MaladeDAO maDAO = new MaladeDAO();
+
+        //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+        tab = maDAO.all();
+
+        //création des titres des colonnes
+        title = new String[]{"Numero", "Nom", "Prenom", "soigne"};
+        tableModel.setColumnIdentifiers(title);
+
+        //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+        for (int i = 0; i < tab.size(); i++) {
+            Malade elem = (Malade) tab.get(i);
+            Object obj[] = {
+                elem.getNumero(),
+                elem.getNom(),
+                elem.getPrenom(),
+                new Boolean(false),};
+            tableModel.addRow(obj);
+        }
+
+        //affichage du JTable remplis avec les informations demandées par l'utilisateur
+        Table_md.setModel(tableModel);
+        PanelChoix.setViewportView(Table_md);
     }
 
     //Permet de rendre visible ou non nos boutons
-
     private void setVisibleAjout(boolean a) {
         L1.setVisible(a);
         T1.setVisible(a);
@@ -1003,7 +1058,8 @@ public class MainForm extends javax.swing.JPanel {
         L11.setVisible(a);
         Combo3.setVisible(a);
         L12.setVisible(a);
-        ComboM.setVisible(a);
+        PanelChoix.setVisible(a);
+        Table_md.setVisible(a);
 
     }
 
@@ -1030,7 +1086,6 @@ public class MainForm extends javax.swing.JPanel {
         setAllServiceComboBox();
         setAllInfirmierComboBox();
         setAllDocteurComboBox();
-        setAllMaladeComboBox();
 
         switch (jComboBox2.getSelectedItem().toString()) {
             case "Chambre":
@@ -1057,6 +1112,7 @@ public class MainForm extends javax.swing.JPanel {
             case "Docteur":
                 setVisibleAjout(false);
                 setNullText();
+                setAllMaladeTable();
                 L1.setText("No :");
                 L2.setText("Nom :");
                 T2.setToolTipText("12 caractères maximum");
@@ -1068,6 +1124,7 @@ public class MainForm extends javax.swing.JPanel {
                 L5.setText("Tel :");
                 T5.setToolTipText("Format : 00 00 00 00 00");
                 L6.setText("Specialite :");
+                L12.setText("Soigne :");
                 ComboB.removeAllItems();
                 ComboB.addItem("Anesthesiste");
                 ComboB.addItem("Cardiologue");
@@ -1076,7 +1133,6 @@ public class MainForm extends javax.swing.JPanel {
                 ComboB.addItem("Pneumologue");
                 ComboB.addItem("Radiologue");
                 ComboB.addItem("Traumatologue");
-                L12.setText("Malade soigné :");
                 L1.setVisible(true);
                 T1.setVisible(true);
                 L2.setVisible(true);
@@ -1090,7 +1146,8 @@ public class MainForm extends javax.swing.JPanel {
                 L6.setVisible(true);
                 L12.setVisible(true);
                 ComboB.setVisible(true);
-                ComboM.setVisible(true);
+                PanelChoix.setVisible(true);
+                Table_md.setVisible(true);
                 break;
             case "Infirmier":
                 setVisibleAjout(false);
@@ -1132,6 +1189,7 @@ public class MainForm extends javax.swing.JPanel {
             case "Malade":
                 setVisibleAjout(false);
                 setNullText();
+                setAllDocteurTable();
                 L1.setText("No :");
                 L2.setText("Nom :");
                 T2.setToolTipText("12 caractères maximum");
@@ -1144,7 +1202,7 @@ public class MainForm extends javax.swing.JPanel {
                 T5.setToolTipText("Format : 00 00 00 00 00");
                 L7.setText("Mutuelle :");
                 T7.setToolTipText("6 caractères maximum");
-                L11.setText("soigné par :");
+                L12.setText("est soigné par :");
                 L1.setVisible(true);
                 T1.setVisible(true);
                 L2.setVisible(true);
@@ -1157,8 +1215,9 @@ public class MainForm extends javax.swing.JPanel {
                 T5.setVisible(true);
                 L7.setVisible(true);
                 T7.setVisible(true);
-                L11.setVisible(true);
-                Combo3.setVisible(true);
+                L12.setVisible(true);
+                PanelChoix.setVisible(true);
+                Table_md.setVisible(true);
                 break;
             case "Service":
                 setVisibleAjout(false);
@@ -1359,6 +1418,16 @@ public class MainForm extends javax.swing.JPanel {
                         String adresse = T4.getText();
                         String tel = T5.getText();
                         String spe = ComboB.getSelectedItem().toString();
+                        ArrayList<Integer> tab_ma = new ArrayList<>();
+
+                        //récupération des docteurs sélectionnés
+                        CustomModel model = (CustomModel) Table_md.getModel();
+
+                        for (int i = 0; i < model.getRowCount(); i++) {
+                            if ((Boolean) model.getValueAt(i, (model.getColumnCount() - 1))) {
+                                tab_ma.add(Integer.parseInt(model.getValueAt(i, 0).toString()));
+                            }
+                        }
 
                         EmployeDAO empDAO = new EmployeDAO();
                         tab = empDAO.all();
@@ -1371,10 +1440,12 @@ public class MainForm extends javax.swing.JPanel {
 
                         }
                         Docteur doc = new Docteur(numero, nom, prenom, tel, adresse, spe);
+                        doc.setTab_ma(tab_ma);
                         docteurDAO.create(doc);
 
                         jOptionPane1.showMessageDialog(null, "Le docteur a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
                         setNullText();
+                        setAllMaladeTable();
                     } catch (NumberFormatException e) {
                         T1.setBackground(Color.red);
                         jOptionPane1.showMessageDialog(null, "Ce numero est déjà utilisé dans la base de donnée", "ERREUR", JOptionPane.ERROR_MESSAGE);
@@ -1546,6 +1617,16 @@ public class MainForm extends javax.swing.JPanel {
                         String adresse = T4.getText();
                         String tel = T5.getText();
                         String mutuelle = T7.getText();
+                        ArrayList<Integer> tab_doc = new ArrayList<>();
+
+                        //récupération des docteurs sélectionnés
+                        CustomModel model = (CustomModel) Table_md.getModel();
+
+                        for (int i = 0; i < model.getRowCount(); i++) {
+                            if ((Boolean) model.getValueAt(i, (model.getColumnCount() - 1))) {
+                                tab_doc.add(Integer.parseInt(model.getValueAt(i, 0).toString()));
+                            }
+                        }
 
                         MaladeDAO maladeDAO = new MaladeDAO();
                         tab = maladeDAO.all();
@@ -1557,9 +1638,11 @@ public class MainForm extends javax.swing.JPanel {
                             }
                         }
                         Malade malade = new Malade(numero, nom, prenom, tel, adresse, mutuelle);
+                        malade.setTab_docteur(tab_doc);
                         maladeDAO.create(malade);
                         jOptionPane1.showMessageDialog(null, "Le malade a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
                         setNullText();
+                        setAllDocteurTable();
                     } catch (NumberFormatException e) {
                         T1.setBackground(Color.red);
                         jOptionPane1.showMessageDialog(null, "Ce numero est déjà utilisé dans la base de donnée", "ERREUR", JOptionPane.ERROR_MESSAGE);
@@ -1646,7 +1729,6 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JComboBox Combo2;
     private javax.swing.JComboBox Combo3;
     private javax.swing.JComboBox ComboB;
-    private javax.swing.JComboBox ComboM;
     private javax.swing.JComboBox ComboRequete;
     private javax.swing.JLabel L1;
     private javax.swing.JLabel L10;
@@ -1663,6 +1745,7 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JLabel LabelChoix;
     private javax.swing.JLabel LabelReq;
     private javax.swing.JLabel LabelTable;
+    private javax.swing.JScrollPane PanelChoix;
     private javax.swing.JScrollPane PanelLecture;
     private javax.swing.JScrollPane PanelReq;
     private javax.swing.JTextField T1;
@@ -1673,6 +1756,7 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JTextField T7;
     private javax.swing.JTextField T8;
     private javax.swing.JTable TableReq;
+    private javax.swing.JTable Table_md;
     public javax.swing.JComboBox choix_table;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox2;
