@@ -6,7 +6,7 @@
 package modele;
 
 /**
- *
+ * Default Constructeur
  * @author Gib
  */
 public class Personne
@@ -37,24 +37,24 @@ public class Personne
     //Getter
 
     /**
-     *
-     * @return
+     * Getter : getNom
+     * @return nom
      */
         public String getNom() {
         return nom;
     }
 
     /**
-     *
-     * @return
+     * Getter : getPrenom
+     * @return prenom
      */
     public String getPrenom() {
         return prenom;
     }
 
     /**
-     *
-     * @return
+     * Getter : getTel
+     * @return tel
      */
     public String getTel() {
         return tel;
@@ -63,7 +63,7 @@ public class Personne
     //Setter
 
     /**
-     *
+     * Setter : setNom
      * @param nom
      */
         public void setNom(String nom) {
@@ -71,7 +71,7 @@ public class Personne
     }
 
     /**
-     *
+     * Setter : setPrenom
      * @param prenom
      */
     public void setPrenom(String prenom) {
@@ -79,7 +79,7 @@ public class Personne
     }
 
     /**
-     *
+     * Setter : setTel
      * @param tel
      */
     public void setTel(String tel) {

@@ -16,7 +16,9 @@ public class Service
     private String batiment;
     private int directeur;
     
-    
+    /**
+     * Default Constructeur
+     */
     public Service() {
     }
     
@@ -37,36 +39,67 @@ public class Service
 
     
     
-    //Getter
+    /**
+     * Getter : getCode
+     * @return code
+     */
     public String getCode() {
         return code;
     }
-
+    
+    /**
+     * Getter : getNom
+     * @return nom
+     */
     public String getNom() {
         return nom;
     }
-
+    
+    /**
+     * Getter : getBatiment
+     * @return batiment
+     */
     public String getBatiment() {
         return batiment;
     }
-
+    
+    /**
+     * Getter : getDirecteur
+     * @return directeur
+     */
     public int getDirecteur() {
         return directeur;
     }
     
-    //Setter
+
+    /**
+     * Setter : setCode
+     * @param code
+     */
     public void setCode(String code) {
         this.code = code;
     }
 
+    /**
+     * Setter : setNom
+     * @param nom
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * Setter : setBatiment
+     * @param batiment
+     */
     public void setBatiment(String batiment) {
         this.batiment = batiment;
     }
-
+    
+    /**
+     * Setter : setDirecteur
+     * @param directeur
+     */
     public void setDirecteur(int directeur) {
         this.directeur = directeur;
     }

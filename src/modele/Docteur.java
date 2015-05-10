@@ -17,7 +17,7 @@ public class Docteur extends Employe
     private ArrayList<Integer> tab_ma = new ArrayList<Integer>();
     
     /**
-     *
+     * Default Constructeur
      */
     public Docteur() {
     }
@@ -41,16 +41,16 @@ public class Docteur extends Employe
     //Getter
 
     /**
-     *
-     * @return
+     * Getter : getSpecialite
+     * @return specialite
      */
         public String getSpecialite() {
         return specialite;
     }
 
     /**
-     *
-     * @return
+     * Getter : getTab_ma
+     * @return tab_ma
      */
     public ArrayList<Integer> getTab_ma() {
         return tab_ma;
@@ -59,7 +59,7 @@ public class Docteur extends Employe
     //Setter
 
     /**
-     *
+     * Setter : setSpecialite
      * @param specialite
      */
         public void setSpecialite(String specialite) {
@@ -67,7 +67,7 @@ public class Docteur extends Employe
     }
 
     /**
-     *
+     * Setter : setTab_ma
      * @param tab_ma
      */
     public void setTab_ma(ArrayList<Integer> tab_ma) {

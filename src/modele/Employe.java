@@ -15,7 +15,7 @@ public class Employe extends Personne
     private String adresse;
     
     /**
-     *
+     * Default Constructeur
      */
     public Employe(){
     }

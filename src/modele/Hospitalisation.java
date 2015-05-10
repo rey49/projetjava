@@ -17,7 +17,7 @@ public class Hospitalisation {
     private int no_lit;
 
     /**
-     *
+     * Default Constructeur
      */
     public Hospitalisation() {
     }
@@ -40,32 +40,32 @@ public class Hospitalisation {
 
     //getter
     /**
-     *
-     * @return
+     * Getter : getNo_malade
+     * @return no_malade
      */
     public int getNo_malade() {
         return no_malade;
     }
 
     /**
-     *
-     * @return
+     * Getter : getCode_service
+     * @return code_service
      */
     public String getCode_service() {
         return code_service;
     }
 
     /**
-     *
-     * @return
+     * Getter : getNo_chambre
+     * @return no_chambre
      */
     public int getNo_chambre() {
         return no_chambre;
     }
 
     /**
-     *
-     * @return
+     * Getter : getNo_lit
+     * @return no_lit
      */
     public int getNo_lit() {
         return no_lit;
@@ -73,7 +73,7 @@ public class Hospitalisation {
 
     //setter
     /**
-     *
+     * Setter : setNo_malade
      * @param no_malade
      */
     public void setNo_malade(int no_malade) {
@@ -81,7 +81,7 @@ public class Hospitalisation {
     }
 
     /**
-     *
+     * Setter : setCode_service
      * @param code_service
      */
     public void setCode_service(String code_service) {
@@ -89,7 +89,7 @@ public class Hospitalisation {
     }
 
     /**
-     *
+     * Setter : setNo_chambre
      * @param no_chambre
      */
     public void setNo_chambre(int no_chambre) {
@@ -97,7 +97,7 @@ public class Hospitalisation {
     }
 
     /**
-     *
+     * Setter : setNo_lit
      * @param no_lit
      */
     public void setNo_lit(int no_lit) {

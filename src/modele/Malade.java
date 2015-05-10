@@ -8,7 +8,7 @@ package modele;
 import java.util.ArrayList;
 
 /**
- *
+ * 
  * @author Gib
  */
 public class Malade extends Personne {
@@ -19,7 +19,7 @@ public class Malade extends Personne {
     private ArrayList<Integer> tab_docteur = new ArrayList<>();
 
     /**
-     *
+     * Default Constructeur
      */
     public Malade() {
     }
@@ -44,32 +44,32 @@ public class Malade extends Personne {
 
     //Getter
     /**
-     *
-     * @return
+     * Getter : getTab_docteur
+     * @return tab_docteur
      */
     public ArrayList<Integer> getTab_docteur() {
         return tab_docteur;
     }
 
     /**
-     *
-     * @return
+     * Getter : getNumero
+     * @return numero
      */
     public int getNumero() {
         return numero;
     }
 
     /**
-     *
-     * @return
+     * Getter : getAdresse
+     * @return adresse
      */
     public String getAdresse() {
         return adresse;
     }
 
     /**
-     *
-     * @return
+     * Getter : getMutuelle
+     * @return mutuelle
      */
     public String getMutuelle() {
         return mutuelle;
@@ -77,7 +77,7 @@ public class Malade extends Personne {
 
     //Setter
     /**
-     *
+     * Setter : setTab_docteur
      * @param tab_docteur
      */
     public void setTab_docteur(ArrayList<Integer> tab_docteur) {
@@ -85,7 +85,7 @@ public class Malade extends Personne {
     }
 
     /**
-     *
+     * Setter : setNumero
      * @param numero
      */
     public void setNumero(int numero) {
@@ -93,7 +93,7 @@ public class Malade extends Personne {
     }
 
     /**
-     *
+     * Setter : setAdresse
      * @param adresse
      */
     public void setAdresse(String adresse) {
@@ -101,7 +101,7 @@ public class Malade extends Personne {
     }
 
     /**
-     *
+     * Setter : setMutuelle
      * @param mutuelle
      */
     public void setMutuelle(String mutuelle) {

@@ -6,7 +6,7 @@
 package modele;
 
 /**
- *
+ * 
  * @author Gib
  */
 public class Chambre {
@@ -17,7 +17,7 @@ public class Chambre {
     private int nb_lits;
 
     /**
-     *
+     * Default Constructeur
      */
     public Chambre(){}
     
@@ -39,32 +39,32 @@ public class Chambre {
     //getter
 
     /**
-     *
-     * @return
+     * Getter : getCode_service
+     * @return code_service
      */
         public String getCode_service() {
         return code_service;
     }
     
-    /**
-     *
-     * @return
+     /**
+     * Getter : getNo_chambre
+     * @return no_chambre
      */
     public int getNo_chambre() {
         return no_chambre;
     }
 
     /**
-     *
-     * @return
+     * Getter : getSurveillant
+     * @return surveillant
      */
     public int getSurveillant() {
         return surveillant;
     }
 
     /**
-     *
-     * @return
+     * Getter : getNb_lits
+     * @return nb_lits
      */
     public int getNb_lits() {
         return nb_lits;
@@ -73,7 +73,7 @@ public class Chambre {
     //Setter
 
     /**
-     *
+     * Setter : setCode_service
      * @param code_service
      */
         public void setCode_service(String code_service) {
@@ -81,7 +81,7 @@ public class Chambre {
     }
     
     /**
-     *
+     * Setter : setNo_chambre
      * @param no_chambre
      */
     public void setNo_chambre(int no_chambre) {
@@ -89,7 +89,7 @@ public class Chambre {
     }
 
     /**
-     *
+     * Setter : setSurveillant
      * @param surveillant
      */
     public void setSurveillant(int surveillant) {
@@ -97,7 +97,7 @@ public class Chambre {
     }
 
     /**
-     *
+     * Setter : setNb_lits
      * @param nb_lits
      */
     public void setNb_lits(int nb_lits) {

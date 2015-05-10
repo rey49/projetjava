@@ -16,7 +16,7 @@ public class Infirmier extends Employe
     private String code_service;
 
     /**
-     *
+     * Default Constructeur
      */
     public Infirmier() {
     }
@@ -43,24 +43,24 @@ public class Infirmier extends Employe
     //Getter
 
     /**
-     *
-     * @return
+     * Getter : getRotation
+     * @return rotation
      */
         public String getRotation() {
         return rotation;
     }
 
     /**
-     *
-     * @return
+     * Getter : getSalaire
+     * @return salaire
      */
     public double getSalaire() {
         return this.salaire;
     }
 
     /**
-     *
-     * @return
+     * Getter : getCode_service
+     * @return code_service
      */
     public String getCode_service() {
         return code_service;
@@ -69,7 +69,7 @@ public class Infirmier extends Employe
     //Setter
 
     /**
-     *
+     * Setter : setRotation
      * @param rotation
      */
         public void setRotation(String rotation) {
@@ -77,7 +77,7 @@ public class Infirmier extends Employe
     }
 
     /**
-     *
+     * Setter : setSalaire
      * @param salaire
      */
     public void setSalaire(double salaire) {
@@ -85,7 +85,7 @@ public class Infirmier extends Employe
     }
 
     /**
-     *
+     * Setter : setCode_service
      * @param code_service
      */
     public void setCode_service(String code_service) {
