@@ -199,10 +199,8 @@ public class MainForm extends javax.swing.JPanel {
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(T8)
                                         .addComponent(L8)
                                         .addComponent(L7)
-                                        .addComponent(T7)
                                         .addComponent(Combo1, 0, 227, Short.MAX_VALUE)
                                         .addComponent(Combo3, javax.swing.GroupLayout.Alignment.TRAILING, 0, 227, Short.MAX_VALUE))
                                     .addComponent(L9))
@@ -213,8 +211,11 @@ public class MainForm extends javax.swing.JPanel {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(Combo2, 0, 227, Short.MAX_VALUE)))
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(L11)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(L11)
+                                    .addComponent(T7, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(T8, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 279, Short.MAX_VALUE)))))
                 .addGap(20, 20, 20))
         );
         jPanel9Layout.setVerticalGroup(
@@ -350,7 +351,7 @@ public class MainForm extends javax.swing.JPanel {
 
         jPanel1.add(jPanel5);
 
-        BoutonSuppr.setText("supprimer");
+        BoutonSuppr.setText("Supprimer");
         BoutonSuppr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BoutonSupprActionPerformed(evt);
@@ -401,7 +402,7 @@ public class MainForm extends javax.swing.JPanel {
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.PAGE_AXIS));
 
-        jButton2.setText("Ouvrir la fenetre des requetes");
+        jButton2.setText("Recherche");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -421,15 +422,15 @@ public class MainForm extends javax.swing.JPanel {
                         .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(386, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(187, 187, 187)
+                .addGap(32, 32, 32)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(272, 272, 272)
                 .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(480, Short.MAX_VALUE))
         );

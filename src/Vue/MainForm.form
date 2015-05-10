@@ -144,10 +144,8 @@
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="T8" max="32767" attributes="0"/>
                                                   <Component id="L8" min="-2" max="-2" attributes="0"/>
                                                   <Component id="L7" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="T7" max="32767" attributes="0"/>
                                                   <Component id="Combo1" alignment="0" pref="227" max="32767" attributes="0"/>
                                                   <Component id="Combo3" alignment="1" pref="227" max="32767" attributes="0"/>
                                               </Group>
@@ -163,8 +161,12 @@
                                           </Group>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="L11" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="L11" min="-2" max="-2" attributes="0"/>
+                                              <Component id="T7" min="-2" pref="227" max="-2" attributes="0"/>
+                                              <Component id="T8" min="-2" pref="227" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="279" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -573,7 +575,7 @@
               <SubComponents>
                 <Component class="javax.swing.JToggleButton" name="BoutonSuppr">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="supprimer"/>
+                    <Property name="text" type="java.lang.String" value="Supprimer"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonSupprActionPerformed"/>
@@ -643,7 +645,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" pref="294" max="-2" attributes="0"/>
+                                  <Component id="jButton2" min="-2" pref="544" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="386" max="32767" attributes="0"/>
@@ -653,9 +655,9 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="156" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="272" max="-2" attributes="0"/>
                           <Component id="jOptionPane1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="480" max="32767" attributes="0"/>
                       </Group>
@@ -665,7 +667,7 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="jButton2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Ouvrir la fenetre des requetes"/>
+                    <Property name="text" type="java.lang.String" value="Recherche"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
