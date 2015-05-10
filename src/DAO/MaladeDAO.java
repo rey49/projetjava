@@ -148,18 +148,20 @@ public class MaladeDAO extends DAO<Malade> {
 
         //création des relations entre le malade et le docteur
         ArrayList<Integer> tab_doc = obj.getTab_docteur();
-        for (int i = 0; i < tab_doc.size(); i++) {
+        if (!tab_doc.isEmpty()) {
+            for (int i = 0; i < tab_doc.size(); i++) {
 
-            try {
-                this.connect.createStatement(
-                        ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_UPDATABLE
-                ).executeUpdate("DELETE FROM soigne WHERE no_malade = '" + obj.getNumero() + "'; "
-                        + "INSERT into soigne values('" + tab_doc.get(i) + "',"
-                        + "'" + obj.getNumero() + "')"
-                );
-            } catch (SQLException e) {
-                e.printStackTrace();
+                try {
+                    this.connect.createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeUpdate("DELETE FROM soigne WHERE no_malade = '" + obj.getNumero() + "'; "
+                            + "INSERT into soigne values('" + tab_doc.get(i) + "',"
+                            + "'" + obj.getNumero() + "')"
+                    );
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -183,7 +185,7 @@ public class MaladeDAO extends DAO<Malade> {
                 this.connect.createStatement(
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
                         ResultSet.CONCUR_UPDATABLE
-                ).executeUpdate( "DELETE FROM soigne WHERE no_malade = '" + obj.getNumero() + "' AND no_docteur = '" + obj.getTab_docteur().get(i) + "'';"
+                ).executeUpdate("DELETE FROM soigne WHERE no_malade = '" + obj.getNumero() + "' AND no_docteur = '" + obj.getTab_docteur().get(i) + "'';"
                 );
             } catch (SQLException e) {
                 e.printStackTrace();

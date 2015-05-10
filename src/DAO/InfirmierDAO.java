@@ -79,7 +79,7 @@ public class InfirmierDAO extends DAO<Infirmier> {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
             ).executeUpdate(
-                    "INSERT into infirmier values(" + obj.getNumero() + ",'" + obj.getCode_service() + "','" + obj.getRotation() + "'," + obj.getSalaire() + ");"
+                    "INSERT into infirmier values('" + obj.getNumero() + "','" + obj.getCode_service() + "','" + obj.getRotation() + "','" + obj.getSalaire() + "');"
             );
             
         } catch (SQLException e) {
@@ -103,7 +103,6 @@ public class InfirmierDAO extends DAO<Infirmier> {
                     + "rotation = '" + obj.getRotation()+ "', " + "salaire =  '" + obj.getSalaire()
                     + " WHERE numero = '" + obj.getNumero() + "';"
             );
-            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

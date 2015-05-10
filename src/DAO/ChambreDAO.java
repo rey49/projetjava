@@ -113,7 +113,6 @@ public class ChambreDAO extends DAO<Chambre> {
                     + " AND no_chambre = " + cham.getNo_chambre()
             );
 
-            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
