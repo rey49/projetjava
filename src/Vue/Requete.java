@@ -67,12 +67,15 @@ public class Requete extends javax.swing.JFrame {
         T3 = new javax.swing.JTextField();
         T4 = new javax.swing.JTextField();
         LabelChoix3 = new javax.swing.JLabel();
+        ButtonCroissantNom = new javax.swing.JRadioButton();
+        ButtonDecroissantNom = new javax.swing.JRadioButton();
+        LabelChoix28 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         PanelLecture2 = new javax.swing.JScrollPane();
         table_aff2 = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
-        BoutonSuppr2 = new javax.swing.JToggleButton();
+        BoutonRecherInfirmier = new javax.swing.JToggleButton();
         LabelChoix8 = new javax.swing.JLabel();
         T1_I = new javax.swing.JTextField();
         LabelChoix9 = new javax.swing.JLabel();
@@ -96,16 +99,33 @@ public class Requete extends javax.swing.JFrame {
         PanelLecture3 = new javax.swing.JScrollPane();
         table_aff3 = new javax.swing.JTable();
         jPanel15 = new javax.swing.JPanel();
-        BoutonSuppr3 = new javax.swing.JToggleButton();
+        BoutonRecherChambre = new javax.swing.JToggleButton();
         LabelChoix12 = new javax.swing.JLabel();
-        BoutonAff3 = new javax.swing.JButton();
-        T13 = new javax.swing.JTextField();
+        T1_C = new javax.swing.JTextField();
         LabelChoix13 = new javax.swing.JLabel();
-        T14 = new javax.swing.JTextField();
+        T2_C = new javax.swing.JTextField();
         LabelChoix14 = new javax.swing.JLabel();
-        T15 = new javax.swing.JTextField();
-        T16 = new javax.swing.JTextField();
+        T3_C = new javax.swing.JTextField();
+        T4_C = new javax.swing.JTextField();
         LabelChoix15 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        PanelLecture4 = new javax.swing.JScrollPane();
+        table_aff4 = new javax.swing.JTable();
+        jPanel18 = new javax.swing.JPanel();
+        BoutonRecherDocteur = new javax.swing.JToggleButton();
+        LabelChoix22 = new javax.swing.JLabel();
+        T1_D = new javax.swing.JTextField();
+        LabelChoix23 = new javax.swing.JLabel();
+        T2_D = new javax.swing.JTextField();
+        LabelChoix24 = new javax.swing.JLabel();
+        T3_D = new javax.swing.JTextField();
+        T4_D = new javax.swing.JTextField();
+        LabelChoix25 = new javax.swing.JLabel();
+        T5_D = new javax.swing.JTextField();
+        LabelChoix26 = new javax.swing.JLabel();
+        LabelChoix27 = new javax.swing.JLabel();
+        T6_D = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +159,11 @@ public class Requete extends javax.swing.JFrame {
         jPanel7.add(jPanel8);
 
         BoutonRecherMalade.setText("Rechercher");
+        BoutonRecherMalade.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BoutonRecherMaladeMouseClicked(evt);
+            }
+        });
         BoutonRecherMalade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BoutonRecherMaladeActionPerformed(evt);
@@ -325,6 +350,22 @@ public class Requete extends javax.swing.JFrame {
 
         LabelChoix3.setText("Directeur :");
 
+        ButtonCroissantNom.setText("Nom Ordre croissant");
+        ButtonCroissantNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCroissantNomActionPerformed(evt);
+            }
+        });
+
+        ButtonDecroissantNom.setText("Nom Ordre décroissant");
+        ButtonDecroissantNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonDecroissantNomActionPerformed(evt);
+            }
+        });
+
+        LabelChoix28.setText("Directeur :");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -341,7 +382,13 @@ public class Requete extends javax.swing.JFrame {
                     .addComponent(LabelChoix1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(T3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(T4)
-                    .addComponent(LabelChoix3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(LabelChoix3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LabelChoix28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonCroissantNom, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonDecroissantNom, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -363,9 +410,15 @@ public class Requete extends javax.swing.JFrame {
                 .addComponent(LabelChoix3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelChoix28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButtonCroissantNom)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButtonDecroissantNom)
+                .addGap(134, 134, 134)
                 .addComponent(BoutonRecherService)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 432, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
                 .addComponent(BoutonAff)
                 .addContainerGap())
         );
@@ -401,10 +454,10 @@ public class Requete extends javax.swing.JFrame {
 
         jPanel10.add(jPanel11);
 
-        BoutonSuppr2.setText("Rechercher");
-        BoutonSuppr2.addActionListener(new java.awt.event.ActionListener() {
+        BoutonRecherInfirmier.setText("Rechercher");
+        BoutonRecherInfirmier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoutonSuppr2ActionPerformed(evt);
+                BoutonRecherInfirmierActionPerformed(evt);
             }
         });
 
@@ -494,7 +547,7 @@ public class Requete extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BoutonSuppr2, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                    .addComponent(BoutonRecherInfirmier, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                     .addComponent(LabelChoix8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(T1_I)
                     .addComponent(LabelChoix9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -558,7 +611,7 @@ public class Requete extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Button3)
                 .addGap(37, 37, 37)
-                .addComponent(BoutonSuppr2)
+                .addComponent(BoutonRecherInfirmier)
                 .addContainerGap(203, Short.MAX_VALUE))
         );
 
@@ -593,51 +646,44 @@ public class Requete extends javax.swing.JFrame {
 
         jPanel13.add(jPanel14);
 
-        BoutonSuppr3.setText("Rechercher");
-        BoutonSuppr3.addActionListener(new java.awt.event.ActionListener() {
+        BoutonRecherChambre.setText("Rechercher");
+        BoutonRecherChambre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoutonSuppr3ActionPerformed(evt);
+                BoutonRecherChambreActionPerformed(evt);
             }
         });
 
-        LabelChoix12.setText("Code :");
+        LabelChoix12.setText("Code Service :");
 
-        BoutonAff3.setText("Afficher");
-        BoutonAff3.addActionListener(new java.awt.event.ActionListener() {
+        T1_C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoutonAff3ActionPerformed(evt);
+                T1_CActionPerformed(evt);
             }
         });
 
-        T13.addActionListener(new java.awt.event.ActionListener() {
+        LabelChoix13.setText("No Chambre :");
+
+        T2_C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T13ActionPerformed(evt);
+                T2_CActionPerformed(evt);
             }
         });
 
-        LabelChoix13.setText("Nom :");
+        LabelChoix14.setText("Surveillant :");
 
-        T14.addActionListener(new java.awt.event.ActionListener() {
+        T3_C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T14ActionPerformed(evt);
+                T3_CActionPerformed(evt);
             }
         });
 
-        LabelChoix14.setText("Batiment :");
-
-        T15.addActionListener(new java.awt.event.ActionListener() {
+        T4_C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T15ActionPerformed(evt);
+                T4_CActionPerformed(evt);
             }
         });
 
-        T16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T16ActionPerformed(evt);
-            }
-        });
-
-        LabelChoix15.setText("Directeur :");
+        LabelChoix15.setText("Nombre de lits :");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -646,15 +692,14 @@ public class Requete extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BoutonSuppr3, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                    .addComponent(BoutonRecherChambre, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                     .addComponent(LabelChoix12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BoutonAff3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(T13)
+                    .addComponent(T1_C)
                     .addComponent(LabelChoix13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(T14, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(T2_C, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(LabelChoix14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(T15, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(T16)
+                    .addComponent(T3_C, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(T4_C)
                     .addComponent(LabelChoix15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -664,29 +709,167 @@ public class Requete extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(LabelChoix12)
                 .addGap(8, 8, 8)
-                .addComponent(T13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T1_C, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelChoix13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(T14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T2_C, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelChoix14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(T15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T3_C, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LabelChoix15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(T16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T4_C, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(BoutonSuppr3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 432, Short.MAX_VALUE)
-                .addComponent(BoutonAff3)
-                .addContainerGap())
+                .addComponent(BoutonRecherChambre)
+                .addContainerGap(466, Short.MAX_VALUE))
         );
 
         jPanel13.add(jPanel15);
 
-        jTabbedPane1.addTab("Service", jPanel13);
+        jTabbedPane1.addTab("Chambre", jPanel13);
+
+        jPanel16.setLayout(new javax.swing.BoxLayout(jPanel16, javax.swing.BoxLayout.LINE_AXIS));
+
+        table_aff4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        PanelLecture4.setViewportView(table_aff4);
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                .addComponent(PanelLecture4, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PanelLecture4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+        );
+
+        jPanel16.add(jPanel17);
+
+        BoutonRecherDocteur.setText("Rechercher");
+        BoutonRecherDocteur.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoutonRecherDocteurActionPerformed(evt);
+            }
+        });
+
+        LabelChoix22.setText("Numero :");
+
+        T1_D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T1_DActionPerformed(evt);
+            }
+        });
+
+        LabelChoix23.setText("Nom :");
+
+        T2_D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T2_DActionPerformed(evt);
+            }
+        });
+
+        LabelChoix24.setText("Prenom :");
+
+        T3_D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T3_DActionPerformed(evt);
+            }
+        });
+
+        T4_D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T4_DActionPerformed(evt);
+            }
+        });
+
+        LabelChoix25.setText("Tel :");
+
+        T5_D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T5_DActionPerformed(evt);
+            }
+        });
+
+        LabelChoix26.setText("Adresse :");
+
+        LabelChoix27.setText("Specialite :");
+
+        T6_D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T6_DActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BoutonRecherDocteur, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                    .addComponent(LabelChoix22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(T1_D)
+                    .addComponent(LabelChoix23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(T2_D, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LabelChoix24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(T3_D, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(T4_D)
+                    .addComponent(LabelChoix25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(T5_D)
+                    .addComponent(LabelChoix26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LabelChoix27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(T6_D))
+                .addContainerGap())
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelChoix22)
+                .addGap(8, 8, 8)
+                .addComponent(T1_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelChoix23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(T2_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelChoix24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(T3_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelChoix25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(T4_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelChoix26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(T5_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelChoix27, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(T6_D, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(BoutonRecherDocteur)
+                .addContainerGap(361, Short.MAX_VALUE))
+        );
+
+        jPanel16.add(jPanel18);
+
+        jTabbedPane1.addTab("Docteur", jPanel16);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -723,6 +906,255 @@ public class Requete extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void T6_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T6_DActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T6_DActionPerformed
+
+    private void T5_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T5_DActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T5_DActionPerformed
+
+    private void T4_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T4_DActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T4_DActionPerformed
+
+    private void T3_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3_DActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T3_DActionPerformed
+
+    private void T2_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T2_DActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T2_DActionPerformed
+
+    private void T1_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1_DActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T1_DActionPerformed
+
+    private void BoutonRecherDocteurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonRecherDocteurActionPerformed
+        // TODO add your handling code here:
+        DocteurDAO docteurDAO = new DocteurDAO();
+        ArrayList tab;
+        String[] title;
+        DefaultTableModel tableModel = new DefaultTableModel(0, 0);
+
+        String numero = T1_D.getText();
+        String nom = T2_D.getText();
+        String prenom = T3_D.getText();
+        String tel = T4_D.getText();
+        String adresse = T5_D.getText();
+        String specialite = T6_D.getText();
+        String req = "SELECT * FROM employe e,docteur d WHERE e.numero = d.numero "
+        + "AND e.nom LIKE '" + nom + "%' "
+        + "AND e.prenom LIKE '" + prenom + "%' "
+        + "AND e.adresse LIKE '" + adresse + "%' "
+        + "AND e.tel LIKE '" + tel + "%' "
+        + "AND d.specialite LIKE '" + specialite +"%' ";
+
+        if(!numero.equals(""))
+        {
+            req = req + "AND numero = " + numero;
+        }
+        //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+        tab = docteurDAO.requete(req);
+        //création des titres des colonnes
+         title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Specialite", "Supprimer"};
+        tableModel.setColumnIdentifiers(title);
+
+        //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+            for (int i = 0; i < tab.size(); i++) {
+                Docteur elem = (Docteur) tab.get(i);
+                Object obj[] = {
+                        elem.getNumero(),
+                        elem.getNom(),
+                        elem.getPrenom(),
+                        elem.getTel(),
+                        elem.getAdresse(),
+                        elem.getSpecialite()
+                    };
+                tableModel.addRow(obj);
+        }
+
+        table_aff4.setModel(tableModel);
+        PanelLecture4.setViewportView(table_aff4);
+        
+    }//GEN-LAST:event_BoutonRecherDocteurActionPerformed
+
+    private void T4_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T4_CActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T4_CActionPerformed
+
+    private void T3_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3_CActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T3_CActionPerformed
+
+    private void T2_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T2_CActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T2_CActionPerformed
+
+    private void T1_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1_CActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T1_CActionPerformed
+
+    private void BoutonRecherChambreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonRecherChambreActionPerformed
+        // TODO add your handling code here:
+        ChambreDAO chamDAO = new ChambreDAO();
+        ArrayList tab;
+        String[] title;
+        DefaultTableModel tableModel = new DefaultTableModel(0, 0);
+
+        String code = T1_C.getText();
+        String no = T2_C.getText();
+        String surveillant = T3_C.getText();
+        String lits = T4_C.getText();
+        String req = "SELECT * FROM chambre "
+        + "WHERE code_service LIKE '" + code + "%' ";
+
+        if(!no.equals(""))
+        {
+            req = req + "AND no_chambre = " + no + " ";
+        }
+        else if(!surveillant.equals(""))
+        {
+            req = req + "AND surveillant = " + surveillant + " ";
+        }
+        else if(!lits.equals(""))
+        {
+            req = req + "AND nb_lits = " + lits + " ";
+        }
+        //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+        tab = chamDAO.requete(req);
+        //création des titres des colonnes
+        title = new String[]{"Code service", "No Chambre", "Surveillant", "Nb de lits"};
+        tableModel.setColumnIdentifiers(title);
+        //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+        for (int i = 0; i < tab.size(); i++)
+        {
+            Chambre elem = (Chambre) tab.get(i);
+            Object obj[] = {
+                elem.getCode_service(),
+                elem.getNo_chambre(),
+                elem.getSurveillant(),
+                elem.getNb_lits()
+            };
+            tableModel.addRow(obj);
+        }
+
+        table_aff3.setModel(tableModel);
+        PanelLecture3.setViewportView(table_aff3);
+
+    }//GEN-LAST:event_BoutonRecherChambreActionPerformed
+
+    private void Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button2ActionPerformed
+        // TODO add your handling code here:
+        Button1.setSelected(false);
+        Button3.setSelected(false);
+
+    }//GEN-LAST:event_Button2ActionPerformed
+
+    private void Button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button3ActionPerformed
+        // TODO add your handling code here:
+        Button1.setSelected(false);
+        Button2.setSelected(false);
+    }//GEN-LAST:event_Button3ActionPerformed
+
+    private void Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button1ActionPerformed
+        // TODO add your handling code here:
+        Button2.setSelected(false);
+        Button3.setSelected(false);
+    }//GEN-LAST:event_Button1ActionPerformed
+
+    private void T7_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T7_IActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T7_IActionPerformed
+
+    private void T6_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T6_IActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T6_IActionPerformed
+
+    private void T5_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T5_IActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T5_IActionPerformed
+
+    private void T4_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T4_IActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T4_IActionPerformed
+
+    private void T3_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3_IActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T3_IActionPerformed
+
+    private void T2_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T2_IActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T2_IActionPerformed
+
+    private void T1_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1_IActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T1_IActionPerformed
+
+    private void BoutonRecherInfirmierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonRecherInfirmierActionPerformed
+        // TODO add your handling code here:
+        InfirmierDAO infirmierDAO = new InfirmierDAO();
+        ArrayList tab;
+        String[] title;
+        DefaultTableModel tableModel = new DefaultTableModel(0, 0);
+
+        String numero = T1_I.getText();
+        String nom = T2_I.getText();
+        String prenom = T3_I.getText();
+        String tel = T4_I.getText();
+        String adresse = T5_I.getText();
+        String code = T6_M.getText();
+        String rotation = T7_I.getText();
+        String req = "SELECT * FROM employe e,infirmier i WHERE e.numero = i.numero "
+        + "AND e.nom LIKE '" + nom + "%' "
+        + "AND e.prenom LIKE '" + prenom + "%' "
+        + "AND e.adresse LIKE '" + adresse + "%' "
+        + "AND e.tel LIKE '" + tel + "%' "
+        + "AND i.code_service LIKE '" + code +"%' "
+        + "AND i.rotation LIKE '" + rotation + "%' ";
+
+        if(!numero.equals(""))
+        {
+            req = req + "AND numero = " + numero;
+        }
+        else if(Button1.isSelected())
+        {
+            req = req + "AND i.salaire < 1000 ";
+        }
+        else if(Button2.isSelected())
+        {
+            req = req + "AND i.salaire BETWEEN 1000 AND 1500";
+        }
+        else if(Button3.isSelected())
+        {
+            req = req + "AND i.salaire > 1500";
+        }
+        //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
+        tab = infirmierDAO.requete(req);
+        //création des titres des colonnes
+        title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Code Service", "Rotation", "Salaire"};
+        tableModel.setColumnIdentifiers(title);
+        //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
+        for (int i = 0; i < tab.size(); i++)
+        {
+            Infirmier elem = (Infirmier) tab.get(i);
+            Object obj[] = {
+                elem.getNumero(),
+                elem.getNom(),
+                elem.getPrenom(),
+                elem.getTel(),
+                elem.getAdresse(),
+                elem.getCode_service(),
+                elem.getRotation(),
+                elem.getSalaire(),
+            };
+            tableModel.addRow(obj);
+        }
+
+        table_aff2.setModel(tableModel);
+        PanelLecture2.setViewportView(table_aff2);
+    }//GEN-LAST:event_BoutonRecherInfirmierActionPerformed
+
     private void T4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_T4ActionPerformed
@@ -757,11 +1189,19 @@ public class Requete extends javax.swing.JFrame {
         String req = "SELECT * FROM service "
         + "WHERE code LIKE '" + code + "%' "
         + "AND nom LIKE '" + nom + "%' "
-        + "AND batiment LIKE '" + batiment +"%' ";;
+        + "AND batiment LIKE '" + batiment +"%' ";
 
         if(!directeur.equals(""))
         {
             req = req + "AND directeur = " + directeur;
+        }
+        else if(ButtonCroissantNom.isSelected())
+        {
+            req = req + "ORDER BY nom ";
+        }
+        else if(ButtonDecroissantNom.isSelected())
+        {
+            req = req + "ORDER BY nom DESC";
         }
         //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
         tab = servDAO.requete(req);
@@ -784,6 +1224,30 @@ public class Requete extends javax.swing.JFrame {
         table_aff.setModel(tableModel);
         PanelLecture.setViewportView(table_aff);
     }//GEN-LAST:event_BoutonRecherServiceActionPerformed
+
+    private void T6_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T6_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T6_MActionPerformed
+
+    private void T5_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T5_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T5_MActionPerformed
+
+    private void T4_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T4_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T4_MActionPerformed
+
+    private void T3_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T3_MActionPerformed
+
+    private void T2_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T2_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T2_MActionPerformed
+
+    private void T1_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1_MActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T1_MActionPerformed
 
     private void BoutonRecherMaladeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonRecherMaladeActionPerformed
         // TODO add your handling code here:
@@ -819,14 +1283,14 @@ public class Requete extends javax.swing.JFrame {
         {
             Malade elem = (Malade) tab.get(i);
             Object obj[] = {
-                    elem.getNumero(),
-                    elem.getNom(),
-                    elem.getPrenom(),
-                    elem.getAdresse(),
-                    elem.getTel(),
-                    elem.getMutuelle(),
-                    elem.getTab_docteur(),
-                    };
+                elem.getNumero(),
+                elem.getNom(),
+                elem.getPrenom(),
+                elem.getAdresse(),
+                elem.getTel(),
+                elem.getMutuelle(),
+                elem.getTab_docteur(),
+            };
             tableModel.addRow(obj);
         }
 
@@ -834,177 +1298,33 @@ public class Requete extends javax.swing.JFrame {
         PanelLecture1.setViewportView(table_aff1);
     }//GEN-LAST:event_BoutonRecherMaladeActionPerformed
 
-    private void T1_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1_MActionPerformed
+    private void BoutonRecherMaladeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BoutonRecherMaladeMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_T1_MActionPerformed
+    }//GEN-LAST:event_BoutonRecherMaladeMouseClicked
 
-    private void T2_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T2_MActionPerformed
+    private void ButtonCroissantNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCroissantNomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_T2_MActionPerformed
+         ButtonDecroissantNom.setSelected(false);
+    }//GEN-LAST:event_ButtonCroissantNomActionPerformed
 
-    private void T3_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3_MActionPerformed
+    private void ButtonDecroissantNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDecroissantNomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_T3_MActionPerformed
-
-    private void T4_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T4_MActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T4_MActionPerformed
-
-    private void BoutonSuppr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonSuppr2ActionPerformed
-        // TODO add your handling code here:
-        InfirmierDAO infirmierDAO = new InfirmierDAO();
-        ArrayList tab;
-        String[] title;
-        DefaultTableModel tableModel = new DefaultTableModel(0, 0);
-
-        String numero = T1_I.getText();
-        String nom = T2_I.getText();
-        String prenom = T3_I.getText();
-        String tel = T4_I.getText();
-        String adresse = T5_I.getText();
-        String code = T6_M.getText();
-        String rotation = T7_I.getText();
-        String req = "SELECT * FROM employe e,infirmier i WHERE e.numero = i.numero "
-        + "AND e.nom LIKE '" + nom + "%' "
-        + "AND e.prenom LIKE '" + prenom + "%' "
-        + "AND e.adresse LIKE '" + adresse + "%' "
-        + "AND e.tel LIKE '" + tel + "%' "
-        + "AND i.code_service LIKE '" + code +"%' "
-        + "AND i.rotation LIKE '" + rotation + "%' ";
-
-        if(!numero.equals(""))
-        {
-            req = req + "AND numero = " + numero;
-        }
-        else if(Button1.isSelected())
-        {
-            System.out.print("TEST");
-            req = req + "AND i.salaire < 1000 ";
-        }
-        else if(Button2.isSelected())
-        {
-            req = req + "AND i.salaire BETWEEN 1000 AND 1500";
-        }
-        else if(Button3.isSelected())
-        {
-            req = req + "AND i.salaire > 1500";
-        }
-        //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
-        tab = infirmierDAO.requete(req);
-        //création des titres des colonnes
-       title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Code Service", "Rotation", "Salaire"};
-        tableModel.setColumnIdentifiers(title);
-        //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
-        for (int i = 0; i < tab.size(); i++)
-        {
-            Infirmier elem = (Infirmier) tab.get(i);
-            Object obj[] = {
-                    elem.getNumero(),
-                    elem.getNom(),
-                    elem.getPrenom(),
-                    elem.getTel(),
-                    elem.getAdresse(),
-                    elem.getCode_service(),
-                    elem.getRotation(),
-                    elem.getSalaire(),
-                    };
-            tableModel.addRow(obj);
-        }
-
-        table_aff2.setModel(tableModel);
-        PanelLecture2.setViewportView(table_aff2);
-    }//GEN-LAST:event_BoutonSuppr2ActionPerformed
-
-    private void T1_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1_IActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T1_IActionPerformed
-
-    private void T2_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T2_IActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T2_IActionPerformed
-
-    private void T3_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3_IActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T3_IActionPerformed
-
-    private void T4_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T4_IActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T4_IActionPerformed
-
-    private void BoutonSuppr3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonSuppr3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BoutonSuppr3ActionPerformed
-
-    private void BoutonAff3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAff3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BoutonAff3ActionPerformed
-
-    private void T13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T13ActionPerformed
-
-    private void T14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T14ActionPerformed
-
-    private void T15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T15ActionPerformed
-
-    private void T16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T16ActionPerformed
-
-    private void T5_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T5_MActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T5_MActionPerformed
-
-    private void T6_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T6_MActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T6_MActionPerformed
-
-    private void T5_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T5_IActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T5_IActionPerformed
-
-    private void T6_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T6_IActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T6_IActionPerformed
-
-    private void T7_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T7_IActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T7_IActionPerformed
-
-    private void Button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button3ActionPerformed
-        // TODO add your handling code here:
-        Button1.setSelected(false);
-        Button2.setSelected(false);
-    }//GEN-LAST:event_Button3ActionPerformed
-
-    private void Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button2ActionPerformed
-        // TODO add your handling code here:
-         Button1.setSelected(false);
-         Button3.setSelected(false);
-      
-    }//GEN-LAST:event_Button2ActionPerformed
-
-    private void Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button1ActionPerformed
-        // TODO add your handling code here:
-        Button2.setSelected(false);
-        Button3.setSelected(false);
-    }//GEN-LAST:event_Button1ActionPerformed
+        ButtonCroissantNom.setSelected(false);
+    }//GEN-LAST:event_ButtonDecroissantNomActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BoutonAff;
-    public javax.swing.JButton BoutonAff3;
+    private javax.swing.JToggleButton BoutonRecherChambre;
+    private javax.swing.JToggleButton BoutonRecherDocteur;
+    private javax.swing.JToggleButton BoutonRecherInfirmier;
     private javax.swing.JToggleButton BoutonRecherMalade;
     private javax.swing.JToggleButton BoutonRecherService;
-    private javax.swing.JToggleButton BoutonSuppr2;
-    private javax.swing.JToggleButton BoutonSuppr3;
     private javax.swing.JRadioButton Button1;
     private javax.swing.JRadioButton Button2;
     private javax.swing.JRadioButton Button3;
+    private javax.swing.JRadioButton ButtonCroissantNom;
+    private javax.swing.JRadioButton ButtonDecroissantNom;
     private javax.swing.JLabel LabelChoix;
     private javax.swing.JLabel LabelChoix1;
     private javax.swing.JLabel LabelChoix10;
@@ -1020,6 +1340,13 @@ public class Requete extends javax.swing.JFrame {
     private javax.swing.JLabel LabelChoix2;
     private javax.swing.JLabel LabelChoix20;
     private javax.swing.JLabel LabelChoix21;
+    private javax.swing.JLabel LabelChoix22;
+    private javax.swing.JLabel LabelChoix23;
+    private javax.swing.JLabel LabelChoix24;
+    private javax.swing.JLabel LabelChoix25;
+    private javax.swing.JLabel LabelChoix26;
+    private javax.swing.JLabel LabelChoix27;
+    private javax.swing.JLabel LabelChoix28;
     private javax.swing.JLabel LabelChoix3;
     private javax.swing.JLabel LabelChoix4;
     private javax.swing.JLabel LabelChoix5;
@@ -1031,24 +1358,31 @@ public class Requete extends javax.swing.JFrame {
     private javax.swing.JScrollPane PanelLecture1;
     private javax.swing.JScrollPane PanelLecture2;
     private javax.swing.JScrollPane PanelLecture3;
+    private javax.swing.JScrollPane PanelLecture4;
     private javax.swing.JTextField T1;
-    private javax.swing.JTextField T13;
-    private javax.swing.JTextField T14;
-    private javax.swing.JTextField T15;
-    private javax.swing.JTextField T16;
+    private javax.swing.JTextField T1_C;
+    private javax.swing.JTextField T1_D;
     private javax.swing.JTextField T1_I;
     private javax.swing.JTextField T1_M;
     private javax.swing.JTextField T2;
+    private javax.swing.JTextField T2_C;
+    private javax.swing.JTextField T2_D;
     private javax.swing.JTextField T2_I;
     private javax.swing.JTextField T2_M;
     private javax.swing.JTextField T3;
+    private javax.swing.JTextField T3_C;
+    private javax.swing.JTextField T3_D;
     private javax.swing.JTextField T3_I;
     private javax.swing.JTextField T3_M;
     private javax.swing.JTextField T4;
+    private javax.swing.JTextField T4_C;
+    private javax.swing.JTextField T4_D;
     private javax.swing.JTextField T4_I;
     private javax.swing.JTextField T4_M;
+    private javax.swing.JTextField T5_D;
     private javax.swing.JTextField T5_I;
     private javax.swing.JTextField T5_M;
+    private javax.swing.JTextField T6_D;
     private javax.swing.JTextField T6_I;
     private javax.swing.JTextField T6_M;
     private javax.swing.JTextField T7_I;
@@ -1059,6 +1393,9 @@ public class Requete extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1067,8 +1404,9 @@ public class Requete extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable table_aff;
-    public javax.swing.JTable table_aff1;
-    public javax.swing.JTable table_aff2;
-    public javax.swing.JTable table_aff3;
+    private javax.swing.JTable table_aff1;
+    private javax.swing.JTable table_aff2;
+    private javax.swing.JTable table_aff3;
+    private javax.swing.JTable table_aff4;
     // End of variables declaration//GEN-END:variables
 }

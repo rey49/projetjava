@@ -193,6 +193,7 @@
                         <Property name="text" type="java.lang.String" value="Rechercher"/>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BoutonRecherMaladeMouseClicked"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonRecherMaladeActionPerformed"/>
                       </Events>
                     </Component>
@@ -318,7 +319,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="BoutonRecherService" alignment="0" pref="156" max="32767" attributes="0"/>
@@ -331,6 +332,14 @@
                                   <Component id="T3" alignment="1" max="32767" attributes="0"/>
                                   <Component id="T4" alignment="0" max="32767" attributes="0"/>
                                   <Component id="LabelChoix3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="LabelChoix28" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ButtonCroissantNom" min="-2" pref="136" max="-2" attributes="0"/>
+                                          <Component id="ButtonDecroissantNom" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -355,9 +364,15 @@
                               <Component id="LabelChoix3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="T4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="LabelChoix28" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ButtonCroissantNom" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ButtonDecroissantNom" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                               <Component id="BoutonRecherService" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="432" max="32767" attributes="0"/>
+                              <EmptySpace pref="253" max="32767" attributes="0"/>
                               <Component id="BoutonAff" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -420,6 +435,27 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="LabelChoix3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Directeur :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JRadioButton" name="ButtonCroissantNom">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nom Ordre croissant"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCroissantNomActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JRadioButton" name="ButtonDecroissantNom">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nom Ordre d&#xe9;croissant"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonDecroissantNomActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelChoix28">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Directeur :"/>
                       </Properties>
@@ -489,7 +525,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="BoutonSuppr2" alignment="0" pref="156" max="32767" attributes="0"/>
+                                  <Component id="BoutonRecherInfirmier" alignment="0" pref="156" max="32767" attributes="0"/>
                                   <Component id="LabelChoix8" alignment="0" max="32767" attributes="0"/>
                                   <Component id="T1_I" alignment="0" max="32767" attributes="0"/>
                                   <Component id="LabelChoix9" alignment="0" max="32767" attributes="0"/>
@@ -558,19 +594,19 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Button3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="BoutonSuppr2" min="-2" max="-2" attributes="0"/>
+                              <Component id="BoutonRecherInfirmier" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="203" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JToggleButton" name="BoutonSuppr2">
+                    <Component class="javax.swing.JToggleButton" name="BoutonRecherInfirmier">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Rechercher"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonSuppr2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonRecherInfirmierActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="LabelChoix8">
@@ -679,8 +715,8 @@
             <Container class="javax.swing.JPanel" name="jPanel13">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Service">
-                    <Property name="tabTitle" type="java.lang.String" value="Service"/>
+                  <JTabbedPaneConstraints tabName="Chambre">
+                    <Property name="tabTitle" type="java.lang.String" value="Chambre"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -737,15 +773,14 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="BoutonSuppr3" alignment="0" pref="156" max="32767" attributes="0"/>
+                                  <Component id="BoutonRecherChambre" alignment="0" pref="156" max="32767" attributes="0"/>
                                   <Component id="LabelChoix12" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="BoutonAff3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="T13" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="T1_C" alignment="0" max="32767" attributes="0"/>
                                   <Component id="LabelChoix13" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="T14" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="T2_C" alignment="1" max="32767" attributes="0"/>
                                   <Component id="LabelChoix14" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="T15" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="T16" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="T3_C" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="T4_C" alignment="0" max="32767" attributes="0"/>
                                   <Component id="LabelChoix15" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -758,87 +793,260 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="LabelChoix12" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Component id="T13" min="-2" max="-2" attributes="0"/>
+                              <Component id="T1_C" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="LabelChoix13" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="T14" min="-2" max="-2" attributes="0"/>
+                              <Component id="T2_C" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="LabelChoix14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="T15" min="-2" max="-2" attributes="0"/>
+                              <Component id="T3_C" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="LabelChoix15" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="T16" min="-2" max="-2" attributes="0"/>
+                              <Component id="T4_C" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="BoutonSuppr3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="432" max="32767" attributes="0"/>
-                              <Component id="BoutonAff3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="BoutonRecherChambre" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="466" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JToggleButton" name="BoutonSuppr3">
+                    <Component class="javax.swing.JToggleButton" name="BoutonRecherChambre">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Rechercher"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonSuppr3ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonRecherChambreActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="LabelChoix12">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Code :"/>
+                        <Property name="text" type="java.lang.String" value="Code Service :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="BoutonAff3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Afficher"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="T1_C">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonAff3ActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                      </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="T13">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T13ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T1_CActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="LabelChoix13">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Nom :"/>
+                        <Property name="text" type="java.lang.String" value="No Chambre :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="T14">
+                    <Component class="javax.swing.JTextField" name="T2_C">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T14ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T2_CActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="LabelChoix14">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Batiment :"/>
+                        <Property name="text" type="java.lang.String" value="Surveillant :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="T15">
+                    <Component class="javax.swing.JTextField" name="T3_C">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T15ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T3_CActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="T16">
+                    <Component class="javax.swing.JTextField" name="T4_C">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T16ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T4_CActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="LabelChoix15">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Directeur :"/>
+                        <Property name="text" type="java.lang.String" value="Nombre de lits :"/>
                       </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel16">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Docteur">
+                    <Property name="tabTitle" type="java.lang.String" value="Docteur"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="jPanel17">
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="PanelLecture4" pref="849" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PanelLecture4" alignment="1" pref="723" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Container class="javax.swing.JScrollPane" name="PanelLecture4">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="table_aff4">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="0" rowCount="0"/>
+                            </Property>
+                            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                            </Property>
+                          </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="jPanel18">
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="BoutonRecherDocteur" alignment="0" pref="156" max="32767" attributes="0"/>
+                                  <Component id="LabelChoix22" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="T1_D" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="LabelChoix23" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="T2_D" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="LabelChoix24" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="T3_D" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="T4_D" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="LabelChoix25" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="T5_D" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="LabelChoix26" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="LabelChoix27" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="T6_D" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="LabelChoix22" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="T1_D" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="LabelChoix23" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="T2_D" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="LabelChoix24" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="T3_D" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="LabelChoix25" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="T4_D" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="LabelChoix26" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="T5_D" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="LabelChoix27" min="-2" pref="12" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="T6_D" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="BoutonRecherDocteur" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="361" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JToggleButton" name="BoutonRecherDocteur">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Rechercher"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BoutonRecherDocteurActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelChoix22">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Numero :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="T1_D">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T1_DActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelChoix23">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nom :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="T2_D">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T2_DActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelChoix24">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Prenom :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="T3_D">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T3_DActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="T4_D">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T4_DActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelChoix25">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Tel :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="T5_D">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T5_DActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelChoix26">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Adresse :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="LabelChoix27">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Specialite :"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="T6_D">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T6_DActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
