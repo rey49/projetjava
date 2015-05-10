@@ -35,10 +35,10 @@ public class ChambreDAO extends DAO<Chambre> {
                     );
 
             if (result.first()) {
-                while (result.next()) {
+                do{
                     Chambre cham = new Chambre(result.getString("code_service"), result.getInt("no_chambre"), result.getInt(3), result.getInt(4));
                     tab_chambre.add(cham);
-                }
+                }while (result.next());
 
             }
         } catch (SQLException e) {
@@ -113,6 +113,7 @@ public class ChambreDAO extends DAO<Chambre> {
                     + " AND no_chambre = " + cham.getNo_chambre()
             );
 
+            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

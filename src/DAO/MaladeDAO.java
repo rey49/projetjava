@@ -8,6 +8,9 @@ package DAO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modele.Docteur;
 import modele.Malade;
 
 /**
@@ -64,7 +67,7 @@ public class MaladeDAO extends DAO<Malade> {
             e.printStackTrace();
         }
 
-        //récupération des id des docteurs
+        //récupération du tableau de docteur
         try {
             ResultSet result = this.connect
                     .createStatement(
@@ -75,13 +78,14 @@ public class MaladeDAO extends DAO<Malade> {
                     );
 
             if (result.first()) {
-                ArrayList<Integer> tab_docteur = new ArrayList();
+                DocteurDAO docDAO = new DocteurDAO();
+                ArrayList<Docteur> tab_docteur = new ArrayList();
 
                 do {
-                    tab_docteur.add(result.getInt("no_docteur"));
+                    tab_docteur.add(docDAO.find(result.getInt("no_docteur")));
                 } while (result.next());
 
-                mal.setTab_docteur(tab_docteur);
+                //mal.setTab_docteur(tab_docteur);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,32 +101,15 @@ public class MaladeDAO extends DAO<Malade> {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
             ).executeUpdate(
-                    "INSERT into malade values('" + obj.getNumero() + "',"
+                    "INSERT into malade values(" + obj.getNumero() + ","
                     + "'" + obj.getNom() + "',"
                     + "'" + obj.getPrenom() + "',"
                     + "'" + obj.getAdresse() + "',"
                     + "'" + obj.getTel() + "',"
-                    + "'" + obj.getMutuelle() + "')"
+                    + "'" + obj.getMutuelle() + "');"
             );
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-
-        //création des relations entre le malade et le docteur
-        ArrayList<Integer> tab_doc = obj.getTab_docteur();
-        for (int i = 0; i < tab_doc.size(); i++) {
-
-            try {
-                this.connect.createStatement(
-                        ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_UPDATABLE
-                ).executeUpdate(
-                        "INSERT into soigne values('" + tab_doc.get(i) + "',"
-                        + "'" + obj.getNumero() + "')"
-                );
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
         return obj;
     }
@@ -141,28 +128,11 @@ public class MaladeDAO extends DAO<Malade> {
                     + "mutuelle = '" + obj.getMutuelle() + "'"
                     + " WHERE numero = " + obj.getNumero() + ";"
             );
-
+            
+            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        //création des relations entre le malade et le docteur
-        ArrayList<Integer> tab_doc = obj.getTab_docteur();
-        for (int i = 0; i < tab_doc.size(); i++) {
-
-            try {
-                this.connect.createStatement(
-                        ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_UPDATABLE
-                ).executeUpdate("DELETE FROM soigne WHERE no_malade = '" + obj.getNumero() + "'; "
-                        +"INSERT into soigne values('" + tab_doc.get(i) + "',"
-                        + "'" + obj.getNumero() + "')"
-                );
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
         return obj;
     }
 
@@ -172,8 +142,7 @@ public class MaladeDAO extends DAO<Malade> {
             this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
-            ).executeUpdate("DELETE FROM malade WHERE numero = '" + obj.getNumero() + "'; "
-                          + "DELETE FROM soigne WHERE no_malade = '" + obj.getNumero() + "';"
+            ).executeUpdate("DELETE FROM malade WHERE numero = '" + obj.getNumero() + "';"
             );
         } catch (SQLException e) {
             e.printStackTrace();

@@ -72,7 +72,7 @@ public class ServiceDAO extends DAO<Service> {
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
             ).executeUpdate(
-                    "INSERT into service values('" + obj.getCode() + "'," + obj.getNom() + "," + obj.getBatiment() + "," + obj.getDirecteur() + ")"
+                    "INSERT into service values('" + obj.getCode() + "','" + obj.getNom() + "','" + obj.getBatiment() + "'," + obj.getDirecteur() + ");"
             );
         } catch (SQLException e) {
             e.printStackTrace();
@@ -92,6 +92,7 @@ public class ServiceDAO extends DAO<Service> {
                     + "directeur = '" + obj.getDirecteur() + "'"
                     + " WHERE code = '" + obj.getCode()
             );
+            this.connect.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
