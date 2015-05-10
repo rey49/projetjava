@@ -90,7 +90,7 @@ public class ServiceDAO extends DAO<Service> {
                     "UPDATE service SET nom = '" + obj.getNom() + "', "
                     + "batiment = '" + obj.getBatiment() + "', "
                     + "directeur = '" + obj.getDirecteur() + "'"
-                    + " WHERE code = '" + obj.getCode()
+                    + " WHERE code = '" + obj.getCode() + "'"
             );
         } catch (SQLException e) {
             e.printStackTrace();
