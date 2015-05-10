@@ -5,6 +5,8 @@
  */
 package modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Gib
@@ -12,6 +14,7 @@ package modele;
 public class Docteur extends Employe
 {
     private String specialite;
+    private ArrayList<Malade> tab_ma;
     
     public Docteur() {
     }
@@ -36,10 +39,18 @@ public class Docteur extends Employe
     public String getSpecialite() {
         return specialite;
     }
+
+    public ArrayList<Malade> getTab_ma() {
+        return tab_ma;
+    }
     
     //Setter
     public void setSpecialite(String specialite) {
         this.specialite = specialite;
+    }
+
+    public void setTab_ma(ArrayList<Malade> tab_ma) {
+        this.tab_ma = tab_ma;
     }
     
     

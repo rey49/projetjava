@@ -109,6 +109,23 @@ public class MaladeDAO extends DAO<Malade> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        //création des relations entre le malade et le docteur
+        ArrayList<Docteur> tab_doc = obj.getTab_docteur();
+        for (int i = 0; i < tab_doc.size(); i++) {
+
+            try {
+                this.connect.createStatement(
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                ).executeUpdate(
+                        "INSERT into soigne values('" + tab_doc.get(i).getNumero() + "',"
+                        + "'" + obj.getNumero() + "')"
+                );
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
         return obj;
     }
 
@@ -126,10 +143,40 @@ public class MaladeDAO extends DAO<Malade> {
                     + "mutuelle = '" + obj.getMutuelle() + "'"
                     + " WHERE numero = " + obj.getNumero() + ";"
             );
-           
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        //suppression des anciennes relations
+        try {
+            this.connect.createStatement(
+                    ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE
+            ).executeUpdate(
+                    "DELETE FROM soigne WHERE no_malade = '" + obj.getNumero() + "';"
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        //création des relations entre le malade et le docteur
+        ArrayList<Docteur> tab_doc = obj.getTab_docteur();
+        for (int i = 0; i < tab_doc.size(); i++) {
+
+            try {
+                this.connect.createStatement(
+                        ResultSet.TYPE_SCROLL_INSENSITIVE,
+                        ResultSet.CONCUR_UPDATABLE
+                ).executeUpdate(
+                        "INSERT into soigne values('" + tab_doc.get(i).getNumero() + "',"
+                        + "'" + obj.getNumero() + "')"
+                );
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
         return obj;
     }
 
@@ -139,7 +186,8 @@ public class MaladeDAO extends DAO<Malade> {
             this.connect.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE
-            ).executeUpdate("DELETE FROM malade WHERE numero = '" + obj.getNumero() + "';"
+            ).executeUpdate("DELETE FROM malade WHERE numero = '" + obj.getNumero() + "'; "
+                          + "DELETE FROM soigne WHERE no_malade = '" + obj.getNumero() + "';"
             );
         } catch (SQLException e) {
             e.printStackTrace();
