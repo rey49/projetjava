@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
-import javax.swing.table.DefaultTableModel;
 import modele.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -81,6 +80,8 @@ public class MainForm extends javax.swing.JPanel {
         Combo2 = new javax.swing.JComboBox();
         Combo3 = new javax.swing.JComboBox();
         L11 = new javax.swing.JLabel();
+        ComboM = new javax.swing.JComboBox();
+        L12 = new javax.swing.JLabel();
         BoutonAjo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -211,6 +212,11 @@ public class MainForm extends javax.swing.JPanel {
         L11.setVisible(false);
         L11.setText("L11");
 
+        ComboM.setVisible(false);
+
+        L12.setVisible(false);
+        L12.setText("L12");
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -218,21 +224,21 @@ public class MainForm extends javax.swing.JPanel {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(T2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L2)
+                    .addComponent(L3)
+                    .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L4)
+                    .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L1)
                     .addComponent(ComboB, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(L6)
                     .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(L5)
+                    .addComponent(L5))
+                .addGap(53, 53, 53)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(T2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(L2)
-                            .addComponent(L3)
-                            .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(L4)
-                            .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(L1))
-                        .addGap(53, 53, 53)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,9 +257,14 @@ public class MainForm extends javax.swing.JPanel {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(Combo2, 0, 227, Short.MAX_VALUE)))
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(L11)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(20, 20, 20))
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(L11)
+                                    .addComponent(ComboM, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 279, Short.MAX_VALUE)))
+                        .addGap(20, 20, 20))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(L12)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +279,7 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Combo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Combo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(L2)
                     .addComponent(L7))
@@ -293,9 +304,13 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(T4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Combo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(L5)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(L5)
+                    .addComponent(L12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(L6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -337,7 +352,7 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
                 .addComponent(BoutonAjo)
                 .addGap(22, 22, 22))
         );
@@ -949,6 +964,18 @@ public class MainForm extends javax.swing.JPanel {
             Combo3.addItem(numero);
         }
     }
+    
+    private void setAllMaladeComboBox() {
+        ArrayList tab;
+        MaladeDAO maDAO = new MaladeDAO();
+        tab = maDAO.all();
+        ComboM.removeAllItems();
+        for (int i = 0; i < tab.size(); i++) {
+            Malade ma = (Malade) tab.get(i);
+            int numero = ma.getNumero();
+            ComboM.addItem(numero);
+        }
+    }
 
     //Permet de rendre visible ou non nos boutons
 
@@ -975,6 +1002,8 @@ public class MainForm extends javax.swing.JPanel {
         Combo2.setVisible(a);
         L11.setVisible(a);
         Combo3.setVisible(a);
+        L12.setVisible(a);
+        ComboM.setVisible(a);
 
     }
 
@@ -1001,156 +1030,155 @@ public class MainForm extends javax.swing.JPanel {
         setAllServiceComboBox();
         setAllInfirmierComboBox();
         setAllDocteurComboBox();
+        setAllMaladeComboBox();
 
-        if (jComboBox2.getSelectedItem().toString() == "Chambre") {
-            //On affiche rien pour l'instant
-            setVisibleAjout(false);
-            setNullText();
-
-            //Label des champs nécessaire
-            L1.setText("Numero chambre :");
-            T1.setToolTipText("Le numero chambre doit etre comprise entre comprise entre 0 et 999");
-            L9.setText("Code Service :");
-            L10.setText("Surveillant :");
-            L2.setText("Nombre de lits :");
-            L2.setToolTipText("Le nombre de lits doit etre comprise entre comprise entre 0 et 99");
-
-            //On affiche nos champs
-            L1.setVisible(true);
-            T1.setVisible(true);
-            L9.setVisible(true);
-            Combo1.setVisible(true);
-            L10.setVisible(true);
-            Combo2.setVisible(true);
-            L2.setVisible(true);
-            T2.setVisible(true);
-
-        } else if (jComboBox2.getSelectedItem().toString() == "Docteur") {
-            setVisibleAjout(false);
-            setNullText();
-
-            L1.setText("No :");
-            L2.setText("Nom :");
-            T2.setToolTipText("12 caractères maximum");
-            L3.setText("Prenom :");
-            T3.setToolTipText("12 caractères maximum");
-            L4.setText("Adresse :");
-            T4.setToolTipText("40 caractères maximum");
-            T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
-            L5.setText("Tel :");
-            T5.setToolTipText("Format : 00 00 00 00 00");
-            L6.setText("Specialite :");
-            ComboB.removeAllItems();
-            ComboB.addItem("Anesthesiste");
-            ComboB.addItem("Cardiologue");
-            ComboB.addItem("Generaliste");
-            ComboB.addItem("Orthopediste");
-            ComboB.addItem("Pneumologue");
-            ComboB.addItem("Radiologue");
-            ComboB.addItem("Traumatologue");
-
-            L1.setVisible(true);
-            T1.setVisible(true);
-            L2.setVisible(true);
-            T2.setVisible(true);
-            L3.setVisible(true);
-            T3.setVisible(true);
-            L4.setVisible(true);
-            T4.setVisible(true);
-            L5.setVisible(true);
-            T5.setVisible(true);
-            L6.setVisible(true);
-            ComboB.setVisible(true);
-
-        } else if (jComboBox2.getSelectedItem().toString() == "Infirmier") {
-            setVisibleAjout(false);
-            setNullText();
-
-            L1.setText("No :");
-            L2.setText("Nom :");
-            T2.setToolTipText("12 caractères maximum");
-            L3.setText("Prenom :");
-            T3.setToolTipText("12 caractères maximum");
-            L4.setText("Adresse :");
-            T4.setToolTipText("40 caractères maximum");
-            T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
-            L5.setText("Tel :");
-            T5.setToolTipText("Format : 00 00 00 00 00");
-            L6.setText("Rotation :");
-            ComboB.removeAllItems();
-            ComboB.addItem("JOUR");
-            ComboB.addItem("NUIT");
-            L9.setText("Code Service :");
-            L7.setText("Salaire :");
-            T7.setToolTipText("Format : 0.00");
-
-            L1.setVisible(true);
-            T1.setVisible(true);
-            L2.setVisible(true);
-            T2.setVisible(true);
-            L3.setVisible(true);
-            T3.setVisible(true);
-            L4.setVisible(true);
-            T4.setVisible(true);
-            L5.setVisible(true);
-            T5.setVisible(true);
-            L6.setVisible(true);
-            ComboB.setVisible(true);
-            L9.setVisible(true);
-            Combo1.setVisible(true);
-            L7.setVisible(true);
-            T7.setVisible(true);
-
-        } else if (jComboBox2.getSelectedItem().toString() == "Malade") {
-            setVisibleAjout(false);
-            setNullText();
-
-            L1.setText("No :");
-            L2.setText("Nom :");
-            T2.setToolTipText("12 caractères maximum");
-            L3.setText("Prenom :");
-            T3.setToolTipText("12 caractères maximum");
-            L4.setText("Adresse :");
-            T4.setToolTipText("40 caractères maximum");
-            T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
-            L5.setText("Tel :");
-            T5.setToolTipText("Format : 00 00 00 00 00");
-            L7.setText("Mutuelle :");
-            T7.setToolTipText("6 caractères maximum");
-
-            L1.setVisible(true);
-            T1.setVisible(true);
-            L2.setVisible(true);
-            T2.setVisible(true);
-            L3.setVisible(true);
-            T3.setVisible(true);
-            L4.setVisible(true);
-            T4.setVisible(true);
-            L5.setVisible(true);
-            T5.setVisible(true);
-            L7.setVisible(true);
-            T7.setVisible(true);
-
-        } else if (jComboBox2.getSelectedItem().toString() == "Service") {
-            setVisibleAjout(false);
-            setNullText();
-
-            L1.setText("Code :");
-            T1.setToolTipText("3 caractères maximum");
-            L2.setText("Nom :");
-            T2.setToolTipText("30 caractères maximum");
-            L3.setText("Batiment :");
-            T3.setToolTipText("1 caractère maximum");
-            L11.setText("Directeur :");
-
-            L1.setVisible(true);
-            T1.setVisible(true);
-            L2.setVisible(true);
-            T2.setVisible(true);
-            L3.setVisible(true);
-            T3.setVisible(true);
-            L11.setVisible(true);
-            Combo3.setVisible(true);
+        switch (jComboBox2.getSelectedItem().toString()) {
+            case "Chambre":
+                //On affiche rien pour l'instant
+                setVisibleAjout(false);
+                setNullText();
+                //Label des champs nécessaire
+                L1.setText("Numero chambre :");
+                T1.setToolTipText("Le numero chambre doit etre comprise entre comprise entre 0 et 999");
+                L9.setText("Code Service :");
+                L10.setText("Surveillant :");
+                L2.setText("Nombre de lits :");
+                L2.setToolTipText("Le nombre de lits doit etre comprise entre comprise entre 0 et 99");
+                //On affiche nos champs
+                L1.setVisible(true);
+                T1.setVisible(true);
+                L9.setVisible(true);
+                Combo1.setVisible(true);
+                L10.setVisible(true);
+                Combo2.setVisible(true);
+                L2.setVisible(true);
+                T2.setVisible(true);
+                break;
+            case "Docteur":
+                setVisibleAjout(false);
+                setNullText();
+                L1.setText("No :");
+                L2.setText("Nom :");
+                T2.setToolTipText("12 caractères maximum");
+                L3.setText("Prenom :");
+                T3.setToolTipText("12 caractères maximum");
+                L4.setText("Adresse :");
+                T4.setToolTipText("40 caractères maximum");
+                T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
+                L5.setText("Tel :");
+                T5.setToolTipText("Format : 00 00 00 00 00");
+                L6.setText("Specialite :");
+                ComboB.removeAllItems();
+                ComboB.addItem("Anesthesiste");
+                ComboB.addItem("Cardiologue");
+                ComboB.addItem("Generaliste");
+                ComboB.addItem("Orthopediste");
+                ComboB.addItem("Pneumologue");
+                ComboB.addItem("Radiologue");
+                ComboB.addItem("Traumatologue");
+                L12.setText("Malade soigné :");
+                L1.setVisible(true);
+                T1.setVisible(true);
+                L2.setVisible(true);
+                T2.setVisible(true);
+                L3.setVisible(true);
+                T3.setVisible(true);
+                L4.setVisible(true);
+                T4.setVisible(true);
+                L5.setVisible(true);
+                T5.setVisible(true);
+                L6.setVisible(true);
+                L12.setVisible(true);
+                ComboB.setVisible(true);
+                ComboM.setVisible(true);
+                break;
+            case "Infirmier":
+                setVisibleAjout(false);
+                setNullText();
+                L1.setText("No :");
+                L2.setText("Nom :");
+                T2.setToolTipText("12 caractères maximum");
+                L3.setText("Prenom :");
+                T3.setToolTipText("12 caractères maximum");
+                L4.setText("Adresse :");
+                T4.setToolTipText("40 caractères maximum");
+                T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
+                L5.setText("Tel :");
+                T5.setToolTipText("Format : 00 00 00 00 00");
+                L6.setText("Rotation :");
+                ComboB.removeAllItems();
+                ComboB.addItem("JOUR");
+                ComboB.addItem("NUIT");
+                L9.setText("Code Service :");
+                L7.setText("Salaire :");
+                T7.setToolTipText("Format : 0.00");
+                L1.setVisible(true);
+                T1.setVisible(true);
+                L2.setVisible(true);
+                T2.setVisible(true);
+                L3.setVisible(true);
+                T3.setVisible(true);
+                L4.setVisible(true);
+                T4.setVisible(true);
+                L5.setVisible(true);
+                T5.setVisible(true);
+                L6.setVisible(true);
+                ComboB.setVisible(true);
+                L9.setVisible(true);
+                Combo1.setVisible(true);
+                L7.setVisible(true);
+                T7.setVisible(true);
+                break;
+            case "Malade":
+                setVisibleAjout(false);
+                setNullText();
+                L1.setText("No :");
+                L2.setText("Nom :");
+                T2.setToolTipText("12 caractères maximum");
+                L3.setText("Prenom :");
+                T3.setToolTipText("12 caractères maximum");
+                L4.setText("Adresse :");
+                T4.setToolTipText("40 caractères maximum");
+                T4.setToolTipText("Format : Numero Rue, Codepostal Ville");
+                L5.setText("Tel :");
+                T5.setToolTipText("Format : 00 00 00 00 00");
+                L7.setText("Mutuelle :");
+                T7.setToolTipText("6 caractères maximum");
+                L11.setText("soigné par :");
+                L1.setVisible(true);
+                T1.setVisible(true);
+                L2.setVisible(true);
+                T2.setVisible(true);
+                L3.setVisible(true);
+                T3.setVisible(true);
+                L4.setVisible(true);
+                T4.setVisible(true);
+                L5.setVisible(true);
+                T5.setVisible(true);
+                L7.setVisible(true);
+                T7.setVisible(true);
+                L11.setVisible(true);
+                Combo3.setVisible(true);
+                break;
+            case "Service":
+                setVisibleAjout(false);
+                setNullText();
+                L1.setText("Code :");
+                T1.setToolTipText("3 caractères maximum");
+                L2.setText("Nom :");
+                T2.setToolTipText("30 caractères maximum");
+                L3.setText("Batiment :");
+                T3.setToolTipText("1 caractère maximum");
+                L11.setText("Directeur :");
+                L1.setVisible(true);
+                T1.setVisible(true);
+                L2.setVisible(true);
+                T2.setVisible(true);
+                L3.setVisible(true);
+                T3.setVisible(true);
+                L11.setVisible(true);
+                Combo3.setVisible(true);
+                break;
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
@@ -1618,10 +1646,12 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JComboBox Combo2;
     private javax.swing.JComboBox Combo3;
     private javax.swing.JComboBox ComboB;
+    private javax.swing.JComboBox ComboM;
     private javax.swing.JComboBox ComboRequete;
     private javax.swing.JLabel L1;
     private javax.swing.JLabel L10;
     private javax.swing.JLabel L11;
+    private javax.swing.JLabel L12;
     private javax.swing.JLabel L2;
     private javax.swing.JLabel L3;
     private javax.swing.JLabel L4;
