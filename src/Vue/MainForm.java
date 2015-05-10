@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 import modele.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -148,11 +149,21 @@ public class MainForm extends javax.swing.JPanel {
         T1.setVisible(false);
         T1.setToolTipText("");
         T1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        T1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T1ActionPerformed(evt);
+            }
+        });
 
         T2.setVisible(false);
         T2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         T3.setVisible(false);
+        T3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T3ActionPerformed(evt);
+            }
+        });
 
         T4.setVisible(false);
 
@@ -160,17 +171,47 @@ public class MainForm extends javax.swing.JPanel {
 
         T7.setVisible(false);
         T7.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        T7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T7ActionPerformed(evt);
+            }
+        });
 
         T8.setVisible(false);
         T8.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        T8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                T8ActionPerformed(evt);
+            }
+        });
 
         ComboB.setVisible(false);
+        ComboB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBActionPerformed(evt);
+            }
+        });
 
         Combo1.setVisible(false);
+        Combo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combo1ActionPerformed(evt);
+            }
+        });
 
         Combo2.setVisible(false);
+        Combo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combo2ActionPerformed(evt);
+            }
+        });
 
         Combo3.setVisible(false);
+        Combo3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Combo3ActionPerformed(evt);
+            }
+        });
 
         L11.setVisible(false);
         L11.setText("L11");
@@ -666,9 +707,6 @@ public class MainForm extends javax.swing.JPanel {
         }
     }
 
-    /**
-     *
-     */
     public void afficher_table() {
         //declaration des variables communes aux cases
         //DefaultTableModel tableModel = new DefaultTableModel(0, 0);
@@ -1214,21 +1252,25 @@ public class MainForm extends javax.swing.JPanel {
         afficher_table();
     }//GEN-LAST:event_BoutonAffActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        DefaultPieDataset pieDataset = new DefaultPieDataset();
-        pieDataset.setValue("One", new Integer(10));
-        pieDataset.setValue("Two", new Integer(20));
-        pieDataset.setValue("Three", new Integer(30));
-        pieDataset.setValue("Four", new Integer(40));
-        JFreeChart chart = ChartFactory.createPieChart("Pie Chart", pieDataset, true, true, true);
-        PiePlot p = (PiePlot) chart.getPlot();
-        ChartPanel panel = new ChartPanel(chart);
-        panel.setSize(450, 500);
-        jPanel4.add(panel);
-        jPanel4.repaint();
-        jPanel4.revalidate();
+    private void T1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T1ActionPerformed
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T3ActionPerformed
+
+    private void T7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T7ActionPerformed
+
+    private void T8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_T8ActionPerformed
+
+    private void ComboBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBActionPerformed
 
     private void BoutonAjoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAjoActionPerformed
         // TODO add your handling code here:
@@ -1656,6 +1698,18 @@ public class MainForm extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_BoutonAjoActionPerformed
+
+    private void Combo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Combo1ActionPerformed
+
+    private void Combo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Combo2ActionPerformed
+
+    private void Combo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Combo3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Combo3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
