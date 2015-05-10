@@ -172,12 +172,6 @@ public class Requete extends javax.swing.JFrame {
 
         LabelChoix4.setText("Numero :");
 
-        T1_M.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T1_MActionPerformed(evt);
-            }
-        });
-
         LabelChoix5.setText("Nom :");
 
         T2_M.addActionListener(new java.awt.event.ActionListener() {
@@ -1245,10 +1239,6 @@ public class Requete extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_T2_MActionPerformed
 
-    private void T1_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T1_MActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_T1_MActionPerformed
-
     private void BoutonRecherMaladeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonRecherMaladeActionPerformed
         // TODO add your handling code here:
         MaladeDAO maladeDAO = new MaladeDAO();
@@ -1314,7 +1304,7 @@ public class Requete extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BoutonAff;
+    public javax.swing.JButton BoutonAff;
     private javax.swing.JToggleButton BoutonRecherChambre;
     private javax.swing.JToggleButton BoutonRecherDocteur;
     private javax.swing.JToggleButton BoutonRecherInfirmier;
@@ -1403,10 +1393,10 @@ public class Requete extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable table_aff;
-    private javax.swing.JTable table_aff1;
-    private javax.swing.JTable table_aff2;
-    private javax.swing.JTable table_aff3;
-    private javax.swing.JTable table_aff4;
+    public javax.swing.JTable table_aff;
+    public javax.swing.JTable table_aff1;
+    public javax.swing.JTable table_aff2;
+    public javax.swing.JTable table_aff3;
+    public javax.swing.JTable table_aff4;
     // End of variables declaration//GEN-END:variables
 }

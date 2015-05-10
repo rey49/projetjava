@@ -16,34 +16,58 @@ public class CustomModel extends AbstractTableModel {
     private Object[][] data;
     private String[] title;
 
+    /**
+     *
+     */
     public CustomModel() {
         this.data = new Object[][]{};
     }
 
     //Constructeur
+    /**
+     *
+     * @param data
+     * @param title
+     */
     public CustomModel(Object[][] data, String[] title) {
         this.data = data;
         this.title = title;
     }
 
+    /**
+     *
+     * @param title
+     */
     public void setColumnIdentifiers(String[] title) {
         this.title = title;
     }
 
     //Retourne le titre de la colonne à l'indice spécifié
-
+    /**
+     *
+     * @param col
+     * @return String nom de l'entete
+     */
     @Override
     public String getColumnName(int col) {
         return this.title[col];
     }
 
     //Retourne le nombre de colonnes
+    /**
+     *
+     * @return int
+     */
     @Override
     public int getColumnCount() {
         return this.title.length;
     }
 
     //Retourne le nombre de lignes
+    /**
+     *
+     * @return int
+     */
     @Override
     public int getRowCount() {
         return this.data.length;
@@ -54,7 +78,7 @@ public class CustomModel extends AbstractTableModel {
      *
      * @param row
      * @param col
-     * @return
+     * @return Object à la case row, col
      */
     @Override
     public Object getValueAt(int row, int col) {
@@ -79,7 +103,7 @@ public class CustomModel extends AbstractTableModel {
      * Retourne la classe de la donnée de la colonne
      *
      * @param col
-     * @return
+     * @return Class
      */
     @Override
     public Class getColumnClass(int col) {
@@ -136,6 +160,12 @@ public class CustomModel extends AbstractTableModel {
         //this.fireTableDataChanged();
     }
 
+    /**
+     *
+     * @param row
+     * @param col
+     * @return boolean
+     */
     @Override
     public boolean isCellEditable(int row, int col) {
         return col != 0;

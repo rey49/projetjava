@@ -15,6 +15,9 @@ public class Personne
     private String prenom;
     private String tel;
 
+    /**
+     *
+     */
     public Personne() {
     }
     
@@ -32,27 +35,53 @@ public class Personne
     }
     
     //Getter
-    public String getNom() {
+
+    /**
+     *
+     * @return
+     */
+        public String getNom() {
         return nom;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPrenom() {
         return prenom;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTel() {
         return tel;
     }
     
     //Setter
-    public void setNom(String nom) {
+
+    /**
+     *
+     * @param nom
+     */
+        public void setNom(String nom) {
         this.nom = nom;
     }
 
+    /**
+     *
+     * @param prenom
+     */
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
 
+    /**
+     *
+     * @param tel
+     */
     public void setTel(String tel) {
         this.tel = tel;
     }

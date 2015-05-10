@@ -16,11 +16,6 @@ import modele.Chambre;
  */
 public class ChambreDAO extends DAO<Chambre> {
 
-    /**
-     * Permet de retourner la liste de toutes les chambres
-     *
-     * @return
-     */
     @Override
     public ArrayList<Chambre> all() {
         ArrayList tab_chambre = new ArrayList();
@@ -35,10 +30,10 @@ public class ChambreDAO extends DAO<Chambre> {
                     );
 
             if (result.first()) {
-                do{
+                do {
                     Chambre cham = new Chambre(result.getString("code_service"), result.getInt("no_chambre"), result.getInt(3), result.getInt(4));
                     tab_chambre.add(cham);
-                }while (result.next());
+                } while (result.next());
 
             }
         } catch (SQLException e) {
@@ -48,11 +43,7 @@ public class ChambreDAO extends DAO<Chambre> {
         return tab_chambre;
     }
 
-    /**
-     * Permet de récupérer une chambre via son numéro
-     *
-     * @return
-     */
+    @Override
     public Chambre find(int id) {
         Chambre cham = new Chambre();
 
@@ -75,11 +66,6 @@ public class ChambreDAO extends DAO<Chambre> {
         return cham;
     }
 
-    /**
-     * Permet de créer une chambre dans la base de données
-     *
-     * @return
-     */
     @Override
     public Chambre create(Chambre cham) {
         try {
@@ -95,11 +81,6 @@ public class ChambreDAO extends DAO<Chambre> {
         return cham;
     }
 
-    /**
-     * Permet de mettre à jour les données d'une chambre dans la base de données
-     *
-     * @return
-     */
     @Override
     public Chambre update(Chambre cham) {
         try {
@@ -119,10 +100,6 @@ public class ChambreDAO extends DAO<Chambre> {
         return cham;
     }
 
-    /**
-     * Permet de supprimer une chambre de la base de données
-     *
-     */
     @Override
     public void delete(Chambre cham) {
         try {
@@ -138,9 +115,9 @@ public class ChambreDAO extends DAO<Chambre> {
             e.printStackTrace();
         }
     }
-    
+
     @Override
-   public ArrayList<Chambre> requete(String req) {
+    public ArrayList<Chambre> requete(String req) {
         ArrayList tab_chambre = new ArrayList();
 
         try {
@@ -153,10 +130,10 @@ public class ChambreDAO extends DAO<Chambre> {
                     );
 
             if (result.first()) {
-                do{
+                do {
                     Chambre cham = new Chambre(result.getString("code_service"), result.getInt("no_chambre"), result.getInt(3), result.getInt(4));
                     tab_chambre.add(cham);
-                }while (result.next());
+                } while (result.next());
 
             }
         } catch (SQLException e) {

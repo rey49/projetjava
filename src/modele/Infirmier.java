@@ -15,6 +15,9 @@ public class Infirmier extends Employe
     private double salaire;
     private String code_service;
 
+    /**
+     *
+     */
     public Infirmier() {
     }
     
@@ -38,27 +41,53 @@ public class Infirmier extends Employe
     }
     
     //Getter
-    public String getRotation() {
+
+    /**
+     *
+     * @return
+     */
+        public String getRotation() {
         return rotation;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getSalaire() {
         return this.salaire;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCode_service() {
         return code_service;
     }
     
     //Setter
-    public void setRotation(String rotation) {
+
+    /**
+     *
+     * @param rotation
+     */
+        public void setRotation(String rotation) {
         this.rotation = rotation;
     }
 
+    /**
+     *
+     * @param salaire
+     */
     public void setSalaire(double salaire) {
         this.salaire = salaire;
     }
 
+    /**
+     *
+     * @param code_service
+     */
     public void setCode_service(String code_service) {
         this.code_service = code_service;
     }

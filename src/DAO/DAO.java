@@ -12,6 +12,7 @@ import java.util.ArrayList;
 /**
  *
  * @author thomas
+ * @param <T>
  */
 public abstract class DAO<T> {
 
@@ -20,7 +21,7 @@ public abstract class DAO<T> {
     /**
      * Permet de récupérer tous les objets d'une table
      *
-     * @return
+     * @return Arraylist d'objet
      */
     public abstract ArrayList<T> all();
 
@@ -28,7 +29,7 @@ public abstract class DAO<T> {
      * Permet de récupérer un objet via son ID
      *
      * @param id
-     * @return
+     * @return Objet T
      */
     public abstract T find(int id);
 
@@ -36,6 +37,7 @@ public abstract class DAO<T> {
      * Permet de créer une entrée dans la base de données par rapport à un objet
      *
      * @param obj
+     * @return Objet T
      */
     public abstract T create(T obj);
 
@@ -43,6 +45,7 @@ public abstract class DAO<T> {
      * Permet de mettre à jour les données d'une entrée dans la base
      *
      * @param obj
+     * @return Objet T
      */
     public abstract T update(T obj);
 
@@ -56,7 +59,8 @@ public abstract class DAO<T> {
     /**
      * Permet l'execution d'une requete de la base
      *
-     * @param obj
+     * @param s
+     * @return ArrayList D'objet T
      */
     public abstract ArrayList<T> requete(String s);
 }

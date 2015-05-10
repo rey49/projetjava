@@ -14,6 +14,9 @@ public class Employe extends Personne
     private int numero;
     private String adresse;
     
+    /**
+     *
+     */
     public Employe(){
     }
     
@@ -34,19 +37,37 @@ public class Employe extends Personne
     }
     
     //Getter
-    public int getNumero() {
+
+    /**
+     *
+     * @return
+     */
+        public int getNumero() {
         return numero;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAdresse() {
         return adresse;
     }
     
     //Setter
-    public void setNumero(int numero) {
+
+    /**
+     *
+     * @param numero
+     */
+        public void setNumero(int numero) {
         this.numero = numero;
     }
 
+    /**
+     *
+     * @param adresse
+     */
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }

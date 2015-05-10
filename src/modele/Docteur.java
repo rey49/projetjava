@@ -16,6 +16,9 @@ public class Docteur extends Employe
     private String specialite;
     private ArrayList<Integer> tab_ma = new ArrayList<Integer>();
     
+    /**
+     *
+     */
     public Docteur() {
     }
     
@@ -36,19 +39,37 @@ public class Docteur extends Employe
 
     
     //Getter
-    public String getSpecialite() {
+
+    /**
+     *
+     * @return
+     */
+        public String getSpecialite() {
         return specialite;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Integer> getTab_ma() {
         return tab_ma;
     }
     
     //Setter
-    public void setSpecialite(String specialite) {
+
+    /**
+     *
+     * @param specialite
+     */
+        public void setSpecialite(String specialite) {
         this.specialite = specialite;
     }
 
+    /**
+     *
+     * @param tab_ma
+     */
     public void setTab_ma(ArrayList<Integer> tab_ma) {
         this.tab_ma = tab_ma;
     }

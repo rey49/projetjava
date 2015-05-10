@@ -18,6 +18,9 @@ public class Malade extends Personne {
     private String mutuelle;
     private ArrayList<Integer> tab_docteur = new ArrayList<>();
 
+    /**
+     *
+     */
     public Malade() {
     }
 
@@ -40,35 +43,67 @@ public class Malade extends Personne {
     }
 
     //Getter
+    /**
+     *
+     * @return
+     */
     public ArrayList<Integer> getTab_docteur() {
         return tab_docteur;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNumero() {
         return numero;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAdresse() {
         return adresse;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMutuelle() {
         return mutuelle;
     }
 
     //Setter
+    /**
+     *
+     * @param tab_docteur
+     */
     public void setTab_docteur(ArrayList<Integer> tab_docteur) {
         this.tab_docteur = tab_docteur;
     }
 
+    /**
+     *
+     * @param numero
+     */
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
+    /**
+     *
+     * @param adresse
+     */
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
 
+    /**
+     *
+     * @param mutuelle
+     */
     public void setMutuelle(String mutuelle) {
         this.mutuelle = mutuelle;
     }

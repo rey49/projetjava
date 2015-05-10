@@ -203,9 +203,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="T1_M">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T1_MActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="LabelChoix5">
                       <Properties>

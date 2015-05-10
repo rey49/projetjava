@@ -28,6 +28,9 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
     private Fconnexion connexionPanel;
     private MainForm form;
 
+    /**
+     *
+     */
     public MainFen() {
         super("Base de Donnée");
 
@@ -62,6 +65,10 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
         setVisible(true);
     }
 
+    /**
+     *
+     * @param panel
+     */
     public void changer(JPanel panel) {
         //retire tous les panels
         p0.removeAll();

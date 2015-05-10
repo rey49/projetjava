@@ -52,11 +52,6 @@ public class Fconnexion extends javax.swing.JPanel {
         LabelPassSQL.setText("Password MYSQL :");
 
         BoutonCo.setText("Connexion");
-        BoutonCo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoutonCoActionPerformed(evt);
-            }
-        });
 
         TextUserEce.setName("TextBoxUserECE"); // NOI18N
 
@@ -145,12 +140,6 @@ public class Fconnexion extends javax.swing.JPanel {
 
         LabelPassLocal.setText("Password MYSQL :");
 
-        TextUserLocal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextUserLocalActionPerformed(evt);
-            }
-        });
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/base-de-donnees-fichier.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -207,14 +196,6 @@ public class Fconnexion extends javax.swing.JPanel {
             .addComponent(conOnglet, javax.swing.GroupLayout.PREFERRED_SIZE, 974, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BoutonCoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonCoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BoutonCoActionPerformed
-
-    private void TextUserLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUserLocalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextUserLocalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
