@@ -944,38 +944,39 @@ public class Requete extends javax.swing.JFrame {
         String adresse = T5_D.getText();
         String specialite = T6_D.getText();
         String req = "SELECT * FROM employe e,docteur d WHERE e.numero = d.numero "
-                + "AND e.nom LIKE '" + nom + "%' "
-                + "AND e.prenom LIKE '" + prenom + "%' "
-                + "AND e.adresse LIKE '" + adresse + "%' "
-                + "AND e.tel LIKE '" + tel + "%' "
-                + "AND d.specialite LIKE '" + specialite + "%' ";
+        + "AND e.nom LIKE '" + nom + "%' "
+        + "AND e.prenom LIKE '" + prenom + "%' "
+        + "AND e.adresse LIKE '" + adresse + "%' "
+        + "AND e.tel LIKE '" + tel + "%' "
+        + "AND d.specialite LIKE '" + specialite +"%' ";
 
-        if (!numero.equals("")) {
+        if(!numero.equals(""))
+        {
             req = req + "AND numero = " + numero;
         }
         //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
         tab = docteurDAO.requete(req);
         //création des titres des colonnes
-        title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Specialite"};
+         title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Specialite", "Supprimer"};
         tableModel.setColumnIdentifiers(title);
 
         //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
-        for (int i = 0; i < tab.size(); i++) {
-            Docteur elem = (Docteur) tab.get(i);
-            Object obj[] = {
-                elem.getNumero(),
-                elem.getNom(),
-                elem.getPrenom(),
-                elem.getTel(),
-                elem.getAdresse(),
-                elem.getSpecialite()
-            };
-            tableModel.addRow(obj);
+            for (int i = 0; i < tab.size(); i++) {
+                Docteur elem = (Docteur) tab.get(i);
+                Object obj[] = {
+                        elem.getNumero(),
+                        elem.getNom(),
+                        elem.getPrenom(),
+                        elem.getTel(),
+                        elem.getAdresse(),
+                        elem.getSpecialite()
+                    };
+                tableModel.addRow(obj);
         }
 
         table_aff4.setModel(tableModel);
         PanelLecture4.setViewportView(table_aff4);
-
+        
     }//GEN-LAST:event_BoutonRecherDocteurActionPerformed
 
     private void T4_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_T4_CActionPerformed
@@ -1006,13 +1007,18 @@ public class Requete extends javax.swing.JFrame {
         String surveillant = T3_C.getText();
         String lits = T4_C.getText();
         String req = "SELECT * FROM chambre "
-                + "WHERE code_service LIKE '" + code + "%' ";
+        + "WHERE code_service LIKE '" + code + "%' ";
 
-        if (!no.equals("")) {
+        if(!no.equals(""))
+        {
             req = req + "AND no_chambre = " + no + " ";
-        } else if (!surveillant.equals("")) {
+        }
+        else if(!surveillant.equals(""))
+        {
             req = req + "AND surveillant = " + surveillant + " ";
-        } else if (!lits.equals("")) {
+        }
+        else if(!lits.equals(""))
+        {
             req = req + "AND nb_lits = " + lits + " ";
         }
         //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
@@ -1021,7 +1027,8 @@ public class Requete extends javax.swing.JFrame {
         title = new String[]{"Code service", "No Chambre", "Surveillant", "Nb de lits"};
         tableModel.setColumnIdentifiers(title);
         //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
-        for (int i = 0; i < tab.size(); i++) {
+        for (int i = 0; i < tab.size(); i++)
+        {
             Chambre elem = (Chambre) tab.get(i);
             Object obj[] = {
                 elem.getCode_service(),
@@ -1099,20 +1106,27 @@ public class Requete extends javax.swing.JFrame {
         String code = T6_M.getText();
         String rotation = T7_I.getText();
         String req = "SELECT * FROM employe e,infirmier i WHERE e.numero = i.numero "
-                + "AND e.nom LIKE '" + nom + "%' "
-                + "AND e.prenom LIKE '" + prenom + "%' "
-                + "AND e.adresse LIKE '" + adresse + "%' "
-                + "AND e.tel LIKE '" + tel + "%' "
-                + "AND i.code_service LIKE '" + code + "%' "
-                + "AND i.rotation LIKE '" + rotation + "%' ";
+        + "AND e.nom LIKE '" + nom + "%' "
+        + "AND e.prenom LIKE '" + prenom + "%' "
+        + "AND e.adresse LIKE '" + adresse + "%' "
+        + "AND e.tel LIKE '" + tel + "%' "
+        + "AND i.code_service LIKE '" + code +"%' "
+        + "AND i.rotation LIKE '" + rotation + "%' ";
 
-        if (!numero.equals("")) {
+        if(!numero.equals(""))
+        {
             req = req + "AND numero = " + numero;
-        } else if (Button1.isSelected()) {
+        }
+        else if(Button1.isSelected())
+        {
             req = req + "AND i.salaire < 1000 ";
-        } else if (Button2.isSelected()) {
+        }
+        else if(Button2.isSelected())
+        {
             req = req + "AND i.salaire BETWEEN 1000 AND 1500";
-        } else if (Button3.isSelected()) {
+        }
+        else if(Button3.isSelected())
+        {
             req = req + "AND i.salaire > 1500";
         }
         //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
@@ -1121,7 +1135,8 @@ public class Requete extends javax.swing.JFrame {
         title = new String[]{"Numero", "Nom", "Prenom", "Telephone", "Adresse", "Code Service", "Rotation", "Salaire"};
         tableModel.setColumnIdentifiers(title);
         //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
-        for (int i = 0; i < tab.size(); i++) {
+        for (int i = 0; i < tab.size(); i++)
+        {
             Infirmier elem = (Infirmier) tab.get(i);
             Object obj[] = {
                 elem.getNumero(),
@@ -1131,7 +1146,8 @@ public class Requete extends javax.swing.JFrame {
                 elem.getAdresse(),
                 elem.getCode_service(),
                 elem.getRotation(),
-                elem.getSalaire(),};
+                elem.getSalaire(),
+            };
             tableModel.addRow(obj);
         }
 
@@ -1171,15 +1187,20 @@ public class Requete extends javax.swing.JFrame {
         String batiment = T3.getText();
         String directeur = T4.getText();
         String req = "SELECT * FROM service "
-                + "WHERE code LIKE '" + code + "%' "
-                + "AND nom LIKE '" + nom + "%' "
-                + "AND batiment LIKE '" + batiment + "%' ";
+        + "WHERE code LIKE '" + code + "%' "
+        + "AND nom LIKE '" + nom + "%' "
+        + "AND batiment LIKE '" + batiment +"%' ";
 
-        if (!directeur.equals("")) {
+        if(!directeur.equals(""))
+        {
             req = req + "AND directeur = " + directeur;
-        } else if (ButtonCroissantNom.isSelected()) {
+        }
+        else if(ButtonCroissantNom.isSelected())
+        {
             req = req + "ORDER BY nom ";
-        } else if (ButtonDecroissantNom.isSelected()) {
+        }
+        else if(ButtonDecroissantNom.isSelected())
+        {
             req = req + "ORDER BY nom DESC";
         }
         //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
@@ -1188,13 +1209,15 @@ public class Requete extends javax.swing.JFrame {
         title = new String[]{"Code", "Nom", "Batiment", "Directeur"};
         tableModel.setColumnIdentifiers(title);
         //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
-        for (int i = 0; i < tab.size(); i++) {
+        for (int i = 0; i < tab.size(); i++)
+        {
             Service elem = (Service) tab.get(i);
             Object obj[] = {
                 elem.getCode(),
                 elem.getNom(),
                 elem.getBatiment(),
-                elem.getDirecteur(),};
+                elem.getDirecteur(),
+            };
             tableModel.addRow(obj);
         }
 
@@ -1240,13 +1263,14 @@ public class Requete extends javax.swing.JFrame {
         String adresse = T5_M.getText();
         String mutuelle = T6_M.getText();
         String req = "SELECT * FROM malade "
-                + "WHERE nom LIKE '" + nom + "%' "
-                + "AND prenom LIKE '" + prenom + "%' "
-                + "AND adresse LIKE '" + adresse + "%' "
-                + "AND tel LIKE '" + tel + "%' "
-                + "AND mutuelle LIKE '" + mutuelle + "%' ";
+        + "WHERE nom LIKE '" + nom + "%' "
+        + "AND prenom LIKE '" + prenom + "%' "
+        + "AND adresse LIKE '" + adresse + "%' "
+        + "AND tel LIKE '" + tel + "%' "
+        + "AND mutuelle LIKE '" + mutuelle +"%' ";
 
-        if (!numero.equals("")) {
+        if(!numero.equals(""))
+        {
             req = req + "AND numero = " + numero;
         }
         //récupération de toutes lignes d'une table, chacune stockée dans un objet, et stockage dans un tableau
@@ -1255,7 +1279,8 @@ public class Requete extends javax.swing.JFrame {
         title = new String[]{"Numero", "Nom", "Prenom", "Adresse", "Tel", "Mutuelle"};
         tableModel.setColumnIdentifiers(title);
         //pour chaque objet dans le tableau, on récupère les informations et on les ajoutes sur une nouvelle ligne du JTable
-        for (int i = 0; i < tab.size(); i++) {
+        for (int i = 0; i < tab.size(); i++)
+        {
             Malade elem = (Malade) tab.get(i);
             Object obj[] = {
                 elem.getNumero(),
@@ -1264,7 +1289,8 @@ public class Requete extends javax.swing.JFrame {
                 elem.getAdresse(),
                 elem.getTel(),
                 elem.getMutuelle(),
-                elem.getTab_docteur(),};
+                elem.getTab_docteur(),
+            };
             tableModel.addRow(obj);
         }
 
@@ -1278,7 +1304,7 @@ public class Requete extends javax.swing.JFrame {
 
     private void ButtonCroissantNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCroissantNomActionPerformed
         // TODO add your handling code here:
-        ButtonDecroissantNom.setSelected(false);
+         ButtonDecroissantNom.setSelected(false);
     }//GEN-LAST:event_ButtonCroissantNomActionPerformed
 
     private void ButtonDecroissantNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDecroissantNomActionPerformed
