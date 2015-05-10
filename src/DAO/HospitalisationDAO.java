@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import modele.Hospitalisation;
 
 /**
- *
+ * Classe pour gerer la table Hospitalisation
  * @author thomas
  */
 public class HospitalisationDAO extends DAO<Hospitalisation> {
@@ -68,6 +68,11 @@ public class HospitalisationDAO extends DAO<Hospitalisation> {
         return hop;
     }
     
+    /**
+     *
+     * @param code_service recherche dans la table hospitalisation à l'aide du code service
+     * @return retourne un objet hospitalisation
+     */
     public Hospitalisation find(String code_service) {
         Hospitalisation hop = new Hospitalisation();
 

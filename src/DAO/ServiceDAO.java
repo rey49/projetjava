@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import modele.Service;
 
 /**
- *
+ * Classe pour gerer la table Service
  * @author thomas
  */
 public class ServiceDAO extends DAO<Service> {
@@ -42,6 +42,11 @@ public class ServiceDAO extends DAO<Service> {
         return tab_serv;
     }
 
+    /**
+     *
+     * @param id recherche un service à l'aide de son id
+     * @return retourne une objet Service
+     */
     public Service find(String id) {
 
         Service serv = new Service();

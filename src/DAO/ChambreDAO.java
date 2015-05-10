@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import modele.Chambre;
 
 /**
- *
+ * Classe pour gerer la table Chambre
  * @author thomas
  */
 public class ChambreDAO extends DAO<Chambre> {

@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import modele.*;
 
 /**
- *
+ * Fenetre pour les requetes dynamiques
  * @author Daniel
  */
 public class Requete extends javax.swing.JFrame {

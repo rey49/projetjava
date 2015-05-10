@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ *  Permet de gérer une connexion soit en ligne soit à une base en local 
  * @author thomas
  * 
  */
@@ -77,51 +77,101 @@ public class Connexion {
     }
 
     //getter
-    public static Boolean getType() {
+
+    /**
+     *
+     * @return booleen type de connexion (en ligne ou local)
+     */
+        public static Boolean getType() {
         return type;
     }
 
+    /**
+     *
+     * @return objet connexion
+     */
     public static Connection getConn() {
         return conn;
     }
 
+    /**
+     *
+     * @return nom d'utilisateur ECE
+     */
     public static String getUsernameECE() {
         return usernameECE;
     }
 
+    /**
+     *
+     * @return mot de passe ECE
+     */
     public static String getPasswordECE() {
         return passwordECE;
     }
 
+    /**
+     *
+     * @return nom d'utilisateur BDD
+     */
     public static String getLoginBDD() {
         return loginBDD;
     }
 
+    /**
+     *
+     * @return mot de passe BDD
+     */
     public static String getPassBDD() {
         return passBDD;
     }
     
     //setter
-    public static void setType(Boolean type) {
+
+    /**
+     *
+     * @param type type
+     */
+        public static void setType(Boolean type) {
         Connexion.type = type;
     }
 
+    /**
+     *
+     * @param conn objet connexion
+     */
     public static void setConn(Connection conn) {
         Connexion.conn = conn;
     }
 
+    /**
+     *
+     * @param usernameECE nom d'utilisateur ECE
+     */
     public static void setUsernameECE(String usernameECE) {
         Connexion.usernameECE = usernameECE;
     }
 
+    /**
+     *
+     * @param passwordECE mot de passe ECE
+     */
     public static void setPasswordECE(String passwordECE) {
         Connexion.passwordECE = passwordECE;
     }
 
+    /**
+     *
+     * @param loginBDD nom d'utilisateur BDD
+     */
     public static void setLoginBDD(String loginBDD) {
         Connexion.loginBDD = loginBDD;
     }
 
+    /**
+     *
+     * @param passBDD mot de passe BDD
+     */
     public static void setPassBDD(String passBDD) {
         Connexion.passBDD = passBDD;
     }

@@ -20,12 +20,17 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
- *
+ * Classe contenant toutes les fonctions pour gerer JFreeChart pour l'affichage des diagrammes
  * @author Gib
  */
 public class Reporting {
     public Reporting(){};
     
+    /**
+     * Fonction permettant de générer un diagramme circulaire à partir des informations de la base de donnees
+     * @param choix le choix de l'information à transformer en diagramme
+     * @return (chart) l'objet diagramme que la vue se chargera d'afficher
+     */
     public JFreeChart circulaire(int choix)
     {
         ArrayList tab;
@@ -35,7 +40,7 @@ public class Reporting {
         int temp;
         int stockint;
         String stockchaine;
-        Map<Integer , String> options = new HashMap<Integer, String>();
+        Map<Integer , String> options = new HashMap<>();
         Map<String, Integer> compteurs = new HashMap<>();
         Iterator<Integer> it;
         
@@ -117,6 +122,12 @@ public class Reporting {
         return chart;
     }
     
+    
+    /**
+     * Fonction permettant de générer un diagramme en barres à partir des informations de la base de donnees
+     * @param choix le choix de l'information à transformer en diagramme
+     * @return (chart) l'objet diagramme que la vue se chargera d'afficher
+     */
     public JFreeChart barres(int choix)
     {
         ArrayList tab;
@@ -126,7 +137,7 @@ public class Reporting {
         int temp;
         int stockint;
         String stockchaine;
-        Map<Integer , String> options = new HashMap<Integer, String>();
+        Map<Integer , String> options = new HashMap<>();
         Map<String, Integer> compteurs = new HashMap<>();
         Iterator<Integer> it;
         

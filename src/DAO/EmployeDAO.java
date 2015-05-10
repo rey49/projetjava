@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import modele.Employe;
 
 /**
- *
+ * Classe pour gerer la table Employe
  * @author thomas
  */
 public class EmployeDAO extends DAO<Employe> {

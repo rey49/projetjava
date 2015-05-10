@@ -19,7 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- *
+ * classe Jframe pour afficher la fenetre
  * @author thomas
  */
 public class MainFen extends JFrame implements ActionListener, ItemListener {
@@ -67,7 +67,7 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
 
     /**
      *
-     * @param panel
+     * @param panel Jpanel a afficher à la place de l'ancien
      */
     public void changer(JPanel panel) {
         //retire tous les panels
@@ -83,7 +83,7 @@ public class MainFen extends JFrame implements ActionListener, ItemListener {
 
     /**
      *
-     * @param evt
+     * @param evt evenement ayant déclenché l'actionlistener
      */
     @Override
     public void actionPerformed(ActionEvent evt) {

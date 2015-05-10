@@ -8,7 +8,7 @@ package Vue;
 import javax.swing.table.AbstractTableModel;
 
 /**
- *
+ * TableModel customisé pour gerer l'affichage des données dans un JTable
  * @author thomas
  */
 public class CustomModel extends AbstractTableModel {
@@ -26,8 +26,8 @@ public class CustomModel extends AbstractTableModel {
     //Constructeur
     /**
      *
-     * @param data
-     * @param title
+     * @param data tableau d'objet, contient les données à afficher
+     * @param title tableau de string, contient les entetes
      */
     public CustomModel(Object[][] data, String[] title) {
         this.data = data;
@@ -36,7 +36,7 @@ public class CustomModel extends AbstractTableModel {
 
     /**
      *
-     * @param title
+     * @param title tableau de string, contient les entetes 
      */
     public void setColumnIdentifiers(String[] title) {
         this.title = title;
@@ -45,8 +45,8 @@ public class CustomModel extends AbstractTableModel {
     //Retourne le titre de la colonne à l'indice spécifié
     /**
      *
-     * @param col
-     * @return String nom de l'entete
+     * @param col colonne du tableau
+     * @return String nom de l'entete à la colonne col
      */
     @Override
     public String getColumnName(int col) {
@@ -56,7 +56,7 @@ public class CustomModel extends AbstractTableModel {
     //Retourne le nombre de colonnes
     /**
      *
-     * @return int
+     * @return int le nombre de colonnes
      */
     @Override
     public int getColumnCount() {
@@ -66,7 +66,7 @@ public class CustomModel extends AbstractTableModel {
     //Retourne le nombre de lignes
     /**
      *
-     * @return int
+     * @return int le nombre de lignes
      */
     @Override
     public int getRowCount() {
@@ -76,9 +76,9 @@ public class CustomModel extends AbstractTableModel {
     /**
      * Retourne la valeur à l'emplacement spécifié
      *
-     * @param row
-     * @param col
-     * @return Object à la case row, col
+     * @param row ligne
+     * @param col colonnes
+     * @return recupere l'Object à la case row, col
      */
     @Override
     public Object getValueAt(int row, int col) {
@@ -88,9 +88,9 @@ public class CustomModel extends AbstractTableModel {
     /**
      * définit la valeur à l'emplacement spécifié
      *
-     * @param value
-     * @param row
-     * @param col
+     * @param value valeur à assigner
+     * @param row ligne 
+     * @param col colonne
      */
     @Override
     public void setValueAt(Object value, int row, int col) {
@@ -102,8 +102,8 @@ public class CustomModel extends AbstractTableModel {
     /**
      * Retourne la classe de la donnée de la colonne
      *
-     * @param col
-     * @return Class
+     * @param col colonne
+     * @return Class type de la cellule à la colonne demandée
      */
     @Override
     public Class getColumnClass(int col) {
@@ -116,7 +116,7 @@ public class CustomModel extends AbstractTableModel {
     /**
      * Méthode permettant de retirer une ligne du tableau
      *
-     * @param position
+     * @param position position de la ligne a retirer
      */
     public void removeRow(int position) {
 
@@ -133,15 +133,12 @@ public class CustomModel extends AbstractTableModel {
         }
         this.data = temp;
         temp = null;
-        //Cette méthode permet d'avertir le tableau que les données
-        //ont été modifiées, ce qui permet une mise à jour complète du tableau
-        //this.fireTableDataChanged();
     }
 
     /**
      * Permet d'ajouter une ligne dans le tableau
      *
-     * @param data
+     * @param data tableau d'objet à ajouter au JTable
      */
     public void addRow(Object[] data) {
         int indice = 0, nbRow = this.getRowCount(), nbCol = this.getColumnCount();
@@ -155,16 +152,13 @@ public class CustomModel extends AbstractTableModel {
 
         this.data[indice] = data;
         temp = null;
-        //Cette méthode permet d'avertir le tableau que les données
-        //ont été modifiées, ce qui permet une mise à jour complète du tableau
-        //this.fireTableDataChanged();
     }
 
     /**
      *
-     * @param row
-     * @param col
-     * @return boolean
+     * @param row ligne
+     * @param col colonne
+     * @return boolean indique si la cellule [row][col] est modifiable ou non
      */
     @Override
     public boolean isCellEditable(int row, int col) {
