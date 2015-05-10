@@ -111,4 +111,32 @@ public class EmployeDAO extends DAO<Employe> {
             e.printStackTrace();
         }
     }
+    
+    @Override
+    public ArrayList<Employe> requete(String req){
+        ArrayList tab_emp = new ArrayList();
+        
+         try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            req
+                    );
+
+            if (result.first()) {
+                do
+                {
+                    Employe emp = new Employe(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("tel"), result.getString("adresse"));
+                    tab_emp.add(emp);
+                }while(result.next());
+                
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return tab_emp;
+    }
 }

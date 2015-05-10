@@ -52,4 +52,11 @@ public abstract class DAO<T> {
      * @param obj
      */
     public abstract void delete(T obj);
+    
+    /**
+     * Permet l'execution d'une requete de la base
+     *
+     * @param obj
+     */
+    public abstract ArrayList<T> requete(String s);
 }

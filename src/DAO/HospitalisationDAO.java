@@ -135,4 +135,32 @@ public class HospitalisationDAO extends DAO<Hospitalisation> {
         }
     }
     
+    @Override
+    public ArrayList<Hospitalisation> requete(String req) {
+        ArrayList tab_hop = new ArrayList();
+        
+         try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            req
+                    );
+
+            if (result.first()) {
+                do
+                {
+                    Hospitalisation hop = new Hospitalisation(result.getInt("no_malade"), result.getString("code_service"), result.getInt("no_chambre"), result.getInt("lit"));
+                    tab_hop.add(hop);
+                }while(result.next());
+                
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return tab_hop;
+    }
+    
 }

@@ -116,4 +116,29 @@ public class ServiceDAO extends DAO<Service> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+     public ArrayList<Service> requete(String req) 
+    {
+        ArrayList tab_serv = new ArrayList();
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            req
+                    );
+
+            if (result.first()) {
+                do
+                {
+                    Service serv = new Service(result.getString("code"), result.getString("nom"), result.getString("batiment"), result.getInt("directeur"));
+                    tab_serv.add(serv);
+                }while(result.next());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tab_serv;
+    }
 }

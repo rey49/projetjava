@@ -179,4 +179,31 @@ public class DocteurDAO extends DAO<Docteur> {
         }
     }
     
+    @Override
+    public ArrayList<Docteur> requete(String req){
+        ArrayList tab_docteur = new ArrayList();
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            req
+                    );
+
+            if (result.first()) {
+                do 
+                {   
+                    Docteur doct = find(result.getInt("numero"));
+                    tab_docteur.add(doct);
+                }while(result.next());
+                
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return tab_docteur;
+    
+    }
 }

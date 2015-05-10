@@ -193,5 +193,32 @@ public class MaladeDAO extends DAO<Malade> {
 
         }
     }
+    
+    @Override
+    public ArrayList<Malade> requete(String req) {
+        ArrayList tab_mal = new ArrayList();
+
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            req
+                    );
+
+            if (result.first()) {
+                do {
+                    Malade mal = find(result.getInt("numero"));
+                    tab_mal.add(mal);
+                } while (result.next());
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tab_mal;
+    }
 
 }

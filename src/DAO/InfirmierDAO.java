@@ -122,5 +122,32 @@ public class InfirmierDAO extends DAO<Infirmier> {
             e.printStackTrace();
         }
     }
+    
+    @Override
+    public ArrayList<Infirmier> requete(String req){
+        ArrayList tab_inf = new ArrayList();
+        
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                           req
+                    );
 
+            if (result.first()) {
+                do
+                {
+                    Infirmier inf = new Infirmier(result.getInt("numero"), result.getString("nom"), result.getString("prenom"), result.getString("tel"), result.getString("adresse"),result.getString("code_service"),result.getString("rotation"),result.getInt("salaire"));
+                    tab_inf.add(inf);
+                }while(result.next());
+                
+            }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        
+        return tab_inf;
+    }
 }

@@ -138,5 +138,31 @@ public class ChambreDAO extends DAO<Chambre> {
             e.printStackTrace();
         }
     }
+    
+    @Override
+   public ArrayList<Chambre> requete(String req) {
+        ArrayList tab_chambre = new ArrayList();
 
+        try {
+            ResultSet result = this.connect
+                    .createStatement(
+                            ResultSet.TYPE_SCROLL_INSENSITIVE,
+                            ResultSet.CONCUR_UPDATABLE
+                    ).executeQuery(
+                            req
+                    );
+
+            if (result.first()) {
+                do{
+                    Chambre cham = new Chambre(result.getString("code_service"), result.getInt("no_chambre"), result.getInt(3), result.getInt(4));
+                    tab_chambre.add(cham);
+                }while (result.next());
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tab_chambre;
+    }
 }
