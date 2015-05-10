@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import modele.Service;
 
 /**
- *
+ * Classe pour gerer la table Service
  * @author thomas
  */
 public class ServiceDAO extends DAO<Service> {

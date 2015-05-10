@@ -8,14 +8,11 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
-import javax.swing.table.DefaultTableModel;
 import modele.*;
-import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
-import org.jfree.data.general.DefaultPieDataset;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,7 +20,7 @@ import org.jfree.data.general.DefaultPieDataset;
  * and open the template in the editor.
  */
 /**
- *
+ * Jpanel principal
  * @author Panda
  */
 public class MainForm extends javax.swing.JPanel {
@@ -149,21 +146,11 @@ public class MainForm extends javax.swing.JPanel {
         T1.setVisible(false);
         T1.setToolTipText("");
         T1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        T1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T1ActionPerformed(evt);
-            }
-        });
 
         T2.setVisible(false);
         T2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         T3.setVisible(false);
-        T3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T3ActionPerformed(evt);
-            }
-        });
 
         T4.setVisible(false);
 
@@ -171,47 +158,17 @@ public class MainForm extends javax.swing.JPanel {
 
         T7.setVisible(false);
         T7.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        T7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T7ActionPerformed(evt);
-            }
-        });
 
         T8.setVisible(false);
         T8.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        T8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                T8ActionPerformed(evt);
-            }
-        });
 
         ComboB.setVisible(false);
-        ComboB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBActionPerformed(evt);
-            }
-        });
 
         Combo1.setVisible(false);
-        Combo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Combo1ActionPerformed(evt);
-            }
-        });
 
         Combo2.setVisible(false);
-        Combo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Combo2ActionPerformed(evt);
-            }
-        });
 
         Combo3.setVisible(false);
-        Combo3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Combo3ActionPerformed(evt);
-            }
-        });
 
         L11.setVisible(false);
         L11.setText("L11");
@@ -444,7 +401,7 @@ public class MainForm extends javax.swing.JPanel {
 
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.PAGE_AXIS));
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Ouvrir la fenetre des requetes");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -463,16 +420,16 @@ public class MainForm extends javax.swing.JPanel {
                         .addGap(379, 379, 379)
                         .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(274, 274, 274)
-                        .addComponent(jButton2)))
+                        .addContainerGap()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(386, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jButton2)
-                .addGap(272, 272, 272)
+                .addContainerGap()
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(187, 187, 187)
                 .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(480, Short.MAX_VALUE))
         );
@@ -491,7 +448,7 @@ public class MainForm extends javax.swing.JPanel {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         Diag1.setText("Circulaire");
@@ -530,20 +487,18 @@ public class MainForm extends javax.swing.JPanel {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Diag1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Diag2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(188, 188, 188)
-                        .addComponent(choix_requete, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Diag1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Diag2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(188, 188, 188)
+                .addComponent(choix_requete, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(347, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Reporting", jPanel4);
@@ -1729,7 +1684,7 @@ public class MainForm extends javax.swing.JPanel {
         //affichage du diagramme
         PiePlot p = (PiePlot) chart.getPlot();
         ChartPanel panel = new ChartPanel(chart);
-        panel.setSize(dim, dim);
+        panel.setSize(dim, jPanel4.getHeight());
         jPanel8.removeAll();
         jPanel8.add(panel);
         jPanel8.repaint();
@@ -1748,7 +1703,7 @@ public class MainForm extends javax.swing.JPanel {
         CategoryPlot p = chart.getCategoryPlot();
         p.setRangeGridlinePaint(Color.blue);
         ChartPanel panel = new ChartPanel(chart);
-        panel.setSize(dim, dim);
+        panel.setSize(dim, jPanel4.getHeight());
         jPanel8.removeAll();
         jPanel8.add(panel);
         jPanel8.repaint();

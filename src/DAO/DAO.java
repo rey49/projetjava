@@ -10,9 +10,9 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 /**
- *
+ *  classe abstraite DAO
  * @author thomas
- * @param <T>
+ * @param <T> objet
  */
 public abstract class DAO<T> {
 
@@ -28,7 +28,7 @@ public abstract class DAO<T> {
     /**
      * Permet de récupérer un objet via son ID
      *
-     * @param id
+     * @param id identifiant de l'objet à chercher dans la BDD
      * @return Objet T
      */
     public abstract T find(int id);
@@ -36,7 +36,7 @@ public abstract class DAO<T> {
     /**
      * Permet de créer une entrée dans la base de données par rapport à un objet
      *
-     * @param obj
+     * @param obj Objet de type T à créer dans BDD
      * @return Objet T
      */
     public abstract T create(T obj);
@@ -44,7 +44,7 @@ public abstract class DAO<T> {
     /**
      * Permet de mettre à jour les données d'une entrée dans la base
      *
-     * @param obj
+     * @param obj Objet de type T à mettre a jour
      * @return Objet T
      */
     public abstract T update(T obj);
@@ -52,14 +52,14 @@ public abstract class DAO<T> {
     /**
      * Permet la suppression d'une entrée de la base
      *
-     * @param obj
+     * @param obj Objet de type T à detruire
      */
     public abstract void delete(T obj);
     
     /**
      * Permet l'execution d'une requete de la base
      *
-     * @param s
+     * @param s requete SQL sous forme de String
      * @return ArrayList D'objet T
      */
     public abstract ArrayList<T> requete(String s);

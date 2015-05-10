@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ *  Permet de gérer une connexion soit en ligne soit à une base en local 
  * @author thomas
  * 
  */

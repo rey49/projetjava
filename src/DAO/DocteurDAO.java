@@ -12,7 +12,7 @@ import modele.Docteur;
 import modele.Employe;
 
 /**
- *
+ * Classe pour gerer la table Docteur
  * @author thomas
  */
 public class DocteurDAO extends DAO<Docteur> {

@@ -6,7 +6,7 @@ package Vue;
  * and open the template in the editor.
  */
 /**
- *
+ * JPanel de connexion
  * @author Panda
  */
 public class Fconnexion extends javax.swing.JPanel {

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import modele.Hospitalisation;
 
 /**
- *
+ * Classe pour gerer la table Hospitalisation
  * @author thomas
  */
 public class HospitalisationDAO extends DAO<Hospitalisation> {

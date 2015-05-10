@@ -20,7 +20,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
- *
+ * Classe contenant toutes les fonctions pour gerer JFreeChart pour l'affichage des diagrammes
  * @author Gib
  */
 public class Reporting {

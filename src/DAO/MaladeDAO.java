@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import modele.Malade;
 
 /**
- *
+ * Classe pour gerer la table Malade
  * @author thomas
  */
 public class MaladeDAO extends DAO<Malade> {
