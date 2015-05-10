@@ -16,6 +16,9 @@ import java.util.ArrayList;
  */
 public abstract class DAO<T> {
 
+    /**
+     *  Objet contenant les informations de connexion a la BDD
+     */
     public Connection connect = Connexion.getInstance();
 
     /**
