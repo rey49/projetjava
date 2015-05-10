@@ -1596,7 +1596,7 @@ public class MainForm extends javax.swing.JPanel {
                                 numero = Integer.parseInt("a");
                             }
                         }
-                        Malade malade = new Malade(numero, nom, prenom, tel, adresse, mutuelle);
+                        Malade malade = new Malade(numero, nom, prenom, adresse, tel, mutuelle);
                         malade.setTab_docteur(tab_doc);
                         maladeDAO.create(malade);
                         jOptionPane1.showMessageDialog(null, "Le malade a bien été enregistré.", "VALIDATION", JOptionPane.PLAIN_MESSAGE);
