@@ -59,7 +59,6 @@ public class Requete extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         BoutonRecherService = new javax.swing.JToggleButton();
         LabelChoix = new javax.swing.JLabel();
-        BoutonAff = new javax.swing.JButton();
         T1 = new javax.swing.JTextField();
         LabelChoix2 = new javax.swing.JLabel();
         T2 = new javax.swing.JTextField();
@@ -307,13 +306,6 @@ public class Requete extends javax.swing.JFrame {
 
         LabelChoix.setText("Code :");
 
-        BoutonAff.setText("Afficher");
-        BoutonAff.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoutonAffActionPerformed(evt);
-            }
-        });
-
         T1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 T1ActionPerformed(evt);
@@ -369,7 +361,6 @@ public class Requete extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BoutonRecherService, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                     .addComponent(LabelChoix, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BoutonAff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(T1)
                     .addComponent(LabelChoix2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(T2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -412,9 +403,7 @@ public class Requete extends javax.swing.JFrame {
                 .addComponent(ButtonDecroissantNom)
                 .addGap(134, 134, 134)
                 .addComponent(BoutonRecherService)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
-                .addComponent(BoutonAff)
-                .addContainerGap())
+                .addContainerGap(287, Short.MAX_VALUE))
         );
 
         jPanel4.add(jPanel6);
@@ -1165,10 +1154,6 @@ public class Requete extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_T1ActionPerformed
 
-    private void BoutonAffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonAffActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BoutonAffActionPerformed
-
     private void BoutonRecherServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoutonRecherServiceActionPerformed
         // TODO add your handling code here:
         ServiceDAO servDAO = new ServiceDAO();
@@ -1304,7 +1289,6 @@ public class Requete extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton BoutonAff;
     private javax.swing.JToggleButton BoutonRecherChambre;
     private javax.swing.JToggleButton BoutonRecherDocteur;
     private javax.swing.JToggleButton BoutonRecherInfirmier;

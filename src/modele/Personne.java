@@ -16,7 +16,7 @@ public class Personne
     private String tel;
 
     /**
-     *
+     * constructeur vide
      */
     public Personne() {
     }
