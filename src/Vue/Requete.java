@@ -364,7 +364,7 @@ public class Requete extends javax.swing.JFrame {
             }
         });
 
-        LabelChoix28.setText("Trier :");
+        LabelChoix28.setText("Directeur :");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);

@@ -457,7 +457,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="LabelChoix28">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Trier :"/>
+                        <Property name="text" type="java.lang.String" value="Directeur :"/>
                       </Properties>
                     </Component>
                   </SubComponents>
