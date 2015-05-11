@@ -4,13 +4,17 @@ import DAO.ChambreDAO;
 import DAO.*;
 import controleur.Reporting;
 import java.awt.Color;
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import modele.*;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartRenderingInfo;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.entity.StandardEntityCollection;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot;
 
@@ -103,6 +107,7 @@ public class MainForm extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         choix_requete = new javax.swing.JComboBox();
         Diag2 = new javax.swing.JButton();
+        SaveButton = new javax.swing.JButton();
 
         LabelTable.setText("Table :");
 
@@ -472,6 +477,13 @@ public class MainForm extends javax.swing.JPanel {
             }
         });
 
+        SaveButton.setText("Enregistrer");
+        SaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -484,7 +496,8 @@ public class MainForm extends javax.swing.JPanel {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Diag1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(choix_requete, 0, 189, Short.MAX_VALUE)
-                    .addComponent(Diag2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Diag2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SaveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -498,6 +511,8 @@ public class MainForm extends javax.swing.JPanel {
                 .addComponent(Diag2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100)
                 .addComponent(choix_requete, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
@@ -1677,9 +1692,10 @@ public class MainForm extends javax.swing.JPanel {
         req.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    public static JFreeChart chart;
+    
     private void Diag1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Diag1ActionPerformed
         int dim = 800;
-        JFreeChart chart;
         Reporting monR = new Reporting();
         
         //génération du diagramme
@@ -1697,7 +1713,6 @@ public class MainForm extends javax.swing.JPanel {
 
     private void Diag2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Diag2ActionPerformed
         int dim = 800;
-        JFreeChart chart;
         Reporting monR = new Reporting();
         
         //génération du diagramme
@@ -1713,6 +1728,19 @@ public class MainForm extends javax.swing.JPanel {
         jPanel8.repaint();
         jPanel8.revalidate();
     }//GEN-LAST:event_Diag2ActionPerformed
+
+    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
+        try
+        {
+            final ChartRenderingInfo info = new ChartRenderingInfo(new StandardEntityCollection());
+            final File file1 = new File("Diagramme.png");
+            ChartUtilities.saveChartAsPNG(file1, chart, 800, 600);
+        }
+        catch(Exception e)
+        {
+            
+        }
+    }//GEN-LAST:event_SaveButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton BoutonAff;
@@ -1740,6 +1768,7 @@ public class MainForm extends javax.swing.JPanel {
     private javax.swing.JLabel LabelTable;
     private javax.swing.JScrollPane PanelChoix;
     private javax.swing.JScrollPane PanelLecture;
+    private javax.swing.JButton SaveButton;
     private javax.swing.JTextField T1;
     private javax.swing.JTextField T2;
     private javax.swing.JTextField T3;
