@@ -82,7 +82,7 @@ public class Service
 
     /**
      * Setter : setNom
-     * @param nom
+     * @param nom code service
      */
     public void setNom(String nom) {
         this.nom = nom;
@@ -90,7 +90,7 @@ public class Service
 
     /**
      * Setter : setBatiment
-     * @param batiment
+     * @param batiment identifiant batiment
      */
     public void setBatiment(String batiment) {
         this.batiment = batiment;
@@ -98,7 +98,7 @@ public class Service
     
     /**
      * Setter : setDirecteur
-     * @param directeur
+     * @param directeur numero du directeur
      */
     public void setDirecteur(int directeur) {
         this.directeur = directeur;

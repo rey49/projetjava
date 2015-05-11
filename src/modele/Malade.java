@@ -78,7 +78,7 @@ public class Malade extends Personne {
     //Setter
     /**
      * Setter : setTab_docteur
-     * @param tab_docteur
+     * @param tab_docteur tableau contenant les id des docteurs
      */
     public void setTab_docteur(ArrayList<Integer> tab_docteur) {
         this.tab_docteur = tab_docteur;
@@ -86,7 +86,7 @@ public class Malade extends Personne {
 
     /**
      * Setter : setNumero
-     * @param numero
+     * @param numero numero d'identifiant
      */
     public void setNumero(int numero) {
         this.numero = numero;
@@ -94,7 +94,7 @@ public class Malade extends Personne {
 
     /**
      * Setter : setAdresse
-     * @param adresse
+     * @param adresse adresse
      */
     public void setAdresse(String adresse) {
         this.adresse = adresse;
@@ -102,7 +102,7 @@ public class Malade extends Personne {
 
     /**
      * Setter : setMutuelle
-     * @param mutuelle
+     * @param mutuelle nom de la mutuelle
      */
     public void setMutuelle(String mutuelle) {
         this.mutuelle = mutuelle;
